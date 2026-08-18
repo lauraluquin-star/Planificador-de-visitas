@@ -102,7 +102,10 @@ with st.sidebar:
     if labels:
         row=opts.iloc[labels.index(sel)]
     st.header('2 · Documentos')
-    ficha=st.file_uploader('Ficha cliente 2026 (PDF)',type=['pdf'])
+  ficha_2026 = st.file_uploader(
+    "Ficha cliente 2026",
+    type=["pdf","png","jpg","jpeg"]
+)
     veeva_imgs=st.file_uploader('Capturas Veeva (varias)',type=['png','jpg','jpeg'],accept_multiple_files=True)
     veeva_file=st.file_uploader('Veeva estructurado (opcional CSV/XLSX)',type=['csv','xlsx'])
     st.info('Las capturas quedan asociadas a la visita. En V1.0, para evitar errores de OCR, las unidades se confirman en la tabla Veeva editable.')
