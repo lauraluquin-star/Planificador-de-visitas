@@ -1,0 +1,20 @@
+{
+  "version": "2.0",
+  "cycle_name": "Ciclo actual",
+  "identity_rule": "PDV fisico = direccion + codigo postal + poblacion",
+  "agreement_target_source": "Ficha cliente 2026 / Evolucion Pacto",
+  "economic_sources": [
+    "LOB",
+    "COMPAR"
+  ],
+  "unit_source": "Veeva",
+  "renewable_every_approx_months": 2.5,
+  "renewable_inputs": [
+    "LOB",
+    "COMPAR",
+    "tarifa_catalogo",
+    "hojas_pedido",
+    "chuleta_condiciones",
+    "campanas_sell_out"
+  ]
+}

@@ -1,6 +1,10 @@
-streamlit>=1.36
+streamlit>=1.39
 pandas>=2.2
+numpy>=1.26
+plotly>=5.24
+pypdf>=5.0
+Pillow>=10.4
+pytesseract>=0.3.13
+rapidfuzz>=3.9
 openpyxl>=3.1
-plotly>=5.22
-pypdf>=4.2
-Pillow>=10.3
+xlrd>=2.0
