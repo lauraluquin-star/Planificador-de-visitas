@@ -102,7 +102,7 @@ with st.sidebar:
     if labels:
         row=opts.iloc[labels.index(sel)]
     st.header('2 · Documentos')
-  ficha_2026 = st.file_uploader(
+    ficha_2026 = st.file_uploader(
     "Ficha cliente 2026",
     type=["pdf","png","jpg","jpeg"]
 )
