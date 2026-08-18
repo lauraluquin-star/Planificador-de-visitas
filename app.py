@@ -7,7 +7,7 @@ from pypdf import PdfReader
 
 st.set_page_config(page_title="Smart Visit Planner NEW", layout="wide")
 BASE=Path(__file__).parent
-DATA=BASE/'data'; REF=BASE/'reference'
+DATA=BASE; REF=BASE
 
 def norm(x):
     s='' if pd.isna(x) else str(x)
