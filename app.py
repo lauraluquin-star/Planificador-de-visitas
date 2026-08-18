@@ -19,8 +19,29 @@ def money(v):
     except:return '—'
 
 def nnum(v):
-    try:return float(v)
-    except:return 0.0
+    if pd.isna(v):
+        return 0.0
+
+    s = str(v).strip().replace('€', '').replace(' ', '')
+
+    # Formato europeo: 21.025,50 -> 21025.50
+    if ',' in s and '.' in s:
+        s = s.replace('.', '').replace(',', '.')
+
+    # 21.025 -> 21025
+    elif '.' in s:
+        partes = s.split('.')
+        if len(partes[-1]) == 3:
+            s = s.replace('.', '')
+
+    # 21025,50 -> 21025.50
+    elif ',' in s:
+        s = s.replace(',', '.')
+
+    try:
+        return float(s)
+    except:
+        return 0.0
 
 @st.cache_data
 def load_lob():
