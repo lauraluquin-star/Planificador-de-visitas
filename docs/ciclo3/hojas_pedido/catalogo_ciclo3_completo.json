@@ -1,0 +1,101 @@
+{
+  "_nota": "Transcripción manual de TODAS las hojas de pedido del ciclo 3 recibidas hasta ahora. Documentos muy visuales (fotos + CN sueltos, no tablas), transcritos leyendo el PDF. PVL solo cuando aparece explícito en la propia hoja (precio especial de campaña) o cruzado con product_catalog.csv -- el resto queda 'pvl: null' a la espera de la tarifa/catálogo completa del ciclo 3 (docs/catalogo/, aún no recibida). NUNCA se inventa un PVL.",
+  "_aviso_cn": "Algunos CN aparecen con un sufijo decimal en el propio documento (ej. 356675.9, 179682.P, 159078.P). No sabemos si ese sufijo es parte real del código (variante de envase/promo) o un artefacto de maquetación del PDF. Se transcribe tal cual aparece impreso, sin recortarlo, hasta confirmar con el cliente.",
+  "hojas_incluidas": [
+    "Hoja_pedido_Reposicion_Solar_2026.pdf (Avène Solar + Agua Termal)",
+    "Hoja_pedido_Atopia_1105.pdf (A-Derma Exomega + Avène XeraCalm + Ducray Dexyane)",
+    "Hoja_pedido_Dexeryl_AveneEsenciales_1105.pdf (Avène Cuidados Esenciales + Dexeryl)",
+    "Hoja_pedido_Antiedad_1405a.pdf (Avène Hyaluron Activ Procedure/UV/B3, Vitamin Activ Cg, Dermabsolu)",
+    "Hoja_pedido_Acne_1305_grande.pdf y _pequeno.pdf (Avène Cleanance Comedomed + Ducray Keracnyl -- mismo contenido, dos formatos de impresión)"
+  ],
+  "antiedad": {
+    "marca": "Avène",
+    "gama": "Antiedad (varias líneas: Hyaluron Activ Procedure, Hyaluron Activ UV, Hyaluron Activ B3, Vitamin Activ Cg, Dermabsolu)",
+    "productos": [
+      {"cn": 224632, "linea": "Hyaluron Activ Procedure", "descripcion": "Sérum Peeling", "formato": "30 ml", "heroe": true, "novedad": true},
+      {"cn": 224617, "linea": "Hyaluron Activ Procedure", "descripcion": "Sérum Lifting", "formato": "30 ml", "heroe": false, "novedad": true},
+      {"cn": 207532, "linea": "Hyaluron Activ B3", "descripcion": "Aqua-Gel Crema Regeneradora Celular", "formato": "50 ml", "heroe": true, "novedad": false},
+      {"cn": 219947, "linea": "Hyaluron Activ Procedure", "descripcion": "Crema Lifting", "formato": "30 ml", "heroe": false, "novedad": false},
+      {"cn": 187835, "linea": "Dermabsolu", "descripcion": "Crema Redensificante Día", "formato": "50 ml", "heroe": true, "novedad": false},
+      {"cn": 188312, "linea": "Dermabsolu", "descripcion": "Crema Redensificante Ecorrecarga / Contorno rellenador (dos refs. comparten CN en el documento)", "formato": "40-50 ml", "heroe": false, "novedad": false},
+      {"cn": 220536, "linea": "Hyaluron Activ Procedure", "descripcion": "Sérum Tensor", "formato": "20 ml", "heroe": false, "novedad": false},
+      {"cn": 219948, "linea": "Hyaluron Activ Procedure", "descripcion": "Crema Micro-Lift Ojos y Labios", "formato": "15 ml", "heroe": false, "novedad": false},
+      {"cn": 223257, "linea": "Hyaluron Activ UV", "descripcion": "Fluido Triple Eficacia Antiedad SPF50", "formato": "40 ml", "heroe": false, "novedad": false},
+      {"cn": 207535, "linea": "Hyaluron Activ B3", "descripcion": "Ecorrecarga Crema Regeneradora Celular", "formato": "50 ml", "heroe": false, "novedad": true},
+      {"cn": 212030, "linea": "Hyaluron Activ B3", "descripcion": "Sérum Concentrado Voluminizador", "formato": "30 ml", "heroe": false, "novedad": false},
+      {"cn": 153506, "linea": "Hyaluron Activ B3", "descripcion": "Cuidado de Ojos Triple Acción", "formato": "15 ml", "heroe": false, "novedad": false},
+      {"cn": 207534, "linea": "Hyaluron Activ B3", "descripcion": "Crema Multi-Intensiva Noche", "formato": "40 ml", "heroe": false, "novedad": false},
+      {"cn": 207533, "linea": "Hyaluron Activ B3", "descripcion": "Sérum Concentrado Volumizador (ecorrecarga)", "formato": "30 ml", "heroe": false, "novedad": true},
+      {"cn": 212088, "linea": "Vitamin Activ Cg", "descripcion": "Sérum Luminosidad Corrector", "formato": "30 ml", "heroe": true, "novedad": false},
+      {"cn": 212089, "linea": "Vitamin Activ Cg", "descripcion": "Crema Luminosidad Intensiva", "formato": "50 ml", "heroe": false, "novedad": false},
+      {"cn": 212090, "linea": "Vitamin Activ Cg", "descripcion": "Crema Remodeladora Intensiva Noche", "formato": "50 ml", "heroe": false, "novedad": false},
+      {"cn": 188131, "linea": "Dermabsolu", "descripcion": "Sérum Concentrado Remodelador", "formato": "30 ml", "heroe": true, "novedad": false},
+      {"cn": 215052, "linea": "Dermabsolu", "descripcion": "Crema Redensificante Ecorrecarga", "formato": "50 ml", "heroe": false, "novedad": false},
+      {"cn": 188130, "linea": "Dermabsolu", "descripcion": "Contorno de Ojos Rellenador", "formato": "15 ml", "heroe": false, "novedad": false}
+    ],
+    "packs_cofres": [
+      {"cn": 207532, "descripcion": "Pack Hyaluron Aqua-Gel", "condicion": "Campaña agosto"},
+      {"cn": 219947, "descripcion": "Pack Hyaluron Procedure Crema Lifting 30ml", "condicion": "Campaña agosto"},
+      {"cn": 207531, "descripcion": "Pack Hyaluron Crema", "condicion": "Campaña agosto"},
+      {"cn": 187835, "descripcion": "Pack Dermabsolu Día", "condicion": "Campaña agosto, cofres mínimo 15 uds"},
+      {"cn": 188312, "descripcion": "Pack Dermabsolu Noche", "condicion": "Campaña agosto, cofres mínimo 15 uds"}
+    ],
+    "condiciones": ["Black Friday: -20% dto 1ª unidad, del 16 al 30 de noviembre"]
+  },
+  "acne_cleanance": {
+    "marca": "Avène",
+    "gama": "Cleanance Comedomed",
+    "productos": [
+      {"cn": "179682.P", "descripcion": "Gel Limpiador Cleanance", "formato": "400 ml", "heroe": false, "novedad": false, "precio_especial": null},
+      {"cn": 192402, "descripcion": "Cleanance Comedomed+ Concentrado Antiimp.", "formato": "30 ml", "heroe": false, "novedad": false},
+      {"cn": 214638, "descripcion": "Comedomed+ Fluido Intensivo Antiimp. SPF30", "formato": "40 ml", "heroe": false, "novedad": true},
+      {"cn": "223748.3", "descripcion": "Comedomed Peeling (Nº1 en ventas, 115.973 ud vs formato 400ml, TAM marzo 2026)", "formato": "30 ml", "heroe": false, "novedad": true}
+    ],
+    "condiciones": ["-15% dto 1ª ud del 1 sept al 30 oct (incluida higiene, no packs ni novedades)", "Incentivo 3€ por producto héroe vendido"]
+  },
+  "acne_keracnyl": {
+    "marca": "Ducray",
+    "gama": "Keracnyl",
+    "productos": [
+      {"cn": 223780, "descripcion": "Spray Corporal Secante Antiacné", "formato": "150 ml", "heroe": false, "novedad": true},
+      {"cn": 171541, "descripcion": "Gel Limpiador Cara y Cuerpo", "formato": "400 ml", "heroe": false, "novedad": false},
+      {"cn": 179108, "descripcion": "Sérum Regulador Antiimperfecciones (-58% de granos)", "formato": "30 ml", "heroe": false, "novedad": true},
+      {"cn": 159416, "descripcion": "PP+ Crema Anti-Imperfecciones", "formato": "30 ml", "heroe": false, "novedad": false}
+    ],
+    "condiciones": []
+  },
+  "dexeryl": {
+    "marca": "Dexeryl",
+    "gama": "Dexeryl (Atopía)",
+    "productos": [
+      {"cn": "353350", "descripcion": "Crema Emoliente", "formato": "50 g", "heroe": false, "novedad": false},
+      {"cn": 159078, "descripcion": "Crema Emoliente", "formato": "500 g", "heroe": true, "novedad": false},
+      {"cn": 215369, "descripcion": "Loción Nutritiva", "formato": "500 g", "heroe": true, "novedad": false},
+      {"cn": 207590, "descripcion": "Aceite Limpiador", "formato": "500 ml", "heroe": false, "novedad": false},
+      {"cn": 207588, "descripcion": "Aceite Limpiador", "formato": "200 ml", "heroe": false, "novedad": false},
+      {"cn": 219068, "descripcion": "Aceite Limpiador", "formato": "1 L", "heroe": false, "novedad": false},
+      {"cn": "159078.P", "descripcion": "Dúo Crema Emoliente (2x500ml, -50%)", "formato": "2x500 ml", "heroe": false, "novedad": false},
+      {"cn": 352829, "descripcion": "Crema (novedad agosto, precio especial 6,99€)", "formato": "250 g", "heroe": false, "novedad": true, "precio_especial": 6.99},
+      {"cn": "223976.0", "descripcion": "Gel Ducha Hidratante (novedad agosto, 500ml de regalo en el 1L)", "formato": "500 ml", "heroe": false, "novedad": true},
+      {"cn": "224518.1", "descripcion": "Gel Ducha Hidratante (novedad agosto)", "formato": "1 L", "heroe": false, "novedad": true}
+    ],
+    "condiciones": []
+  },
+  "avene_esenciales": {
+    "marca": "Avène",
+    "gama": "Cuidados Esenciales",
+    "productos": [
+      {"cn": "161581.7", "descripcion": "Agua Micelar Desmaquillante (precio especial 12ud+6b)", "formato": "400 ml", "heroe": false, "novedad": false, "precio_especial": 10.90},
+      {"cn": "161234.2", "descripcion": "Espuma Limpiadora", "formato": "150 ml", "heroe": false, "novedad": false},
+      {"cn": "356683.4", "descripcion": "Leche Desmaquillante", "formato": "200 ml", "heroe": false, "novedad": false},
+      {"cn": "326660.4", "descripcion": "Loción Tónica Calmante", "formato": "200 ml", "heroe": false, "novedad": false},
+      {"cn": "356675.9", "descripcion": "Crema Nutritiva (Nº1 en ventas facial)", "formato": "50 ml", "heroe": true, "novedad": false},
+      {"cn": "154219.9", "descripcion": "Exfoliante Suavidad", "formato": "75 ml", "heroe": false, "novedad": false},
+      {"cn": "326652.9", "descripcion": "Mascarilla Calmante Hidratante", "formato": "50 ml", "heroe": false, "novedad": false},
+      {"cn": "154250.2", "descripcion": "Desmaquillante Ojos Suave", "formato": "125 ml", "heroe": false, "novedad": false},
+      {"cn": "177471.2", "descripcion": "Desmaquillante Ojos Intenso", "formato": "125 ml", "heroe": false, "novedad": false},
+      {"cn": "167501.9", "descripcion": "Cuidado Calmante Contorno de Ojos", "formato": "10 ml", "heroe": false, "novedad": false}
+    ],
+    "condiciones": []
+  }
+}
