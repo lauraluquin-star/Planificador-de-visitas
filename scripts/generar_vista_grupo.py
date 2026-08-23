@@ -118,6 +118,20 @@ body {{
 .chip-btn.perdidos.activo {{ background: var(--bad); border-color: var(--bad); color: #fff; }}
 input#buscar {{ flex: 1; min-width: 160px; font-family: 'IBM Plex Sans', sans-serif; font-size: 14px; padding: 7px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface-2); color: var(--ink); }}
 input#buscar:focus {{ outline: 2px solid var(--accent); outline-offset: 1px; }}
+.chip-btn.custom {{ border-style: dashed; }}
+.chip-btn .chip-del {{ margin-left: 6px; opacity: 0.55; }}
+.chip-btn .chip-del:hover {{ opacity: 1; }}
+
+.seleccion-bar {{ background: var(--accent-ink); border: 1px solid var(--accent); border-radius: 14px; padding: 12px 16px; box-shadow: var(--shadow); display: none; flex-wrap: wrap; gap: 12px 18px; align-items: center; }}
+.seleccion-bar.visible {{ display: flex; }}
+.seleccion-bar .sel-count {{ font-weight: 600; font-size: 13.5px; white-space: nowrap; }}
+.seleccion-bar .sel-resumen {{ font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); display: flex; gap: 16px; flex-wrap: wrap; }}
+.seleccion-bar .sel-resumen b {{ font-weight: 600; }}
+.seleccion-bar .sel-acciones {{ display: flex; gap: 8px; align-items: center; margin-left: auto; flex-wrap: wrap; }}
+.seleccion-bar input#nombre-grupo {{ font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); width: 160px; }}
+.seleccion-bar button {{ font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; font-weight: 600; }}
+.seleccion-bar button.secundario {{ background: transparent; color: var(--accent); }}
+th.check-th, td.check-cell {{ width: 26px; padding-left: 12px; padding-right: 0; }}
 
 .tabla-panel {{ background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); overflow-x: auto; }}
 table.cartera {{ width: 100%; border-collapse: collapse; min-width: 720px; }}
@@ -173,15 +187,27 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
     <button class="chip-btn activo" data-grupo="todos">Todos ({n_total})</button>
     {grupo_chips}
     <button class="chip-btn" data-grupo="sin">Sin grupo ({n_sin_grupo})</button>
+    <span id="custom-grupo-chips"></span>
     <button class="chip-btn" data-filtro="rojo-ada">🔴 Solo ADA en rojo</button>
     <button class="chip-btn perdidos" data-filtro="perdidos">⚫ Solo ADA perdido</button>
     <input id="buscar" type="text" placeholder="Buscar cliente o población…">
+  </div>
+
+  <div class="seleccion-bar" id="seleccion-bar">
+    <span class="sel-count" id="sel-count">0 seleccionadas</span>
+    <div class="sel-resumen" id="sel-resumen"></div>
+    <div class="sel-acciones">
+      <input id="nombre-grupo" type="text" placeholder="Nombre del grupo…">
+      <button id="btn-guardar-grupo">Guardar como grupo</button>
+      <button class="secundario" id="btn-limpiar-sel">Limpiar selección</button>
+    </div>
   </div>
 
   <div class="tabla-panel">
     <table class="cartera" id="tabla">
       <thead>
         <tr>
+          <th class="check-th"><input type="checkbox" id="check-all" title="Seleccionar todos los visibles"></th>
           <th data-sort="nombre">Cliente</th>
           <th data-sort="grupo">Grupo</th>
           <th class="num" data-sort="ada_evol">Pacto ADA · 2025→2026 <span class="sort-alt" data-sort="ada_ytd" title="Ordenar por importe">[€]</span></th>
@@ -225,15 +251,95 @@ function semaforo(estado) {{
 }}
 
 let grupoActivo = 'todos';
+let grupoCustomActivo = null;
 let soloRojoAda = false;
 let soloPerdidosAda = false;
 let sortKey = 'ada_evol';
 let sortAsc = true;
+let selectedIds = new Set();
+let filasActuales = [];
+
+let customGrupos = {{}};
+try {{
+  customGrupos = JSON.parse(localStorage.getItem('vgCustomGrupos') || '{{}}');
+}} catch (e) {{ customGrupos = {{}}; }}
+
+function guardaCustomGrupos() {{
+  try {{ localStorage.setItem('vgCustomGrupos', JSON.stringify(customGrupos)); }} catch (e) {{}}
+}}
+
+function renderCustomChips() {{
+  const cont = document.getElementById('custom-grupo-chips');
+  cont.innerHTML = Object.keys(customGrupos).map(nombre => {{
+    const n = customGrupos[nombre].length;
+    return `<button class="chip-btn custom ${{grupoCustomActivo === nombre ? 'activo' : ''}}" data-custom="${{nombre}}">${{nombre}} (${{n}})<span class="chip-del" data-del="${{nombre}}" title="Eliminar grupo">✕</span></button>`;
+  }}).join(' ');
+  cont.querySelectorAll('.chip-btn[data-custom]').forEach(btn => {{
+    btn.addEventListener('click', (ev) => {{
+      if (ev.target.dataset.del) return;
+      const nombre = btn.dataset.custom;
+      document.querySelectorAll('.chip-btn[data-grupo]').forEach(b => b.classList.remove('activo'));
+      if (grupoCustomActivo === nombre) {{
+        grupoCustomActivo = null;
+        document.querySelector('.chip-btn[data-grupo="todos"]').classList.add('activo');
+        grupoActivo = 'todos';
+      }} else {{
+        grupoCustomActivo = nombre;
+      }}
+      renderCustomChips();
+      aplicaFiltros();
+    }});
+  }});
+  cont.querySelectorAll('.chip-del[data-del]').forEach(span => {{
+    span.addEventListener('click', (ev) => {{
+      ev.stopPropagation();
+      const nombre = span.dataset.del;
+      delete customGrupos[nombre];
+      guardaCustomGrupos();
+      if (grupoCustomActivo === nombre) {{ grupoCustomActivo = null; }}
+      renderCustomChips();
+      aplicaFiltros();
+    }});
+  }});
+}}
+
+function combinaPacto(rows, prefijo) {{
+  const ytdVals = rows.map(f => f[prefijo + '_ytd']).filter(v => v !== null && v !== undefined);
+  const ytd1Vals = rows.map(f => f[prefijo + '_ytd1']).filter(v => v !== null && v !== undefined);
+  if (ytdVals.length === 0 && ytd1Vals.length === 0) return {{ytd: null, ytd1: null, evol: null, estado: 'SIN_DATOS'}};
+  const ytd = ytdVals.reduce((a, b) => a + b, 0);
+  const ytd1 = ytd1Vals.reduce((a, b) => a + b, 0);
+  let evol = null;
+  if (ytd1 === 0) {{ evol = ytd === 0 ? null : 100.0; }} else {{ evol = (ytd - ytd1) / ytd1 * 100; }}
+  let estado = 'SIN_DATOS';
+  if (evol !== null) {{ estado = evol >= 0 ? 'POSITIVA' : (evol >= -15 ? 'NEGATIVA_CONTROLADA' : 'NEGATIVA'); }}
+  return {{ytd, ytd1, evol, estado}};
+}}
+
+function actualizaSeleccionBar() {{
+  const bar = document.getElementById('seleccion-bar');
+  const seleccionadas = DATA.filter(f => selectedIds.has(f.id));
+  if (seleccionadas.length === 0) {{
+    bar.classList.remove('visible');
+    return;
+  }}
+  bar.classList.add('visible');
+  document.getElementById('sel-count').textContent = seleccionadas.length + ' seleccionadas';
+  const ada = combinaPacto(seleccionadas, 'ada');
+  const dex = combinaPacto(seleccionadas, 'dex');
+  const adaInfo = estadoInfo(ada.estado, ada.evol);
+  const dexInfo = estadoInfo(dex.estado, dex.evol);
+  document.getElementById('sel-resumen').innerHTML =
+    `<span>Pacto ADA: ${{fmtEur(ada.ytd1)}} → ${{fmtEur(ada.ytd)}} <b class="evol ${{adaInfo.cls}}">${{adaInfo.txt}}</b></span>` +
+    `<span>Pacto Dexeryl: ${{fmtEur(dex.ytd1)}} → ${{fmtEur(dex.ytd)}} <b class="evol ${{dexInfo.cls}}">${{dexInfo.txt}}</b></span>`;
+}}
 
 function aplicaFiltros() {{
   const q = document.getElementById('buscar').value.trim().toLowerCase();
   let filas = DATA.filter(f => {{
-    if (grupoActivo !== 'todos') {{
+    if (grupoCustomActivo) {{
+      if (!customGrupos[grupoCustomActivo] || !customGrupos[grupoCustomActivo].includes(f.id)) return false;
+    }} else if (grupoActivo !== 'todos') {{
       if (grupoActivo === 'sin' && f.grupo !== null) return false;
       if (grupoActivo !== 'sin' && f.grupo !== grupoActivo) return false;
     }}
@@ -249,7 +355,9 @@ function aplicaFiltros() {{
     if (typeof va === 'string') return sortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
     return sortAsc ? va - vb : vb - va;
   }});
+  filasActuales = filas;
   render(filas);
+  actualizaSeleccionBar();
 }}
 
 function fmtEur(v) {{
@@ -264,6 +372,7 @@ function render(filas) {{
     const dex = estadoInfo(f.dex_estado, f.dex_evol);
     const badge = f.n_pos > 1 ? `<span class="n-pos-badge">${{f.n_pos}} POS</span>` : '';
     return `<tr class="${{f.perdido_ada ? 'fila-perdida' : ''}}">
+      <td class="check-cell"><input type="checkbox" class="row-check" data-id="${{f.id}}" ${{selectedIds.has(f.id) ? 'checked' : ''}}></td>
       <td><div class="nombre-cell">${{f.nombre}}${{badge}}</div><div class="pobl-cell">${{f.poblacion}} · ${{f.pos_ids.join('+')}}</div></td>
       <td>${{f.grupo ? `<span class="grupo-tag">${{f.grupo}}</span>` : ''}}</td>
       <td class="estado-cell">
@@ -276,6 +385,14 @@ function render(filas) {{
       </td>
     </tr>`;
   }}).join('');
+  const checkAll = document.getElementById('check-all');
+  if (filas.length > 0 && filas.every(f => selectedIds.has(f.id))) {{
+    checkAll.checked = true; checkAll.indeterminate = false;
+  }} else if (filas.some(f => selectedIds.has(f.id))) {{
+    checkAll.checked = false; checkAll.indeterminate = true;
+  }} else {{
+    checkAll.checked = false; checkAll.indeterminate = false;
+  }}
 }}
 
 document.querySelectorAll('.chip-btn[data-grupo]').forEach(btn => {{
@@ -283,8 +400,39 @@ document.querySelectorAll('.chip-btn[data-grupo]').forEach(btn => {{
     document.querySelectorAll('.chip-btn[data-grupo]').forEach(b => b.classList.remove('activo'));
     btn.classList.add('activo');
     grupoActivo = btn.dataset.grupo;
+    grupoCustomActivo = null;
+    renderCustomChips();
     aplicaFiltros();
   }});
+}});
+document.getElementById('tbody').addEventListener('change', (ev) => {{
+  if (ev.target.classList.contains('row-check')) {{
+    const id = Number(ev.target.dataset.id);
+    if (ev.target.checked) selectedIds.add(id); else selectedIds.delete(id);
+    actualizaSeleccionBar();
+  }}
+}});
+document.getElementById('check-all').addEventListener('change', (ev) => {{
+  if (ev.target.checked) {{
+    filasActuales.forEach(f => selectedIds.add(f.id));
+  }} else {{
+    filasActuales.forEach(f => selectedIds.delete(f.id));
+  }}
+  render(filasActuales);
+  actualizaSeleccionBar();
+}});
+document.getElementById('btn-guardar-grupo').addEventListener('click', () => {{
+  const nombre = document.getElementById('nombre-grupo').value.trim();
+  if (!nombre) {{ alert('Ponle un nombre al grupo antes de guardarlo.'); return; }}
+  customGrupos[nombre] = Array.from(selectedIds);
+  guardaCustomGrupos();
+  document.getElementById('nombre-grupo').value = '';
+  renderCustomChips();
+}});
+document.getElementById('btn-limpiar-sel').addEventListener('click', () => {{
+  selectedIds.clear();
+  render(filasActuales);
+  actualizaSeleccionBar();
 }});
 document.querySelector('.chip-btn[data-filtro="rojo-ada"]').addEventListener('click', function() {{
   soloRojoAda = !soloRojoAda;
@@ -313,11 +461,12 @@ document.querySelectorAll('th[data-sort]').forEach(th => {{
   }});
 }});
 
+renderCustomChips();
 aplicaFiltros();
 </script>
 """
 
-with open("/tmp/claude-0/-home-user-Planificador-de-visitas/4a7d4b95-3fbe-5a60-b04b-8c2370db4940/scratchpad/vista_grupo.html", "w", encoding="utf-8") as f:
+with open("/tmp/vista_grupo.html", "w", encoding="utf-8") as f:
     f.write(html)
 
 print("OK, escrito", len(html), "bytes")
