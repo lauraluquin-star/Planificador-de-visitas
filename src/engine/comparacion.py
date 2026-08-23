@@ -145,12 +145,14 @@ def consolida_por_identidad_fisica(clientes: list[ClienteLOB]) -> list[PuntoVent
 
 @dataclass
 class DiagnosticoPerdida:
-    """Para clientes con YTD=0 real (no N/D) pero YTD-1>0: qué facturaba el año pasado y en qué
-    marcas, para dimensionar exactamente lo que se está perdiendo (no solo el semáforo rojo)."""
+    """Un pacto (ADA o Dexeryl) con YTD=0 real (no N/D) pero YTD-1>0: qué facturaba el año pasado
+    y en qué marcas DE ESE PACTO, para dimensionar la pérdida sin mezclar el otro pacto -- CLAUDE.md:
+    Pacto ADA y Pacto Dexeryl son independientes, nunca sumarlos ni mezclarlos, tampoco en este
+    diagnóstico. Un cliente puede tener Dexeryl perdido con el Pacto ADA sano, o al revés."""
 
-    facturacion_perdida_ada: float
-    facturacion_perdida_dexeryl: float
-    por_marca: dict[str, float]  # marca -> importe_neto_ytd1 (lo que compraba)
+    tipo: str  # "ADA" | "DEXERYL"
+    facturacion_perdida: float  # = ytd1 del pacto perdido
+    por_marca: dict[str, float]  # solo las marcas de ESE pacto, marca -> importe_neto_ytd1
 
 
 @dataclass
@@ -158,26 +160,30 @@ class ResumenCliente:
     cliente: ClienteLOB | PuntoVentaConsolidado
     pacto_ada: EstadoPacto
     pacto_dexeryl: EstadoPacto
-    es_cliente_perdido: bool  # YTD=0 real Y YTD-1>0 en ADA o Dexeryl -- no es "sin datos", es 0 real
-    perdida: DiagnosticoPerdida | None = None
+    perdida_ada: DiagnosticoPerdida | None = None
+    perdida_dexeryl: DiagnosticoPerdida | None = None
+
+    @property
+    def tiene_alguna_perdida(self) -> bool:
+        return self.perdida_ada is not None or self.perdida_dexeryl is not None
 
 
-def _es_perdido(pacto_ada: EstadoPacto, pacto_dexeryl: EstadoPacto) -> bool:
-    def cero_real_con_historico(p: EstadoPacto) -> bool:
-        return p.ytd == 0 and p.ytd1 is not None and p.ytd1 > 0
-
-    return cero_real_con_historico(pacto_ada) or cero_real_con_historico(pacto_dexeryl)
+def _cero_real_con_historico(p: EstadoPacto) -> bool:
+    return p.ytd == 0 and p.ytd1 is not None and p.ytd1 > 0
 
 
-def _diagnostico_perdida(cliente: ClienteLOB | PuntoVentaConsolidado, pacto_ada: EstadoPacto, pacto_dexeryl: EstadoPacto) -> DiagnosticoPerdida:
+def _diagnostico_perdida_pacto(cliente: ClienteLOB | PuntoVentaConsolidado, pacto: EstadoPacto, marcas_del_pacto: list[str]) -> DiagnosticoPerdida:
     por_marca = {
-        marca: medida.importe_neto_ytd1
-        for marca, medida in cliente.marcas.items()
-        if medida.estado == "OK" and medida.importe_neto_ytd1 and medida.importe_neto_ytd1 > 0
+        marca: cliente.marcas[marca].importe_neto_ytd1
+        for marca in marcas_del_pacto
+        if marca in cliente.marcas
+        and cliente.marcas[marca].estado == "OK"
+        and cliente.marcas[marca].importe_neto_ytd1
+        and cliente.marcas[marca].importe_neto_ytd1 > 0
     }
     return DiagnosticoPerdida(
-        facturacion_perdida_ada=pacto_ada.ytd1 or 0 if (pacto_ada.ytd == 0) else 0,
-        facturacion_perdida_dexeryl=pacto_dexeryl.ytd1 or 0 if (pacto_dexeryl.ytd == 0) else 0,
+        tipo=pacto.tipo,
+        facturacion_perdida=pacto.ytd1 or 0,
         por_marca=dict(sorted(por_marca.items(), key=lambda kv: -kv[1])),
     )
 
@@ -185,13 +191,12 @@ def _diagnostico_perdida(cliente: ClienteLOB | PuntoVentaConsolidado, pacto_ada:
 def evalua_cliente(cliente: ClienteLOB | PuntoVentaConsolidado) -> ResumenCliente:
     pacto_ada = evalua_pacto(cliente.pacto_ada, "ADA")
     pacto_dexeryl = evalua_pacto(cliente.pacto_dexeryl, "DEXERYL")
-    perdido = _es_perdido(pacto_ada, pacto_dexeryl)
     return ResumenCliente(
         cliente=cliente,
         pacto_ada=pacto_ada,
         pacto_dexeryl=pacto_dexeryl,
-        es_cliente_perdido=perdido,
-        perdida=_diagnostico_perdida(cliente, pacto_ada, pacto_dexeryl) if perdido else None,
+        perdida_ada=_diagnostico_perdida_pacto(cliente, pacto_ada, MARCAS_ADA) if _cero_real_con_historico(pacto_ada) else None,
+        perdida_dexeryl=_diagnostico_perdida_pacto(cliente, pacto_dexeryl, ["dexeryl"]) if _cero_real_con_historico(pacto_dexeryl) else None,
     )
 
 
@@ -223,13 +228,13 @@ if __name__ == "__main__":
     rojos = [r for r in cartera if r.pacto_ada.estado == "NEGATIVA"]
     print(f"Pacto ADA en rojo (evolución < -15%), consolidado: {len(rojos)}")
 
-    perdidos = [r for r in cartera if r.es_cliente_perdido]
-    print(f"\nClientes PERDIDOS reales (YTD=0 con histórico YTD-1>0): {len(perdidos)}")
-    total_perdido_ada = sum(r.perdida.facturacion_perdida_ada for r in perdidos)
-    total_perdido_dex = sum(r.perdida.facturacion_perdida_dexeryl for r in perdidos)
-    print(f"Facturación ADA perdida total: {total_perdido_ada:.0f} € | Dexeryl: {total_perdido_dex:.0f} €")
+    perdidos_ada = [r for r in cartera if r.perdida_ada]
+    perdidos_dex = [r for r in cartera if r.perdida_dexeryl]
+    print(f"\nPacto ADA perdido de verdad (YTD=0, YTD-1>0): {len(perdidos_ada)} clientes")
+    print(f"Pacto DEXERYL perdido de verdad: {len(perdidos_dex)} clientes")
+    print(f"Total ADA perdido: {sum(r.perdida_ada.facturacion_perdida for r in perdidos_ada):.0f} €")
+    print(f"Total DEXERYL perdido: {sum(r.perdida_dexeryl.facturacion_perdida for r in perdidos_dex):.0f} €")
 
-    if perdidos:
-        ejemplo = max(perdidos, key=lambda r: r.perdida.facturacion_perdida_ada + r.perdida.facturacion_perdida_dexeryl)
-        print(f"\nEjemplo (mayor pérdida): {ejemplo.cliente.nombre_cliente} ({', '.join(ejemplo.cliente.pos_ids) if hasattr(ejemplo.cliente, 'pos_ids') else ejemplo.cliente.pos_id})")
-        print(f"  Perdía {ejemplo.perdida.facturacion_perdida_ada:.0f} € de ADA al año, por marca: {ejemplo.perdida.por_marca}")
+    if perdidos_ada:
+        ejemplo = max(perdidos_ada, key=lambda r: r.perdida_ada.facturacion_perdida)
+        print(f"\nMayor pérdida ADA: {ejemplo.cliente.nombre_cliente} -- {ejemplo.perdida_ada.facturacion_perdida:.0f} €, por marca: {ejemplo.perdida_ada.por_marca}")
