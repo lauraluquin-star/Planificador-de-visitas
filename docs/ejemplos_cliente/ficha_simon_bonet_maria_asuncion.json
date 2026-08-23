@@ -1,5 +1,11 @@
 {
   "_nota": "Segunda Ficha Cliente 2026 real (captura de portal Pierre Fabre), distinta de Font Soler Pilar -- sirve para validar que el modelo generaliza entre clientes. Transcrita a mano, sin inventar ningun dato.",
+  "_inconsistencia_detectada": {
+    "descripcion": "El 'Total general' (Fact. YTM 2026, tabla izquierda) y 'Fact. A Marca' de Evolucion Pacto (tabla derecha) NO coinciden para Avene (+603), Ducray (+100) ni A-Derma (+197) -- pero SI coinciden exacto para Dexeryl (0 de diferencia).",
+    "hipotesis_usuario": "Posible cambio de titular/razon social en este POS: la tabla Evolucion Pacto podria arrastrar historico de otra razon social en las 3 marcas del pacto ADA, mientras que Total general refleja solo el CPV actual. Dexeryl (pacto independiente) no se ve afectado.",
+    "resolucion": "NO resuelta -- ninguno de los dos numeros se ha marcado como 'el bueno'. Pendiente de que el delegado del territorio (no es el de este usuario) compruebe en LOB si hay 'Posible cambio de titular detectado' para esta direccion (spec seccion 7).",
+    "regla_aplicada": "CLAUDE.md / spec 37.1: si un cuadre no cuadra, mostrar la inconsistencia, nunca elegir un numero en silencio."
+  },
   "cliente": {
     "pos_id": "C046778",
     "nombre": "SIMON BONET MARIA ASUNCION",
