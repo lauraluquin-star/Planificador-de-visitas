@@ -124,6 +124,8 @@ table.cartera {{ width: 100%; border-collapse: collapse; min-width: 720px; }}
 table.cartera th {{ text-align: left; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); font-weight: 600; padding: 10px 12px; font-family: 'IBM Plex Mono', monospace; cursor: pointer; border-bottom: 1px solid var(--border); white-space: nowrap; position: sticky; top: 0; background: var(--surface); }}
 table.cartera th.num, table.cartera td.num {{ text-align: right; }}
 table.cartera th:hover {{ color: var(--accent); }}
+.sort-alt {{ color: var(--accent); text-decoration: underline; text-decoration-style: dotted; margin-left: 2px; }}
+.sort-alt:hover {{ color: var(--ink); }}
 table.cartera td {{ padding: 9px 12px; border-bottom: 1px solid var(--border); font-size: 13px; vertical-align: middle; }}
 table.cartera tbody tr:hover {{ background: var(--surface-2); }}
 table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
@@ -132,6 +134,7 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
 .pobl-cell {{ color: var(--ink-soft); font-size: 11.5px; }}
 .grupo-tag {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--border); }}
 .estado-cell {{ font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }}
+.importes-line {{ font-size: 11px; color: var(--ink-soft); margin-bottom: 2px; }}
 .estado-cell .evol {{ font-weight: 600; }}
 .evol.pos {{ color: var(--ok); }} .evol.neg-c {{ color: var(--warn); }} .evol.neg {{ color: var(--bad); }} .evol.nd {{ color: var(--nd); }}
 
@@ -181,8 +184,8 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
         <tr>
           <th data-sort="nombre">Cliente</th>
           <th data-sort="grupo">Grupo</th>
-          <th class="num" data-sort="ada_evol">Pacto ADA (evol.)</th>
-          <th class="num" data-sort="dex_evol">Pacto Dexeryl (evol.)</th>
+          <th class="num" data-sort="ada_evol">Pacto ADA · 2025→2026 <span class="sort-alt" data-sort="ada_ytd" title="Ordenar por importe">[€]</span></th>
+          <th class="num" data-sort="dex_evol">Pacto Dexeryl · 2025→2026 <span class="sort-alt" data-sort="dex_ytd" title="Ordenar por importe">[€]</span></th>
         </tr>
       </thead>
       <tbody id="tbody"></tbody>
@@ -249,6 +252,11 @@ function aplicaFiltros() {{
   render(filas);
 }}
 
+function fmtEur(v) {{
+  if (v === null || v === undefined) return '—';
+  return Math.round(v).toLocaleString('es-ES') + ' €';
+}}
+
 function render(filas) {{
   const tbody = document.getElementById('tbody');
   tbody.innerHTML = filas.map(f => {{
@@ -258,8 +266,14 @@ function render(filas) {{
     return `<tr class="${{f.perdido_ada ? 'fila-perdida' : ''}}">
       <td><div class="nombre-cell">${{f.nombre}}${{badge}}</div><div class="pobl-cell">${{f.poblacion}} · ${{f.pos_ids.join('+')}}</div></td>
       <td>${{f.grupo ? `<span class="grupo-tag">${{f.grupo}}</span>` : ''}}</td>
-      <td class="estado-cell">${{semaforo(f.ada_estado)}} <span class="evol ${{ada.cls}}">${{ada.txt}}</span></td>
-      <td class="estado-cell">${{semaforo(f.dex_estado)}} <span class="evol ${{dex.cls}}">${{dex.txt}}</span></td>
+      <td class="estado-cell">
+        <div class="importes-line">${{fmtEur(f.ada_ytd1)}} → ${{fmtEur(f.ada_ytd)}}</div>
+        <div>${{semaforo(f.ada_estado)}} <span class="evol ${{ada.cls}}">${{ada.txt}}</span></div>
+      </td>
+      <td class="estado-cell">
+        <div class="importes-line">${{fmtEur(f.dex_ytd1)}} → ${{fmtEur(f.dex_ytd)}}</div>
+        <div>${{semaforo(f.dex_estado)}} <span class="evol ${{dex.cls}}">${{dex.txt}}</span></div>
+      </td>
     </tr>`;
   }}).join('');
 }}
@@ -283,6 +297,14 @@ document.querySelector('.chip-btn[data-filtro="perdidos"]').addEventListener('cl
   aplicaFiltros();
 }});
 document.getElementById('buscar').addEventListener('input', aplicaFiltros);
+document.querySelectorAll('.sort-alt[data-sort]').forEach(span => {{
+  span.addEventListener('click', (ev) => {{
+    ev.stopPropagation();
+    const key = span.dataset.sort;
+    if (sortKey === key) sortAsc = !sortAsc; else {{ sortKey = key; sortAsc = false; }}
+    aplicaFiltros();
+  }});
+}});
 document.querySelectorAll('th[data-sort]').forEach(th => {{
   th.addEventListener('click', () => {{
     const key = th.dataset.sort;
