@@ -1,0 +1,26 @@
+{
+  "_nota": "Condiciones de campaña con fecha, extraídas de las hojas de pedido reales del ciclo 3. La tarifa (docs/catalogo/tarifa_ciclo_3_raw.tsv) solo distingue DIRECTO/CAMPAÑA, no trae el % ni las fechas -- esto lo complementa.",
+  "cleanance_keracnyl_acne": {
+    "descuento": "-15% 1ª unidad",
+    "vigencia": "1 septiembre - 30 octubre",
+    "excluye": ["packs", "novedades"],
+    "incentivo_heroe_vendido_eur": 3,
+    "fuente": "Hoja_pedido_Acne (grande y pequeño)"
+  },
+  "antiedad_black_friday": {
+    "descuento": "-20% 1ª unidad",
+    "vigencia": "16 - 30 noviembre",
+    "fuente": "Hoja_pedido_Antiedad"
+  },
+  "hyaluron_activ_procedure_novedad": {
+    "cn": [224632, 224617],
+    "disponibilidad": "octubre",
+    "nota": "Novedad de campaña agosto pero sin stock/disponible hasta octubre -- no proponer en pedido antes de esa fecha",
+    "fuente": "Hoja_pedido_Antiedad"
+  },
+  "dexeryl_gel_ducha_novedad": {
+    "cn": [223976, 224518],
+    "mes_novedad": "agosto",
+    "fuente": "Hoja_pedido_Dexeryl"
+  }
+}
