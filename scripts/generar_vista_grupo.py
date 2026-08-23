@@ -128,6 +128,10 @@ input#buscar:focus {{ outline: 2px solid var(--accent); outline-offset: 1px; }}
 .seleccion-bar .sel-resumen {{ font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--ink-soft); display: flex; gap: 16px; flex-wrap: wrap; }}
 .seleccion-bar .sel-resumen b {{ font-weight: 600; }}
 .seleccion-bar .sel-acciones {{ display: flex; gap: 8px; align-items: center; margin-left: auto; flex-wrap: wrap; }}
+.seleccion-bar .sel-objetivo-nota {{ width: 100%; font-family: 'IBM Plex Sans', sans-serif; font-size: 11px; color: var(--ink-soft); font-style: italic; }}
+.sel-marcas {{ width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 6px 14px; border-top: 1px dashed var(--border); padding-top: 10px; margin-top: 2px; }}
+.sel-marca-item {{ font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; color: var(--ink-soft); display: flex; justify-content: space-between; gap: 8px; }}
+.sel-marca-item .nombre-marca {{ color: var(--ink); font-weight: 500; }}
 .seleccion-bar input#nombre-grupo {{ font-family: 'IBM Plex Sans', sans-serif; font-size: 13px; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--surface); color: var(--ink); width: 160px; }}
 .seleccion-bar button {{ font-family: 'IBM Plex Mono', monospace; font-size: 11.5px; padding: 6px 12px; border-radius: 8px; border: 1px solid var(--accent); background: var(--accent); color: var(--accent-ink); cursor: pointer; font-weight: 600; }}
 .seleccion-bar button.secundario {{ background: transparent; color: var(--accent); }}
@@ -201,6 +205,8 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
       <button id="btn-guardar-grupo">Guardar como grupo</button>
       <button class="secundario" id="btn-limpiar-sel">Limpiar selección</button>
     </div>
+    <div class="sel-objetivo-nota" id="sel-objetivo-nota"></div>
+    <div class="sel-marcas" id="sel-marcas"></div>
   </div>
 
   <div class="tabla-panel">
@@ -316,6 +322,27 @@ function combinaPacto(rows, prefijo) {{
   return {{ytd, ytd1, evol, estado}};
 }}
 
+const MARCAS_ORDEN = [
+  ['avene_sin_solar', 'Avène (sin solar)'],
+  ['avene_solar', 'Avène Solar'],
+  ['ducray', 'Ducray'],
+  ['aderma', 'A-Derma'],
+  ['dexeryl', 'Dexeryl'],
+];
+
+function combinaMarca(rows, marcaKey) {{
+  const ytdVals = rows.map(f => f.marcas && f.marcas[marcaKey] ? f.marcas[marcaKey].ytd : null).filter(v => v !== null && v !== undefined);
+  const ytd1Vals = rows.map(f => f.marcas && f.marcas[marcaKey] ? f.marcas[marcaKey].ytd1 : null).filter(v => v !== null && v !== undefined);
+  if (ytdVals.length === 0 && ytd1Vals.length === 0) return {{ytd: null, ytd1: null, evol: null, estado: 'SIN_DATOS'}};
+  const ytd = ytdVals.reduce((a, b) => a + b, 0);
+  const ytd1 = ytd1Vals.reduce((a, b) => a + b, 0);
+  let evol = null;
+  if (ytd1 === 0) {{ evol = ytd === 0 ? null : 100.0; }} else {{ evol = (ytd - ytd1) / ytd1 * 100; }}
+  let estado = 'SIN_DATOS';
+  if (evol !== null) {{ estado = evol >= 0 ? 'POSITIVA' : (evol >= -15 ? 'NEGATIVA_CONTROLADA' : 'NEGATIVA'); }}
+  return {{ytd, ytd1, evol, estado}};
+}}
+
 function actualizaSeleccionBar() {{
   const bar = document.getElementById('seleccion-bar');
   const seleccionadas = DATA.filter(f => selectedIds.has(f.id));
@@ -332,6 +359,15 @@ function actualizaSeleccionBar() {{
   document.getElementById('sel-resumen').innerHTML =
     `<span>Pacto ADA: ${{fmtEur(ada.ytd1)}} → ${{fmtEur(ada.ytd)}} <b class="evol ${{adaInfo.cls}}">${{adaInfo.txt}}</b></span>` +
     `<span>Pacto Dexeryl: ${{fmtEur(dex.ytd1)}} → ${{fmtEur(dex.ytd)}} <b class="evol ${{dexInfo.cls}}">${{dexInfo.txt}}</b></span>`;
+
+  document.getElementById('sel-objetivo-nota').textContent =
+    '⚪ Objetivo de pacto individual no disponible para esta selección (sale de la Ficha Cliente 2026, que solo tenemos para 2 clientes de ejemplo) — comparación solo vs. año anterior.';
+
+  document.getElementById('sel-marcas').innerHTML = MARCAS_ORDEN.map(([key, label]) => {{
+    const m = combinaMarca(seleccionadas, key);
+    const info = estadoInfo(m.estado, m.evol);
+    return `<div class="sel-marca-item"><span class="nombre-marca">${{label}}</span><span>${{fmtEur(m.ytd1)}} → ${{fmtEur(m.ytd)}} <b class="evol ${{info.cls}}">${{info.txt}}</b></span></div>`;
+  }}).join('');
 }}
 
 function aplicaFiltros() {{
