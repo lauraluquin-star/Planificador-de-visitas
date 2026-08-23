@@ -2,18 +2,26 @@
 Motor de comparación reutilizable: a partir de un ClienteLOB (o de varios clientes de una
 cartera/grupo), calcula evolución y estado comercial.
 
-Importante -- lo que este motor SÍ y NO puede calcular con solo el LOB:
-- SÍ: evolución YTD vs YTD-1 (año anterior comparable), disponible para TODOS los clientes del LOB.
-- NO: % cumplimiento real de objetivo, porque el objetivo del Pacto sale de la Ficha Cliente 2026
-  (sección 6 de la spec), que solo tenemos para 2 clientes de ejemplo. Para el resto de la cartera,
-  el "estado" se basa solo en evolución -- se marca explícitamente `objetivo_disponible=False` para
-  no fingir que hay más precisión de la que hay (spec sección 13: no inventar precisión falsa).
+Lo que este motor puede calcular y de dónde sale:
+- Evolución YTD vs YTD-1 (año anterior comparable): sale del LOB, disponible para TODOS los
+  clientes.
+- Objetivo real de Pacto ADA/Dexeryl (CIFRA PACTADA) y % de cumplimiento/gap: sale del Listado de
+  Acuerdos Comerciales LIVE (src/parsers/acuerdos_parser.py), que cubre la cartera activa del
+  delegado -- no de una fórmula propia. Verificado con el usuario: el % de crecimiento exigido para
+  fijar la cifra pactada depende de la facturación de cada cliente (varía por tramos, no es un 15%
+  fijo), así que el objetivo NUNCA se recalcula aquí -- se usa tal cual venga del listado, y si un
+  cliente no tiene acuerdo Activo se marca `objetivo_disponible=False` en vez de inventar un número
+  (spec sección 15-16: "Objetivo de pacto individual no disponible", nunca sustituir en silencio).
 
-Clasificación de tendencia (spec sección 14), simplificada a lo calculable sin objetivo:
+Clasificación de tendencia (spec sección 14), basada en evolución vs año anterior:
   🟢 POSITIVA: evolución >= 0%
   🟡 NEGATIVA CONTROLADA: evolución entre -15% y 0%
   🔴 NEGATIVA: evolución < -15%
   ⚪ SIN DATOS: no hay YTD o YTD-1 (ND)
+% cumplimiento y gap respecto al objetivo se calculan aparte cuando hay acuerdo Activo, y se
+muestran siempre junto a la evolución -- nunca uno solo (spec sección 3: "año anterior Y objetivo
+del pacto, nunca una sola perspectiva"). No se usan todavía para el semáforo: ese sigue basado en
+evolución, ya validado con el usuario sobre datos reales.
 """
 
 from __future__ import annotations
@@ -32,6 +40,9 @@ class EstadoPacto:
     evolucion_pct: float | None
     estado: str  # "POSITIVA" | "NEGATIVA_CONTROLADA" | "NEGATIVA" | "SIN_DATOS"
     semaforo: str  # emoji
+    objetivo: float | None = None  # CIFRA PACTADA real (Acuerdos Comerciales), None si no hay acuerdo Activo
+    pct_cumplimiento: float | None = None  # ytd / objetivo * 100
+    gap: float | None = None  # objetivo - ytd
     objetivo_disponible: bool = False
 
 
@@ -45,7 +56,7 @@ def _clasifica(evolucion_pct: float | None) -> tuple[str, str]:
     return "NEGATIVA", "🔴"
 
 
-def evalua_pacto(pacto: PactoAgregado | None, tipo: str) -> EstadoPacto:
+def evalua_pacto(pacto: PactoAgregado | None, tipo: str, objetivo: float | None = None) -> EstadoPacto:
     if pacto is None or pacto.importe_neto_ytd is None or pacto.importe_neto_ytd1 is None:
         return EstadoPacto(tipo=tipo, ytd=None, ytd1=None, evolucion_pct=None, estado="SIN_DATOS", semaforo="⚪")
 
@@ -56,7 +67,22 @@ def evalua_pacto(pacto: PactoAgregado | None, tipo: str) -> EstadoPacto:
         evolucion = round((ytd - ytd1) / ytd1 * 100, 1)
 
     estado, semaforo = _clasifica(evolucion)
-    return EstadoPacto(tipo=tipo, ytd=ytd, ytd1=ytd1, evolucion_pct=evolucion, estado=estado, semaforo=semaforo)
+
+    pct_cumplimiento = round(ytd / objetivo * 100, 1) if objetivo else None
+    gap = round(objetivo - ytd, 2) if objetivo is not None else None
+
+    return EstadoPacto(
+        tipo=tipo,
+        ytd=ytd,
+        ytd1=ytd1,
+        evolucion_pct=evolucion,
+        estado=estado,
+        semaforo=semaforo,
+        objetivo=objetivo,
+        pct_cumplimiento=pct_cumplimiento,
+        gap=gap,
+        objetivo_disponible=objetivo is not None,
+    )
 
 
 @dataclass
@@ -188,9 +214,26 @@ def _diagnostico_perdida_pacto(cliente: ClienteLOB | PuntoVentaConsolidado, pact
     )
 
 
-def evalua_cliente(cliente: ClienteLOB | PuntoVentaConsolidado) -> ResumenCliente:
-    pacto_ada = evalua_pacto(cliente.pacto_ada, "ADA")
-    pacto_dexeryl = evalua_pacto(cliente.pacto_dexeryl, "DEXERYL")
+def _objetivo_consolidado(pos_ids: list[str], objetivos_por_pos: dict[str, dict] | None, bucket: str) -> float | None:
+    if not objetivos_por_pos:
+        return None
+    valores = [objetivos_por_pos[p][bucket] for p in pos_ids if p in objetivos_por_pos and objetivos_por_pos[p][bucket] is not None]
+    return round(sum(valores), 2) if valores else None
+
+
+def evalua_cliente(
+    cliente: ClienteLOB | PuntoVentaConsolidado,
+    objetivos_por_pos: dict[str, dict] | None = None,
+) -> ResumenCliente:
+    """objetivos_por_pos: salida de acuerdos_parser.objetivos_por_pos_id() -- {pos_id: {"ADA":
+    €|None, "DEXERYL": €|None}}. Si el cliente es un PuntoVentaConsolidado con varios pos_ids, se
+    suman los objetivos de todos ellos (igual que se suma la facturación al consolidar)."""
+    pos_ids = cliente.pos_ids if isinstance(cliente, PuntoVentaConsolidado) else [cliente.pos_id]
+    objetivo_ada = _objetivo_consolidado(pos_ids, objetivos_por_pos, "ADA")
+    objetivo_dexeryl = _objetivo_consolidado(pos_ids, objetivos_por_pos, "DEXERYL")
+
+    pacto_ada = evalua_pacto(cliente.pacto_ada, "ADA", objetivo_ada)
+    pacto_dexeryl = evalua_pacto(cliente.pacto_dexeryl, "DEXERYL", objetivo_dexeryl)
     return ResumenCliente(
         cliente=cliente,
         pacto_ada=pacto_ada,
@@ -200,30 +243,53 @@ def evalua_cliente(cliente: ClienteLOB | PuntoVentaConsolidado) -> ResumenClient
     )
 
 
-def cartera_delegado(clientes: list[ClienteLOB], delegado_nombre: str, consolidar: bool = True) -> list[ResumenCliente]:
+def cartera_delegado(
+    clientes: list[ClienteLOB],
+    delegado_nombre: str,
+    consolidar: bool = True,
+    objetivos_por_pos: dict[str, dict] | None = None,
+) -> list[ResumenCliente]:
     """Filtra la cartera de un delegado y evalúa cada punto de venta. Cruzar SIEMPRE por
     delegado_nombre, nunca por nombre_dnv (que es el jefe de área, no el delegado).
 
     consolidar=True (por defecto): agrupa antes por identidad física (dirección+CP+población),
     porque varios POS-Id del mismo delegado pueden ser en realidad la misma farmacia -- sumar
-    cambia el diagnóstico, así que se consolida ANTES de clasificar, no después."""
+    cambia el diagnóstico, así que se consolida ANTES de clasificar, no después.
+
+    objetivos_por_pos: opcional, salida de acuerdos_parser.objetivos_por_pos_id() -- si se pasa,
+    cada ResumenCliente lleva el objetivo real de pacto (CIFRA PACTADA) cuando exista un acuerdo
+    Activo; si no, queda objetivo_disponible=False (nunca se inventa)."""
     propios = [c for c in clientes if c.delegado_nombre == delegado_nombre]
     if consolidar:
         puntos = consolida_por_identidad_fisica(propios)
-        return [evalua_cliente(p) for p in puntos]
-    return [evalua_cliente(c) for c in propios]
+        return [evalua_cliente(p, objetivos_por_pos) for p in puntos]
+    return [evalua_cliente(c, objetivos_por_pos) for c in propios]
 
 
 if __name__ == "__main__":
     import sys
     sys.path.insert(0, ".")
+    from src.parsers.acuerdos_parser import parse_acuerdos, objetivos_por_pos_id
     from src.parsers.lob_parser import parse_lob
 
     clientes = parse_lob("docs/lob_compar/Listado_LOB_03_08_26.csv")
+    acuerdos = parse_acuerdos("docs/acuerdos_comerciales/Listado_Acuerdos_Comerciales_LIVE.csv")
+    objetivos = objetivos_por_pos_id(acuerdos)
 
     sin_consolidar = cartera_delegado(clientes, "LAURA LUQUIN FRANQUET", consolidar=False)
-    cartera = cartera_delegado(clientes, "LAURA LUQUIN FRANQUET", consolidar=True)
+    cartera = cartera_delegado(clientes, "LAURA LUQUIN FRANQUET", consolidar=True, objetivos_por_pos=objetivos)
     print(f"Sin consolidar: {len(sin_consolidar)} POS-Id  |  Consolidado por identidad física: {len(cartera)} farmacias reales")
+
+    con_objetivo = [r for r in cartera if r.pacto_ada.objetivo_disponible]
+    print(f"Con objetivo de Pacto ADA vigente (acuerdo Activo): {len(con_objetivo)} de {len(cartera)}")
+
+    ejemplo = max(con_objetivo, key=lambda r: r.pacto_ada.objetivo)
+    print(f"\nEjemplo real -- {ejemplo.cliente.nombre_cliente}:")
+    print(f"  Pacto ADA: objetivo {ejemplo.pacto_ada.objetivo:.0f}€, YTD {ejemplo.pacto_ada.ytd:.0f}€, "
+          f"cumplimiento {ejemplo.pacto_ada.pct_cumplimiento}%, gap {ejemplo.pacto_ada.gap:.0f}€")
+    if ejemplo.pacto_dexeryl.objetivo_disponible:
+        print(f"  Pacto DEXERYL: objetivo {ejemplo.pacto_dexeryl.objetivo:.0f}€, YTD {ejemplo.pacto_dexeryl.ytd:.0f}€, "
+              f"cumplimiento {ejemplo.pacto_dexeryl.pct_cumplimiento}%, gap {ejemplo.pacto_dexeryl.gap:.0f}€")
 
     rojos = [r for r in cartera if r.pacto_ada.estado == "NEGATIVA"]
     print(f"Pacto ADA en rojo (evolución < -15%), consolidado: {len(rojos)}")

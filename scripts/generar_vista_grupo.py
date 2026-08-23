@@ -360,8 +360,29 @@ function actualizaSeleccionBar() {{
     `<span>Pacto ADA: ${{fmtEur(ada.ytd1)}} → ${{fmtEur(ada.ytd)}} <b class="evol ${{adaInfo.cls}}">${{adaInfo.txt}}</b></span>` +
     `<span>Pacto Dexeryl: ${{fmtEur(dex.ytd1)}} → ${{fmtEur(dex.ytd)}} <b class="evol ${{dexInfo.cls}}">${{dexInfo.txt}}</b></span>`;
 
-  document.getElementById('sel-objetivo-nota').textContent =
-    '⚪ Objetivo de pacto individual no disponible para esta selección (sale de la Ficha Cliente 2026, que solo tenemos para 2 clientes de ejemplo) — comparación solo vs. año anterior.';
+  const conObjAda = seleccionadas.filter(f => f.ada_objetivo !== null);
+  const conObjDex = seleccionadas.filter(f => f.dex_objetivo !== null);
+  const notaPartes = [];
+  if (conObjAda.length > 0) {{
+    const objAda = conObjAda.reduce((a, f) => a + f.ada_objetivo, 0);
+    const ytdAda = conObjAda.reduce((a, f) => a + (f.ada_ytd || 0), 0);
+    const gapAda = objAda - ytdAda;
+    const pctAda = objAda > 0 ? (ytdAda / objAda * 100) : null;
+    notaPartes.push(`Pacto ADA vs. objetivo (acuerdo Activo, ${{conObjAda.length}}/${{seleccionadas.length}} farmacias): objetivo ${{fmtEur(objAda)}}, cumplimiento ${{pctAda !== null ? pctAda.toFixed(1).replace('.', ',') + '%' : '—'}}, gap ${{fmtEur(gapAda)}}.`);
+  }} else {{
+    notaPartes.push('Pacto ADA: ninguna de las farmacias seleccionadas tiene acuerdo comercial Activo con objetivo vigente.');
+  }}
+  if (conObjDex.length > 0) {{
+    const objDex = conObjDex.reduce((a, f) => a + f.dex_objetivo, 0);
+    const ytdDex = conObjDex.reduce((a, f) => a + (f.dex_ytd || 0), 0);
+    const gapDex = objDex - ytdDex;
+    const pctDex = objDex > 0 ? (ytdDex / objDex * 100) : null;
+    notaPartes.push(`Pacto Dexeryl vs. objetivo (${{conObjDex.length}}/${{seleccionadas.length}}): objetivo ${{fmtEur(objDex)}}, cumplimiento ${{pctDex !== null ? pctDex.toFixed(1).replace('.', ',') + '%' : '—'}}, gap ${{fmtEur(gapDex)}}.`);
+  }} else {{
+    notaPartes.push('Pacto Dexeryl: ninguna con acuerdo Activo.');
+  }}
+  document.getElementById('sel-objetivo-nota').textContent = notaPartes.join(' ') +
+    ' El objetivo sale del Listado de Acuerdos Comerciales (CIFRA PACTADA real) — las farmacias sin acuerdo Activo no suman aquí, nunca se inventa un objetivo.';
 
   document.getElementById('sel-marcas').innerHTML = MARCAS_ORDEN.map(([key, label]) => {{
     const m = combinaMarca(seleccionadas, key);

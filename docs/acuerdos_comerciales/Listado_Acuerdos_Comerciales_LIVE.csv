@@ -1,0 +1,666 @@
+FECHA CREACIÓN;NOMBRE COACH;MARCA;Nº REFERENCIA;Nº CLIENTE PF;LOB CLIENTE;CLIENTE;CIFRA PACTADA;SEMESTRE 1;SEMESTRE 2;DTO REAL;TIPO PACTO;RAPPEL VIS LINEAL;RAPPEL HEROES Y LANZAM;RAPPEL EVOL;TOTAL DESCUENTO;Estado acuerdo;Estado mayorista;Mayorista 1;Cód. Mayorista 1;Mayorista 2;Cód. Mayorista 2;Mayorista 3;Cód. Mayorista 3;Mayorista 4;Cód. Mayorista 4;;Semestre 1;Semestre 2
+23/07/2026;Laura  Luquin Franquet;AVENE;AC014726;C020713;1013319;GRILLO DORCA JOAN;12.548€;6.274€;6.274€;23%;ADA;0;0;0;23%;Activo;Inactivo;HEFAME;10117692;COFARES;22430;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;6.274€;6.274€
+23/07/2026;Laura  Luquin Franquet;DUCRAY;AC014726;C020713;1013319;GRILLO DORCA JOAN;6.542€;3.271€;3.271€;23%;ADA;0;0;0;23%;Activo;Inactivo;HEFAME;10117692;COFARES;22430;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;3.271€;3.271€
+23/07/2026;Laura  Luquin Franquet;A-DERMA;AC014726;C020713;1013319;GRILLO DORCA JOAN;1.970€;985€;985€;23%;ADA;0;0;0;23%;Activo;Inactivo;HEFAME;10117692;COFARES;22430;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;985€;985€
+23/07/2026;Laura  Luquin Franquet;DEXERYL;AC014726;C020713;1013319;GRILLO DORCA JOAN;500€;250€;250€;15%;ADA;0;0;0;15%;Activo;Inactivo;HEFAME;10117692;COFARES;22430;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+23/07/2026;Laura  Luquin Franquet;AVENE;AC014725;C045132;7004079;SANCHEZ BLAZQUEZ PEDRO;2.224€;1.112€;1.112€;23%;ADA;0;0;0;23%;Activo;Inactivo;HEFAME;10121067;COFARES;26218;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.112€;1.112€
+23/07/2026;Laura  Luquin Franquet;DUCRAY;AC014725;C045132;7004079;SANCHEZ BLAZQUEZ PEDRO;1.000€;500€;500€;23%;ADA;0;0;0;23%;Activo;Inactivo;HEFAME;10121067;COFARES;26218;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+23/07/2026;Laura  Luquin Franquet;A-DERMA;AC014725;C045132;7004079;SANCHEZ BLAZQUEZ PEDRO;1.000€;500€;500€;23%;ADA;0;0;0;23%;Activo;Inactivo;HEFAME;10121067;COFARES;26218;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+23/07/2026;Laura  Luquin Franquet;DEXERYL;AC014725;C045132;7004079;SANCHEZ BLAZQUEZ PEDRO;500€;250€;250€;15%;ADA;0;0;0;15%;Activo;Inactivo;HEFAME;10121067;COFARES;26218;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+10/06/2026;Laura  Luquin Franquet;FURTERER;AC014570;C041321;7003189;ALGUERO ARNAL INES;453€;226€;227€;20%;COACH;0;0;0;20%;Activo;Activo;COFARES;43358;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;226€;227€
+10/06/2026;Laura  Luquin Franquet;AVENE;AC014570;C041321;7003189;ALGUERO ARNAL INES;2.861€;1.431€;1.430€;23%;COACH;0;0;0;23%;Activo;Activo;COFARES;43358;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.431€;1.430€
+10/06/2026;Laura  Luquin Franquet;DUCRAY;AC014570;C041321;7003189;ALGUERO ARNAL INES;756€;378€;378€;23%;COACH;0;0;0;23%;Activo;Activo;COFARES;43358;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;378€;378€
+10/06/2026;Laura  Luquin Franquet;A-DERMA;AC014570;C041321;7003189;ALGUERO ARNAL INES;680€;340€;340€;23%;COACH;0;0;0;23%;Activo;Activo;COFARES;43358;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;340€;340€
+10/06/2026;Laura  Luquin Franquet;KLORANE;AC014570;C041321;7003189;ALGUERO ARNAL INES;840€;420€;420€;23%;COACH;0;0;0;23%;Activo;Activo;COFARES;43358;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;420€;420€
+28/04/2026;Laura  Luquin Franquet;AVENE;AC013858;C020326;1007291;SABATE HERRERO JOAQUIM;2.341€;1.171€;1.170€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.171€;1.170€
+28/04/2026;Laura  Luquin Franquet;DUCRAY;AC013858;C020326;1007291;SABATE HERRERO JOAQUIM;1.384€;692€;692€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;692€;692€
+28/04/2026;Laura  Luquin Franquet;A-DERMA;AC013858;C020326;1007291;SABATE HERRERO JOAQUIM;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+28/04/2026;Laura  Luquin Franquet;DEXERYL;AC013858;C020326;1007291;SABATE HERRERO JOAQUIM;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+28/04/2026;Laura  Luquin Franquet;AVENE;AC013857;C006647;1010034;MALLASEN ZINSSER ISABEL;4.382€;2.191€;2.191€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S36491;HEFAME;10111434;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.191€;2.191€
+28/04/2026;Laura  Luquin Franquet;DUCRAY;AC013857;C006647;1010034;MALLASEN ZINSSER ISABEL;2.579€;1.289€;1.290€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S36491;HEFAME;10111434;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.289€;1.290€
+28/04/2026;Laura  Luquin Franquet;A-DERMA;AC013857;C006647;1010034;MALLASEN ZINSSER ISABEL;1.831€;916€;915€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S36491;HEFAME;10111434;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;916€;915€
+28/04/2026;Laura  Luquin Franquet;DEXERYL;AC013857;C006647;1010034;MALLASEN ZINSSER ISABEL;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S36491;HEFAME;10111434;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+28/04/2026;Laura  Luquin Franquet;AVENE;AC013838;C020326;1007291;SABATE HERRERO JOAQUIM;2.341€;1.171€;1.170€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;;;;;;;;;Ver PDF;1.171€;1.170€
+28/04/2026;Laura  Luquin Franquet;DUCRAY;AC013838;C020326;1007291;SABATE HERRERO JOAQUIM;1.384€;692€;692€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;;;;;;;;;Ver PDF;692€;692€
+28/04/2026;Laura  Luquin Franquet;A-DERMA;AC013838;C020326;1007291;SABATE HERRERO JOAQUIM;1.000€;500€;500€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;;;;;;;;;Ver PDF;500€;500€
+28/04/2026;Laura  Luquin Franquet;DEXERYL;AC013838;C020326;1007291;SABATE HERRERO JOAQUIM;500€;250€;250€;15%;ADA;0;1;2;20%;Inactivo;Inactivo;;;;;;;;;Ver PDF;250€;250€
+27/04/2026;Laura  Luquin Franquet;AVENE;AC013809;C013204;1015647;ROCABEYERA RUIZ MARGARITA;5.828€;2.914€;2.914€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;11229;FEDEFARMA;S73981;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.914€;2.914€
+27/04/2026;Laura  Luquin Franquet;DUCRAY;AC013809;C013204;1015647;ROCABEYERA RUIZ MARGARITA;2.957€;1.478€;1.479€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;11229;FEDEFARMA;S73981;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.478€;1.479€
+27/04/2026;Laura  Luquin Franquet;A-DERMA;AC013809;C013204;1015647;ROCABEYERA RUIZ MARGARITA;1.447€;724€;723€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;11229;FEDEFARMA;S73981;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;724€;723€
+27/04/2026;Laura  Luquin Franquet;DEXERYL;AC013809;C013204;1015647;ROCABEYERA RUIZ MARGARITA;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;ALLIANCE CENCORA;11229;FEDEFARMA;S73981;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+27/04/2026;Laura  Luquin Franquet;AVENE;AC013807;C032593;1000714;LAGUNA TISAIRE DAVID;4.734€;2.367€;2.367€;19%;ADA;1;1;2;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;2.367€;2.367€
+27/04/2026;Laura  Luquin Franquet;DUCRAY;AC013807;C032593;1000714;LAGUNA TISAIRE DAVID;1.000€;500€;500€;19%;ADA;1;1;2;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/04/2026;Laura  Luquin Franquet;DEXERYL;AC013807;C032593;1000714;LAGUNA TISAIRE DAVID;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+23/04/2026;Laura  Luquin Franquet;DUCRAY;AC013682;C041056;7003118;FARMACIA CENTRAL PRAT CB;1.878€;939€;939€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;39742;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;939€;939€
+23/04/2026;Laura  Luquin Franquet;A-DERMA;AC013682;C041056;7003118;FARMACIA CENTRAL PRAT CB;3.489€;1.745€;1.744€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;39742;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.745€;1.744€
+23/04/2026;Laura  Luquin Franquet;DEXERYL;AC013682;C041056;7003118;FARMACIA CENTRAL PRAT CB;704€;352€;352€;15%;ADA;1;1;2;22%;Activo;Activo;COFARES;39742;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;352€;352€
+16/04/2026;Laura  Luquin Franquet;AVENE;AC013478;C033807;7001418;BERGA CULLERE CAROLINA;8.246€;4.123€;4.123€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10121616;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;4.123€;4.123€
+16/04/2026;Laura  Luquin Franquet;DUCRAY;AC013478;C033807;7001418;BERGA CULLERE CAROLINA;2.222€;1.111€;1.111€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10121616;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.111€;1.111€
+16/04/2026;Laura  Luquin Franquet;A-DERMA;AC013478;C033807;7001418;BERGA CULLERE CAROLINA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10121616;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+16/04/2026;Laura  Luquin Franquet;DEXERYL;AC013478;C033807;7001418;BERGA CULLERE CAROLINA;653€;327€;326€;15%;ADA;0;1;2;20%;Activo;Activo;HEFAME;10121616;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;327€;326€
+10/04/2026;Laura  Luquin Franquet;AVENE;AC013260;C006647;1010034;MALLASEN ZINSSER ISABEL;4.382€;2.191€;2.191€;23%;ADA;1;1;2;30%;Inactivo;Inactivo;FEDEFARMA;36491;HEFAME;11434;;;;;Ver PDF;2.191€;2.191€
+10/04/2026;Laura  Luquin Franquet;DUCRAY;AC013260;C006647;1010034;MALLASEN ZINSSER ISABEL;2.579€;1.289€;1.290€;23%;ADA;1;1;2;30%;Inactivo;Inactivo;FEDEFARMA;36491;HEFAME;11434;;;;;Ver PDF;1.289€;1.290€
+10/04/2026;Laura  Luquin Franquet;A-DERMA;AC013260;C006647;1010034;MALLASEN ZINSSER ISABEL;1.831€;916€;915€;23%;ADA;1;1;2;30%;Inactivo;Inactivo;FEDEFARMA;36491;HEFAME;11434;;;;;Ver PDF;916€;915€
+10/04/2026;Laura  Luquin Franquet;DEXERYL;AC013260;C006647;1010034;MALLASEN ZINSSER ISABEL;500€;250€;250€;15%;ADA;1;1;2;22%;Inactivo;Inactivo;FEDEFARMA;36491;HEFAME;11434;;;;;Ver PDF;250€;250€
+07/04/2026;Laura  Luquin Franquet;AVENE;AC013160;C001526;1003070;GUILAMANY BARRERAS MARGARITA;5.812€;2.906€;2.906€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;9796;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.906€;2.906€
+07/04/2026;Laura  Luquin Franquet;DUCRAY;AC013160;C001526;1003070;GUILAMANY BARRERAS MARGARITA;2.159€;1.079€;1.080€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;9796;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.079€;1.080€
+07/04/2026;Laura  Luquin Franquet;A-DERMA;AC013160;C001526;1003070;GUILAMANY BARRERAS MARGARITA;1.102€;551€;551€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;9796;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;551€;551€
+07/04/2026;Laura  Luquin Franquet;DEXERYL;AC013160;C001526;1003070;GUILAMANY BARRERAS MARGARITA;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;COFARES;9796;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+31/03/2026;Laura  Luquin Franquet;AVENE;AC013133;C034414;7001597;PRATFARMA SL;2.000€;1.000€;1.000€;19%;ADA;1;1;2;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+31/03/2026;Laura  Luquin Franquet;DUCRAY;AC013133;C034414;7001597;PRATFARMA SL;1.000€;500€;500€;19%;ADA;1;1;2;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+31/03/2026;Laura  Luquin Franquet;DEXERYL;AC013133;C034414;7001597;PRATFARMA SL;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+31/03/2026;Laura  Luquin Franquet;AVENE;AC013116;C041198;7003159;MANOUCHEHRI SHAGHAYEGH;4.442€;2.221€;2.221€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;2.221€;2.221€
+31/03/2026;Laura  Luquin Franquet;DUCRAY;AC013116;C041198;7003159;MANOUCHEHRI SHAGHAYEGH;1.968€;984€;984€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;984€;984€
+31/03/2026;Laura  Luquin Franquet;A-DERMA;AC013116;C041198;7003159;MANOUCHEHRI SHAGHAYEGH;1.375€;688€;687€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;688€;687€
+31/03/2026;Laura  Luquin Franquet;DEXERYL;AC013116;C041198;7003159;MANOUCHEHRI SHAGHAYEGH;962€;481€;481€;15%;ADA;0;1;2;20%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;481€;481€
+27/03/2026;Laura  Luquin Franquet;AVENE;AC013043;C044083;7003847;CASAS PLA JAIME;4.452€;2.226€;2.226€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S35659;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.226€;2.226€
+27/03/2026;Laura  Luquin Franquet;DUCRAY;AC013043;C044083;7003847;CASAS PLA JAIME;2.090€;1.045€;1.045€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S35659;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.045€;1.045€
+27/03/2026;Laura  Luquin Franquet;A-DERMA;AC013043;C044083;7003847;CASAS PLA JAIME;1.000€;500€;500€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S35659;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;DEXERYL;AC013043;C044083;7003847;CASAS PLA JAIME;1.248€;624€;624€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S35659;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;624€;624€
+27/03/2026;Laura  Luquin Franquet;AVENE;AC013042;C020035;1017806;LOZANO ROCABEYERA ALBERT;2.000€;1.000€;1.000€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+27/03/2026;Laura  Luquin Franquet;DUCRAY;AC013042;C020035;1017806;LOZANO ROCABEYERA ALBERT;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;A-DERMA;AC013042;C020035;1017806;LOZANO ROCABEYERA ALBERT;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;DEXERYL;AC013042;C020035;1017806;LOZANO ROCABEYERA ALBERT;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+27/03/2026;Laura  Luquin Franquet;AVENE;AC013041;C044081;7003846;CASAS SANCHEZ JORDI;2.653€;1.327€;1.326€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S74492;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.327€;1.326€
+27/03/2026;Laura  Luquin Franquet;DUCRAY;AC013041;C044081;7003846;CASAS SANCHEZ JORDI;1.000€;500€;500€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S74492;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;A-DERMA;AC013041;C044081;7003846;CASAS SANCHEZ JORDI;1.000€;500€;500€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S74492;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;DEXERYL;AC013041;C044081;7003846;CASAS SANCHEZ JORDI;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S74492;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+27/03/2026;Laura  Luquin Franquet;AVENE;AC013040;C044097;7003853;SANCHEZ CALUCHO ROSA;5.280€;2.640€;2.640€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S24521;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.640€;2.640€
+27/03/2026;Laura  Luquin Franquet;DUCRAY;AC013040;C044097;7003853;SANCHEZ CALUCHO ROSA;3.107€;1.554€;1.553€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S24521;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.554€;1.553€
+27/03/2026;Laura  Luquin Franquet;A-DERMA;AC013040;C044097;7003853;SANCHEZ CALUCHO ROSA;1.000€;500€;500€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S24521;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;DEXERYL;AC013040;C044097;7003853;SANCHEZ CALUCHO ROSA;805€;403€;402€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S24521;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;403€;402€
+27/03/2026;Laura  Luquin Franquet;AVENE;AC013039;C044079;7003845;SERRABOU CLEMENTE ALLOZA BELEN;5.885€;2.942€;2.943€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S01819;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.942€;2.943€
+27/03/2026;Laura  Luquin Franquet;DUCRAY;AC013039;C044079;7003845;SERRABOU CLEMENTE ALLOZA BELEN;2.537€;1.268€;1.269€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S01819;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.268€;1.269€
+27/03/2026;Laura  Luquin Franquet;A-DERMA;AC013039;C044079;7003845;SERRABOU CLEMENTE ALLOZA BELEN;1.000€;500€;500€;20%;ADA;1;1;2;27%;Activo;Activo;FEDEFARMA;S01819;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+27/03/2026;Laura  Luquin Franquet;DEXERYL;AC013039;C044079;7003845;SERRABOU CLEMENTE ALLOZA BELEN;681€;340€;341€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S01819;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;340€;341€
+27/03/2026;Laura  Luquin Franquet;AVENE;AC013038;C027353;7002918;LOPEZ RODRIGUEZ JOSE LUIS;14.988€;7.494€;7.494€;23%;ADA;0;0;0;23%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;7.494€;7.494€
+27/03/2026;Laura  Luquin Franquet;DUCRAY;AC013038;C027353;7002918;LOPEZ RODRIGUEZ JOSE LUIS;7.104€;3.552€;3.552€;23%;ADA;0;0;0;23%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;3.552€;3.552€
+27/03/2026;Laura  Luquin Franquet;A-DERMA;AC013038;C027353;7002918;LOPEZ RODRIGUEZ JOSE LUIS;3.251€;1.625€;1.626€;23%;ADA;0;0;0;23%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.625€;1.626€
+27/03/2026;Laura  Luquin Franquet;DEXERYL;AC013038;C027353;7002918;LOPEZ RODRIGUEZ JOSE LUIS;2.716€;1.358€;1.358€;15%;ADA;0;0;0;15%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.358€;1.358€
+26/03/2026;Laura  Luquin Franquet;AVENE;AC013025;C029923;1000731;SAFONT ALBERT SARA;7.142€;3.571€;3.571€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;25249;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.571€;3.571€
+26/03/2026;Laura  Luquin Franquet;DUCRAY;AC013025;C029923;1000731;SAFONT ALBERT SARA;2.053€;1.027€;1.026€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;25249;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.027€;1.026€
+26/03/2026;Laura  Luquin Franquet;A-DERMA;AC013025;C029923;1000731;SAFONT ALBERT SARA;1.132€;566€;566€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;25249;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;566€;566€
+26/03/2026;Laura  Luquin Franquet;DEXERYL;AC013025;C029923;1000731;SAFONT ALBERT SARA;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;25249;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+23/03/2026;Laura  Luquin Franquet;AVENE;AC012918;C033838;7001430;MILLAN HOMEDES ELISEO JOSE;8.665€;4.333€;4.332€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;4.333€;4.332€
+23/03/2026;Laura  Luquin Franquet;DUCRAY;AC012918;C033838;7001430;MILLAN HOMEDES ELISEO JOSE;1.086€;543€;543€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;543€;543€
+23/03/2026;Laura  Luquin Franquet;A-DERMA;AC012918;C033838;7001430;MILLAN HOMEDES ELISEO JOSE;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+23/03/2026;Laura  Luquin Franquet;DEXERYL;AC012918;C033838;7001430;MILLAN HOMEDES ELISEO JOSE;685€;343€;342€;19%;ADA;1;1;2;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;343€;342€
+23/03/2026;Laura  Luquin Franquet;AVENE;AC012907;C004580;1007485;VIVES SANCHEZ ADELA;2.000€;1.000€;1.000€;15%;ADA;0;1;2;20%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+20/03/2026;Laura  Luquin Franquet;FURTERER;AC012889;C038346;1016294;GARCIA LOPEZ BERTOMEU;4.907€;2.453€;2.454€;20%;COACH;0;0;3;23%;Activo;Activo;COFARES;43228;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.453€;2.454€
+20/03/2026;Laura  Luquin Franquet;AVENE;AC012889;C038346;1016294;GARCIA LOPEZ BERTOMEU;12.976€;6.488€;6.488€;23%;COACH;1;1;3;31%;Activo;Activo;COFARES;43228;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;6.488€;6.488€
+20/03/2026;Laura  Luquin Franquet;DUCRAY;AC012889;C038346;1016294;GARCIA LOPEZ BERTOMEU;6.247€;3.124€;3.123€;23%;COACH;1;1;3;31%;Activo;Activo;COFARES;43228;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.124€;3.123€
+20/03/2026;Laura  Luquin Franquet;A-DERMA;AC012889;C038346;1016294;GARCIA LOPEZ BERTOMEU;4.072€;2.036€;2.036€;23%;COACH;1;1;3;31%;Activo;Activo;COFARES;43228;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.036€;2.036€
+20/03/2026;Laura  Luquin Franquet;DEXERYL;AC012889;C038346;1016294;GARCIA LOPEZ BERTOMEU;563€;281€;282€;15%;COACH;1;1;3;23%;Activo;Activo;COFARES;43228;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;281€;282€
+20/03/2026;Laura  Luquin Franquet;KLORANE;AC012889;C038346;1016294;GARCIA LOPEZ BERTOMEU;5.238€;2.619€;2.619€;23%;COACH;0;0;3;26%;Activo;Activo;COFARES;43228;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.619€;2.619€
+18/03/2026;Laura  Luquin Franquet;AVENE;AC012830;C016898;1016864;GOL ORFILA ORIOL;9.473€;4.736€;4.737€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;198418;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;4.736€;4.737€
+18/03/2026;Laura  Luquin Franquet;DUCRAY;AC012830;C016898;1016864;GOL ORFILA ORIOL;3.368€;1.684€;1.684€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;198418;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.684€;1.684€
+18/03/2026;Laura  Luquin Franquet;A-DERMA;AC012830;C016898;1016864;GOL ORFILA ORIOL;2.015€;1.007€;1.008€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;198418;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.007€;1.008€
+18/03/2026;Laura  Luquin Franquet;DEXERYL;AC012830;C016898;1016864;GOL ORFILA ORIOL;726€;363€;363€;15%;ADA;1;1;2;22%;Activo;Activo;ALLIANCE CENCORA;198418;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;363€;363€
+12/03/2026;Laura  Luquin Franquet;DUCRAY;AC012719;C045180;1004551;BENIMELI FERRANDO CARLOS;1.000€;500€;500€;19%;ADA;1;1;2;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+12/03/2026;Laura  Luquin Franquet;A-DERMA;AC012719;C045180;1004551;BENIMELI FERRANDO CARLOS;1.000€;500€;500€;19%;ADA;0;1;2;24%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+12/03/2026;Laura  Luquin Franquet;DEXERYL;AC012719;C045180;1004551;BENIMELI FERRANDO CARLOS;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+06/03/2026;Laura  Luquin Franquet;AVENE;AC012436;C001762;1003496;PUJOL CID JOSE MARIA;11.264€;5.632€;5.632€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S43885;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;5.632€;5.632€
+06/03/2026;Laura  Luquin Franquet;DUCRAY;AC012436;C001762;1003496;PUJOL CID JOSE MARIA;2.123€;1.061€;1.062€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S43885;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.061€;1.062€
+06/03/2026;Laura  Luquin Franquet;A-DERMA;AC012436;C001762;1003496;PUJOL CID JOSE MARIA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S43885;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+06/03/2026;Laura  Luquin Franquet;DEXERYL;AC012436;C001762;1003496;PUJOL CID JOSE MARIA;677€;338€;339€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S43885;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;338€;339€
+06/03/2026;Laura  Luquin Franquet;AVENE;AC012392;C038770;7002579;ALMUDENA MARTINEZ GARCIA;5.143€;2.571€;2.572€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;23497;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.571€;2.572€
+06/03/2026;Laura  Luquin Franquet;DUCRAY;AC012392;C038770;7002579;ALMUDENA MARTINEZ GARCIA;1.086€;543€;543€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;23497;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;543€;543€
+06/03/2026;Laura  Luquin Franquet;A-DERMA;AC012392;C038770;7002579;ALMUDENA MARTINEZ GARCIA;1.000€;500€;500€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;23497;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+06/03/2026;Laura  Luquin Franquet;DEXERYL;AC012392;C038770;7002579;ALMUDENA MARTINEZ GARCIA;729€;365€;364€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;23497;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;365€;364€
+05/03/2026;Laura  Luquin Franquet;AVENE;AC012352;C019503;1017671;BADIA DEL ROMERO MARIA ESTELLA;2.000€;1.000€;1.000€;19%;ADA;0;0;2;21%;Activo;Activo;COFARES;22702;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+05/03/2026;Laura  Luquin Franquet;DUCRAY;AC012352;C019503;1017671;BADIA DEL ROMERO MARIA ESTELLA;3.887€;1.944€;1.943€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;22702;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.944€;1.943€
+05/03/2026;Laura  Luquin Franquet;A-DERMA;AC012352;C019503;1017671;BADIA DEL ROMERO MARIA ESTELLA;3.035€;1.517€;1.518€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;22702;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.517€;1.518€
+05/03/2026;Laura  Luquin Franquet;DEXERYL;AC012352;C019503;1017671;BADIA DEL ROMERO MARIA ESTELLA;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Activo;COFARES;22702;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+05/03/2026;Laura  Luquin Franquet;AVENE;AC012302;C037530;7002270;RUBIO PETIT NURIA;2.000€;1.000€;1.000€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;42691;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+05/03/2026;Laura  Luquin Franquet;DUCRAY;AC012302;C037530;7002270;RUBIO PETIT NURIA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;42691;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+05/03/2026;Laura  Luquin Franquet;A-DERMA;AC012302;C037530;7002270;RUBIO PETIT NURIA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;42691;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+05/03/2026;Laura  Luquin Franquet;DEXERYL;AC012302;C037530;7002270;RUBIO PETIT NURIA;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;G.F. IRIS;0;COFARES;42691;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+05/03/2026;Laura  Luquin Franquet;AVENE;AC012301;C034604;7001644;LLORET PLANCHA TOMAS;6.955€;3.478€;3.477€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;30435;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.478€;3.477€
+05/03/2026;Laura  Luquin Franquet;DUCRAY;AC012301;C034604;7001644;LLORET PLANCHA TOMAS;1.787€;893€;894€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;30435;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;893€;894€
+05/03/2026;Laura  Luquin Franquet;A-DERMA;AC012301;C034604;7001644;LLORET PLANCHA TOMAS;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;30435;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+05/03/2026;Laura  Luquin Franquet;DEXERYL;AC012301;C034604;7001644;LLORET PLANCHA TOMAS;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;30435;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+05/03/2026;Laura  Luquin Franquet;AVENE;AC012300;C037476;1011796;TUDELA BELDA ALBERTO;2.000€;1.000€;1.000€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;42671;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+05/03/2026;Laura  Luquin Franquet;DUCRAY;AC012300;C037476;1011796;TUDELA BELDA ALBERTO;1.224€;612€;612€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;42671;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;612€;612€
+05/03/2026;Laura  Luquin Franquet;A-DERMA;AC012300;C037476;1011796;TUDELA BELDA ALBERTO;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;42671;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+05/03/2026;Laura  Luquin Franquet;DEXERYL;AC012300;C037476;1011796;TUDELA BELDA ALBERTO;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;G.F. IRIS;0;COFARES;42671;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+05/03/2026;Laura  Luquin Franquet;AVENE;AC012299;C041830;7002263;GORDILLO ABALOS M JESUS;5.280€;2.640€;2.640€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;43941;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.640€;2.640€
+05/03/2026;Laura  Luquin Franquet;DUCRAY;AC012299;C041830;7002263;GORDILLO ABALOS M JESUS;2.009€;1.004€;1.005€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;43941;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.004€;1.005€
+05/03/2026;Laura  Luquin Franquet;A-DERMA;AC012299;C041830;7002263;GORDILLO ABALOS M JESUS;1.225€;613€;612€;23%;ADA;1;1;2;30%;Activo;Activo;G.F. IRIS;0;COFARES;43941;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;613€;612€
+05/03/2026;Laura  Luquin Franquet;DEXERYL;AC012299;C041830;7002263;GORDILLO ABALOS M JESUS;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;G.F. IRIS;0;COFARES;43941;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+04/03/2026;Laura  Luquin Franquet;AVENE;AC012277;C021476;1018125;MIRIAM ALMOR ANDREU;2.000€;1.000€;1.000€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S00837;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+04/03/2026;Laura  Luquin Franquet;DUCRAY;AC012277;C021476;1018125;MIRIAM ALMOR ANDREU;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S00837;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+04/03/2026;Laura  Luquin Franquet;A-DERMA;AC012277;C021476;1018125;MIRIAM ALMOR ANDREU;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S00837;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+04/03/2026;Laura  Luquin Franquet;DEXERYL;AC012277;C021476;1018125;MIRIAM ALMOR ANDREU;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;FEDEFARMA;S00837;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+04/03/2026;Laura  Luquin Franquet;AVENE;AC012275;C042705;1009259;TOBELLA NIETO NURIA;4.058€;2.029€;2.029€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;2.029€;2.029€
+04/03/2026;Laura  Luquin Franquet;DUCRAY;AC012275;C042705;1009259;TOBELLA NIETO NURIA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+04/03/2026;Laura  Luquin Franquet;A-DERMA;AC012275;C042705;1009259;TOBELLA NIETO NURIA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+04/03/2026;Laura  Luquin Franquet;DEXERYL;AC012275;C042705;1009259;TOBELLA NIETO NURIA;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+04/03/2026;Laura  Luquin Franquet;AVENE;AC012199;C021476;1018125;MIRIAM ALMOR ANDREU;2.000€;1.000€;1.000€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;;;;;;;;;Ver PDF;1.000€;1.000€
+04/03/2026;Laura  Luquin Franquet;DUCRAY;AC012199;C021476;1018125;MIRIAM ALMOR ANDREU;1.000€;500€;500€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;;;;;;;;;Ver PDF;500€;500€
+04/03/2026;Laura  Luquin Franquet;A-DERMA;AC012199;C021476;1018125;MIRIAM ALMOR ANDREU;1.000€;500€;500€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;;;;;;;;;Ver PDF;500€;500€
+04/03/2026;Laura  Luquin Franquet;DEXERYL;AC012199;C021476;1018125;MIRIAM ALMOR ANDREU;500€;250€;250€;15%;ADA;0;1;2;20%;Inactivo;Inactivo;;;;;;;;;Ver PDF;250€;250€
+03/03/2026;Laura  Luquin Franquet;DUCRAY;AC012112;C026381;1017618;BRESCO MANCHO JOSE MANUEL;2.126€;1.063€;1.063€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S02246;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.063€;1.063€
+03/03/2026;Laura  Luquin Franquet;A-DERMA;AC012112;C026381;1017618;BRESCO MANCHO JOSE MANUEL;1.000€;500€;500€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S02246;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+03/03/2026;Laura  Luquin Franquet;DEXERYL;AC012112;C026381;1017618;BRESCO MANCHO JOSE MANUEL;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Activo;FEDEFARMA;S02246;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+24/02/2026;Laura  Luquin Franquet;AVENE;AC011705;C044795;1004567;TARRAGO LLOBET BERTA;2.000€;1.000€;1.000€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S02468;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+24/02/2026;Laura  Luquin Franquet;DUCRAY;AC011705;C044795;1004567;TARRAGO LLOBET BERTA;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S02468;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+24/02/2026;Laura  Luquin Franquet;A-DERMA;AC011705;C044795;1004567;TARRAGO LLOBET BERTA;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S02468;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+20/02/2026;Laura  Luquin Franquet;AVENE;AC011517;C016016;1014609;CATAFAL LLORA LOURDES;6.395€;3.198€;3.197€;19%;ADA;0;0;2;21%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;3.198€;3.197€
+20/02/2026;Laura  Luquin Franquet;DUCRAY;AC011517;C016016;1014609;CATAFAL LLORA LOURDES;2.172€;1.086€;1.086€;19%;ADA;0;0;2;21%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.086€;1.086€
+20/02/2026;Laura  Luquin Franquet;DEXERYL;AC011517;C016016;1014609;CATAFAL LLORA LOURDES;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+19/02/2026;Laura  Luquin Franquet;AVENE;AC011417;C020000;1009433;GARRIDO ZAFRA MONTSERRAT;4.697€;2.348€;2.349€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;23175;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.348€;2.349€
+19/02/2026;Laura  Luquin Franquet;DUCRAY;AC011417;C020000;1009433;GARRIDO ZAFRA MONTSERRAT;3.319€;1.660€;1.659€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;23175;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.660€;1.659€
+19/02/2026;Laura  Luquin Franquet;A-DERMA;AC011417;C020000;1009433;GARRIDO ZAFRA MONTSERRAT;1.450€;725€;725€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;23175;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;725€;725€
+19/02/2026;Laura  Luquin Franquet;DEXERYL;AC011417;C020000;1009433;GARRIDO ZAFRA MONTSERRAT;630€;315€;315€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;23175;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;315€;315€
+18/02/2026;Laura  Luquin Franquet;AVENE;AC011209;C036778;1008840;PARAFARMACIA CREIXELL SL;4.519€;2.260€;2.259€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98287;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.260€;2.259€
+18/02/2026;Laura  Luquin Franquet;DUCRAY;AC011209;C036778;1008840;PARAFARMACIA CREIXELL SL;1.230€;615€;615€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98287;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;615€;615€
+18/02/2026;Laura  Luquin Franquet;A-DERMA;AC011209;C036778;1008840;PARAFARMACIA CREIXELL SL;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98287;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+18/02/2026;Laura  Luquin Franquet;DEXERYL;AC011209;C036778;1008840;PARAFARMACIA CREIXELL SL;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;FEDEFARMA;S98287;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+16/02/2026;Laura  Luquin Franquet;AVENE;AC011067;C006201;1009474;LANTIGUA RODRIGUEZ Mª ANGELES;3.384€;1.692€;1.692€;19%;ADA;1;1;2;26%;Activo;Activo;ALLIANCE CENCORA;14364;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.692€;1.692€
+16/02/2026;Laura  Luquin Franquet;A-DERMA;AC011067;C006201;1009474;LANTIGUA RODRIGUEZ Mª ANGELES;1.000€;500€;500€;19%;ADA;1;1;2;26%;Activo;Activo;ALLIANCE CENCORA;14364;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+16/02/2026;Laura  Luquin Franquet;DEXERYL;AC011067;C006201;1009474;LANTIGUA RODRIGUEZ Mª ANGELES;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;ALLIANCE CENCORA;14364;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+16/02/2026;Laura  Luquin Franquet;AVENE;AC011029;C020538;1017932;FARMACIA GIRALT CB;5.728€;2.864€;2.864€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;39922;FEDEFARMA;S87288;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.864€;2.864€
+16/02/2026;Laura  Luquin Franquet;DUCRAY;AC011029;C020538;1017932;FARMACIA GIRALT CB;1.691€;845€;846€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;39922;FEDEFARMA;S87288;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;845€;846€
+16/02/2026;Laura  Luquin Franquet;DEXERYL;AC011029;C020538;1017932;FARMACIA GIRALT CB;1.007€;503€;504€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;39922;FEDEFARMA;S87288;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;503€;504€
+16/02/2026;Laura  Luquin Franquet;AVENE;AC010998;C007654;1011365;BUENO ANDREU VICENTE;2.150€;1.075€;1.075€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;6544;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.075€;1.075€
+16/02/2026;Laura  Luquin Franquet;DUCRAY;AC010998;C007654;1011365;BUENO ANDREU VICENTE;1.026€;513€;513€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;6544;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;513€;513€
+16/02/2026;Laura  Luquin Franquet;DEXERYL;AC010998;C007654;1011365;BUENO ANDREU VICENTE;600€;300€;300€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;6544;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;300€;300€
+13/02/2026;Laura  Luquin Franquet;AVENE;AC010959;C022984;1005582;SANTOS MARCOS CRISTINA;2.228€;1.114€;1.114€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10104807;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.114€;1.114€
+13/02/2026;Laura  Luquin Franquet;DUCRAY;AC010959;C022984;1005582;SANTOS MARCOS CRISTINA;2.070€;1.035€;1.035€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10104807;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.035€;1.035€
+13/02/2026;Laura  Luquin Franquet;A-DERMA;AC010959;C022984;1005582;SANTOS MARCOS CRISTINA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10104807;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+13/02/2026;Laura  Luquin Franquet;DEXERYL;AC010959;C022984;1005582;SANTOS MARCOS CRISTINA;572€;286€;286€;15%;ADA;1;1;2;22%;Activo;Activo;HEFAME;10104807;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;286€;286€
+11/02/2026;Laura  Luquin Franquet;AVENE;AC010761;C041870;1015356;FELIU RUIZ LIDIA;3.621€;1.811€;1.810€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S02686;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.811€;1.810€
+11/02/2026;Laura  Luquin Franquet;DUCRAY;AC010761;C041870;1015356;FELIU RUIZ LIDIA;1.662€;831€;831€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S02686;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;831€;831€
+11/02/2026;Laura  Luquin Franquet;A-DERMA;AC010761;C041870;1015356;FELIU RUIZ LIDIA;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S02686;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+11/02/2026;Laura  Luquin Franquet;DUCRAY;AC010674;C019236;1005731;FARMACIA ROCA VERS CB;1.097€;549€;548€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;22612;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;549€;548€
+11/02/2026;Laura  Luquin Franquet;A-DERMA;AC010674;C019236;1005731;FARMACIA ROCA VERS CB;1.423€;711€;712€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;22612;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;711€;712€
+11/02/2026;Laura  Luquin Franquet;DEXERYL;AC010674;C019236;1005731;FARMACIA ROCA VERS CB;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Activo;COFARES;22612;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+11/02/2026;Laura Luquin Franquet;FURTERER;AC010647;C001296;1002495;BOSCH GRANE MARTA;5.009€;2.504€;2.505€;20%;COACH;1;1;3;28%;Activo;Activo;HEFAME;10113479;ALLIANCE CENCORA;11110;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.504€;2.505€
+11/02/2026;Laura Luquin Franquet;AVENE;AC010647;C001296;1002495;BOSCH GRANE MARTA;11.590€;5.795€;5.795€;23%;COACH;1;1;3;31%;Activo;Activo;HEFAME;10113479;ALLIANCE CENCORA;11110;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;5.795€;5.795€
+11/02/2026;Laura Luquin Franquet;DUCRAY;AC010647;C001296;1002495;BOSCH GRANE MARTA;7.011€;3.506€;3.505€;23%;COACH;1;1;3;31%;Activo;Activo;HEFAME;10113479;ALLIANCE CENCORA;11110;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.506€;3.505€
+11/02/2026;Laura Luquin Franquet;A-DERMA;AC010647;C001296;1002495;BOSCH GRANE MARTA;4.460€;2.230€;2.230€;23%;COACH;1;1;3;31%;Activo;Activo;HEFAME;10113479;ALLIANCE CENCORA;11110;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.230€;2.230€
+11/02/2026;Laura Luquin Franquet;DEXERYL;AC010647;C001296;1002495;BOSCH GRANE MARTA;953€;476€;477€;23%;COACH;1;1;3;31%;Activo;Activo;HEFAME;10113479;ALLIANCE CENCORA;11110;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;476€;477€
+11/02/2026;Laura Luquin Franquet;KLORANE;AC010647;C001296;1002495;BOSCH GRANE MARTA;4.068€;2.034€;2.034€;23%;COACH;1;1;3;31%;Activo;Activo;HEFAME;10113479;ALLIANCE CENCORA;11110;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.034€;2.034€
+10/02/2026;Laura  Luquin Franquet;AVENE;AC010587;C002217;1013558;FRANCO PAMIES M TERESA;6.149€;3.074€;3.075€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;7827;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.074€;3.075€
+10/02/2026;Laura  Luquin Franquet;DUCRAY;AC010587;C002217;1013558;FRANCO PAMIES M TERESA;1.928€;964€;964€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;7827;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;964€;964€
+10/02/2026;Laura  Luquin Franquet;A-DERMA;AC010587;C002217;1013558;FRANCO PAMIES M TERESA;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;7827;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+10/02/2026;Laura  Luquin Franquet;DEXERYL;AC010587;C002217;1013558;FRANCO PAMIES M TERESA;544€;272€;272€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;7827;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;272€;272€
+10/02/2026;Laura  Luquin Franquet;AVENE;AC010568;C041870;1015356;FELIU RUIZ LIDIA;3.621€;1.811€;1.810€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;FEDEFARMA;02686;;;;;;;Ver PDF;1.811€;1.810€
+10/02/2026;Laura  Luquin Franquet;DUCRAY;AC010568;C041870;1015356;FELIU RUIZ LIDIA;1.662€;831€;831€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;FEDEFARMA;02686;;;;;;;Ver PDF;831€;831€
+10/02/2026;Laura  Luquin Franquet;A-DERMA;AC010568;C041870;1015356;FELIU RUIZ LIDIA;1.000€;500€;500€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;FEDEFARMA;02686;;;;;;;Ver PDF;500€;500€
+10/02/2026;Laura  Luquin Franquet;AVENE;AC010539;C042379;2000166;SUBURFARMA SL;2.858€;1.429€;1.429€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98333;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.429€;1.429€
+10/02/2026;Laura  Luquin Franquet;DUCRAY;AC010539;C042379;2000166;SUBURFARMA SL;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98333;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+10/02/2026;Laura  Luquin Franquet;A-DERMA;AC010539;C042379;2000166;SUBURFARMA SL;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98333;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+10/02/2026;Laura  Luquin Franquet;DEXERYL;AC010539;C042379;2000166;SUBURFARMA SL;500€;250€;250€;19%;ADA;0;1;2;24%;Activo;Activo;FEDEFARMA;S98333;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+09/02/2026;Laura  Luquin Franquet;AVENE;AC010466;C038043;7001671;FARMACIA MARQUINA PASCUAL CB;4.027€;2.014€;2.013€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;42591;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.014€;2.013€
+09/02/2026;Laura  Luquin Franquet;DUCRAY;AC010466;C038043;7001671;FARMACIA MARQUINA PASCUAL CB;1.656€;828€;828€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;42591;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;828€;828€
+09/02/2026;Laura  Luquin Franquet;A-DERMA;AC010466;C038043;7001671;FARMACIA MARQUINA PASCUAL CB;1.000€;500€;500€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;42591;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+09/02/2026;Laura  Luquin Franquet;DEXERYL;AC010466;C038043;7001671;FARMACIA MARQUINA PASCUAL CB;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;42591;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+09/02/2026;Laura  Luquin Franquet;AVENE;AC010450;C012197;1009253;GUILLEMI BASTE MERÇE;2.926€;1.463€;1.463€;19%;ADA;1;1;2;26%;Activo;Activo;HEFAME;10117493;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.463€;1.463€
+09/02/2026;Laura  Luquin Franquet;DUCRAY;AC010450;C012197;1009253;GUILLEMI BASTE MERÇE;1.072€;536€;536€;19%;ADA;1;1;2;26%;Activo;Activo;HEFAME;10117493;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;536€;536€
+09/02/2026;Laura  Luquin Franquet;DEXERYL;AC010450;C012197;1009253;GUILLEMI BASTE MERÇE;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;HEFAME;10117493;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+05/02/2026;Laura  Luquin Franquet;AVENE;AC010213;C038171;1003065;DE LAMA SALVADOR BEGOÑA;7.450€;3.725€;3.725€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S01870;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.725€;3.725€
+05/02/2026;Laura  Luquin Franquet;DUCRAY;AC010213;C038171;1003065;DE LAMA SALVADOR BEGOÑA;1.618€;809€;809€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S01870;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;809€;809€
+05/02/2026;Laura  Luquin Franquet;A-DERMA;AC010213;C038171;1003065;DE LAMA SALVADOR BEGOÑA;1.007€;503€;504€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S01870;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;503€;504€
+05/02/2026;Laura  Luquin Franquet;DEXERYL;AC010213;C038171;1003065;DE LAMA SALVADOR BEGOÑA;691€;346€;345€;15%;ADA;0;1;2;20%;Activo;Activo;FEDEFARMA;S01870;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;346€;345€
+05/02/2026;Laura  Luquin Franquet;AVENE;AC010208;C042964;1000930;FARMACIA DE L'ILLA CB;6.054€;3.027€;3.027€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S85429;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.027€;3.027€
+05/02/2026;Laura  Luquin Franquet;DUCRAY;AC010208;C042964;1000930;FARMACIA DE L'ILLA CB;1.134€;567€;567€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S85429;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;567€;567€
+05/02/2026;Laura  Luquin Franquet;DEXERYL;AC010208;C042964;1000930;FARMACIA DE L'ILLA CB;654€;327€;327€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S85429;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;327€;327€
+03/02/2026;Laura  Luquin Franquet;AVENE;AC009859;C047208;7004432;VAUCOULOUX ESQUE CRISTINA;2.000€;1.000€;1.000€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;19325;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.000€;1.000€
+03/02/2026;Laura  Luquin Franquet;A-DERMA;AC009859;C047208;7004432;VAUCOULOUX ESQUE CRISTINA;1.000€;500€;500€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;19325;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+02/02/2026;Laura  Luquin Franquet;DUCRAY;AC009770;C039016;7002635;MONTAÑANA PALOMO CB;1.000€;500€;500€;15%;ADA;0;0;0;15%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+02/02/2026;Laura  Luquin Franquet;AVENE;AC009766;C042266;7000916;RIO MARTINEZ HELENA;5.249€;2.624€;2.625€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S02216;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.624€;2.625€
+02/02/2026;Laura  Luquin Franquet;DUCRAY;AC009766;C042266;7000916;RIO MARTINEZ HELENA;1.565€;782€;783€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S02216;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;782€;783€
+02/02/2026;Laura  Luquin Franquet;DEXERYL;AC009766;C042266;7000916;RIO MARTINEZ HELENA;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;FEDEFARMA;S02216;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+02/02/2026;Laura  Luquin Franquet;AVENE;AC009714;C010203;1013945;PLANAS NOGUE GERAR;8.860€;4.430€;4.430€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;9146;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;4.430€;4.430€
+02/02/2026;Laura  Luquin Franquet;DUCRAY;AC009714;C010203;1013945;PLANAS NOGUE GERAR;1.702€;851€;851€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;9146;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;851€;851€
+02/02/2026;Laura  Luquin Franquet;A-DERMA;AC009714;C010203;1013945;PLANAS NOGUE GERAR;1.589€;794€;795€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;9146;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;794€;795€
+02/02/2026;Laura  Luquin Franquet;DEXERYL;AC009714;C010203;1013945;PLANAS NOGUE GERAR;572€;286€;286€;15%;ADA;1;1;2;22%;Activo;Activo;COFARES;9146;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;286€;286€
+02/02/2026;Laura  Luquin Franquet;AVENE;AC009681;C038802;1018053;MILLAN CONTRERAS MARTHA ISABEL;2.428€;1.214€;1.214€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;43707;HEFAME;10123297;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.214€;1.214€
+02/02/2026;Laura  Luquin Franquet;DUCRAY;AC009681;C038802;1018053;MILLAN CONTRERAS MARTHA ISABEL;1.598€;799€;799€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;43707;HEFAME;10123297;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;799€;799€
+02/02/2026;Laura  Luquin Franquet;A-DERMA;AC009681;C038802;1018053;MILLAN CONTRERAS MARTHA ISABEL;1.296€;648€;648€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;43707;HEFAME;10123297;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;648€;648€
+02/02/2026;Laura  Luquin Franquet;DEXERYL;AC009681;C038802;1018053;MILLAN CONTRERAS MARTHA ISABEL;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;43707;HEFAME;10123297;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+31/01/2026;Laura  Luquin Franquet;AVENE;AC009634;C014002;1007287;GARCIA BERGA ESTHER;7.792€;3.896€;3.896€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S00838;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.896€;3.896€
+31/01/2026;Laura  Luquin Franquet;DUCRAY;AC009634;C014002;1007287;GARCIA BERGA ESTHER;3.252€;1.626€;1.626€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S00838;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.626€;1.626€
+31/01/2026;Laura  Luquin Franquet;A-DERMA;AC009634;C014002;1007287;GARCIA BERGA ESTHER;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S00838;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+31/01/2026;Laura  Luquin Franquet;DEXERYL;AC009634;C014002;1007287;GARCIA BERGA ESTHER;581€;290€;291€;15%;ADA;0;1;2;20%;Activo;Activo;FEDEFARMA;S00838;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;290€;291€
+31/01/2026;Laura  Luquin Franquet;AVENE;AC009633;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;3.158€;1.579€;1.579€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.579€;1.579€
+31/01/2026;Laura  Luquin Franquet;DUCRAY;AC009633;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;2.401€;1.201€;1.200€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.201€;1.200€
+31/01/2026;Laura  Luquin Franquet;A-DERMA;AC009633;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;2.112€;1.056€;1.056€;23%;ADA;0;1;2;28%;Activo;Activo;FEDEFARMA;S98209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.056€;1.056€
+31/01/2026;Laura  Luquin Franquet;DEXERYL;AC009633;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;FEDEFARMA;S98209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+30/01/2026;Laura  Luquin Franquet;AVENE;AC009616;C045178;7004092;PEREZ-BONFILS LLAURADOR CLARA;5.436€;2.718€;2.718€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S98381;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.718€;2.718€
+30/01/2026;Laura  Luquin Franquet;DUCRAY;AC009616;C045178;7004092;PEREZ-BONFILS LLAURADOR CLARA;1.999€;999€;1.000€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S98381;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;999€;1.000€
+30/01/2026;Laura  Luquin Franquet;A-DERMA;AC009616;C045178;7004092;PEREZ-BONFILS LLAURADOR CLARA;1.933€;967€;966€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S98381;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;967€;966€
+30/01/2026;Laura  Luquin Franquet;DEXERYL;AC009616;C045178;7004092;PEREZ-BONFILS LLAURADOR CLARA;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S98381;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+30/01/2026;Laura  Luquin Franquet;AVENE;AC009579;C031411;7000759;BOMARI SL;11.949€;5.974€;5.975€;23%;ADA;1;1;2;30%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;5.974€;5.975€
+30/01/2026;Laura  Luquin Franquet;DUCRAY;AC009579;C031411;7000759;BOMARI SL;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+30/01/2026;Laura  Luquin Franquet;A-DERMA;AC009579;C031411;7000759;BOMARI SL;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+29/01/2026;Laura  Luquin Franquet;AVENE;AC009535;C034414;7001597;PRATFARMA SL;2.000€;1.000€;1.000€;19%;ADA;0;1;2;24%;Inactivo;Inactivo;;;;;;;;;Ver PDF;1.000€;1.000€
+29/01/2026;Laura  Luquin Franquet;A-DERMA;AC009535;C034414;7001597;PRATFARMA SL;1.000€;500€;500€;19%;ADA;0;1;2;24%;Inactivo;Inactivo;;;;;;;;;Ver PDF;500€;500€
+29/01/2026;Laura  Luquin Franquet;DEXERYL;AC009535;C034414;7001597;PRATFARMA SL;500€;250€;250€;19%;ADA;0;1;2;24%;Inactivo;Inactivo;;;;;;;;;Ver PDF;250€;250€
+29/01/2026;Laura  Luquin Franquet;AVENE;AC009478;C009763;1013617;URIZ FINA MERCEDES;3.053€;1.527€;1.526€;23%;ADA;0;1;2;28%;Activo;Activo;HEFAME;10110689;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.527€;1.526€
+29/01/2026;Laura  Luquin Franquet;DUCRAY;AC009478;C009763;1013617;URIZ FINA MERCEDES;3.108€;1.554€;1.554€;23%;ADA;0;1;2;28%;Activo;Activo;HEFAME;10110689;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.554€;1.554€
+29/01/2026;Laura  Luquin Franquet;A-DERMA;AC009478;C009763;1013617;URIZ FINA MERCEDES;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;HEFAME;10110689;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+29/01/2026;Laura  Luquin Franquet;DEXERYL;AC009478;C009763;1013617;URIZ FINA MERCEDES;500€;250€;250€;15%;ADA;0;1;2;20%;Activo;Activo;HEFAME;10110689;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+28/01/2026;Laura  Luquin Franquet;AVENE;AC009347;C041056;7003118;FARMACIA CENTRAL PRAT CB;2.000€;1.000€;1.000€;23%;ADA;0;0;2;25%;Inactivo;Inactivo;COFARES;39742;ALLIANCE CENCORA;9857;;;;;Ver PDF;1.000€;1.000€
+28/01/2026;Laura  Luquin Franquet;DUCRAY;AC009347;C041056;7003118;FARMACIA CENTRAL PRAT CB;1.878€;939€;939€;23%;ADA;0;0;2;25%;Inactivo;Inactivo;COFARES;39742;ALLIANCE CENCORA;9857;;;;;Ver PDF;939€;939€
+28/01/2026;Laura  Luquin Franquet;A-DERMA;AC009347;C041056;7003118;FARMACIA CENTRAL PRAT CB;3.489€;1.745€;1.744€;23%;ADA;0;0;2;25%;Inactivo;Inactivo;COFARES;39742;ALLIANCE CENCORA;9857;;;;;Ver PDF;1.745€;1.744€
+28/01/2026;Laura  Luquin Franquet;DEXERYL;AC009347;C041056;7003118;FARMACIA CENTRAL PRAT CB;704€;352€;352€;15%;ADA;1;1;2;22%;Inactivo;Inactivo;COFARES;39742;ALLIANCE CENCORA;9857;;;;;Ver PDF;352€;352€
+28/01/2026;Laura  Luquin Franquet;AVENE;AC009243;C042346;7003445;BARENYS DE LACHA CARMEN;7.121€;3.560€;3.561€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S24638;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.560€;3.561€
+28/01/2026;Laura  Luquin Franquet;DUCRAY;AC009243;C042346;7003445;BARENYS DE LACHA CARMEN;3.144€;1.572€;1.572€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S24638;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.572€;1.572€
+28/01/2026;Laura  Luquin Franquet;A-DERMA;AC009243;C042346;7003445;BARENYS DE LACHA CARMEN;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S24638;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+28/01/2026;Laura  Luquin Franquet;DEXERYL;AC009243;C042346;7003445;BARENYS DE LACHA CARMEN;577€;289€;288€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S24638;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;289€;288€
+27/01/2026;Laura  Luquin Franquet;AVENE;AC009214;C002617;1004877;BONET SERRANO JAUME;6.677€;3.338€;3.339€;15%;ADA;1;1;2;22%;Activo;Activo;COFARES;15838;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.338€;3.339€
+27/01/2026;Laura  Luquin Franquet;DEXERYL;AC009214;C002617;1004877;BONET SERRANO JAUME;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Activo;COFARES;15838;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+27/01/2026;Laura  Luquin Franquet;AVENE;AC009213;C003242;1005762;ALBALA HURTADO SOLEDAD;7.678€;3.839€;3.839€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10112112;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.839€;3.839€
+27/01/2026;Laura  Luquin Franquet;DUCRAY;AC009213;C003242;1005762;ALBALA HURTADO SOLEDAD;5.778€;2.889€;2.889€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10112112;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.889€;2.889€
+27/01/2026;Laura  Luquin Franquet;A-DERMA;AC009213;C003242;1005762;ALBALA HURTADO SOLEDAD;2.068€;1.034€;1.034€;23%;ADA;1;1;2;30%;Activo;Activo;HEFAME;10112112;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.034€;1.034€
+27/01/2026;Laura  Luquin Franquet;DEXERYL;AC009213;C003242;1005762;ALBALA HURTADO SOLEDAD;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;HEFAME;10112112;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+27/01/2026;Laura  Luquin Franquet;AVENE;AC009184;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;3.158€;1.579€;1.579€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;FEDEFARMA;71639;;;;;;;Ver PDF;1.579€;1.579€
+27/01/2026;Laura  Luquin Franquet;DUCRAY;AC009184;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;2.401€;1.201€;1.200€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;FEDEFARMA;71639;;;;;;;Ver PDF;1.201€;1.200€
+27/01/2026;Laura  Luquin Franquet;A-DERMA;AC009184;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;2.112€;1.056€;1.056€;23%;ADA;0;1;2;28%;Inactivo;Inactivo;FEDEFARMA;71639;;;;;;;Ver PDF;1.056€;1.056€
+27/01/2026;Laura  Luquin Franquet;DEXERYL;AC009184;C030081;1005912;PARAF ALTAFULLA PUIG DOMINGO SL;500€;250€;250€;15%;ADA;0;1;2;20%;Inactivo;Inactivo;FEDEFARMA;71639;;;;;;;Ver PDF;250€;250€
+27/01/2026;Laura  Luquin Franquet;AVENE;AC009101;C038955;1015257;SALAGRE MIRO VENECIA;2.626€;1.313€;1.313€;20%;ADA;1;1;2;27%;Activo;Activo;COFARES;43527;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.313€;1.313€
+27/01/2026;Laura  Luquin Franquet;DUCRAY;AC009101;C038955;1015257;SALAGRE MIRO VENECIA;2.256€;1.128€;1.128€;20%;ADA;1;1;2;27%;Activo;Activo;COFARES;43527;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.128€;1.128€
+27/01/2026;Laura  Luquin Franquet;DEXERYL;AC009101;C038955;1015257;SALAGRE MIRO VENECIA;658€;329€;329€;15%;ADA;1;1;2;22%;Activo;Activo;COFARES;43527;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;329€;329€
+27/01/2026;Laura  Luquin Franquet;AVENE;AC009078;C036117;7001713;THE WHITE FIRM SL;4.805€;2.402€;2.403€;20%;ADA;1;1;2;27%;Activo;Activo;COFARES;56545;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.402€;2.403€
+27/01/2026;Laura  Luquin Franquet;DUCRAY;AC009078;C036117;7001713;THE WHITE FIRM SL;3.824€;1.912€;1.912€;20%;ADA;1;1;2;27%;Activo;Activo;COFARES;56545;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.912€;1.912€
+27/01/2026;Laura  Luquin Franquet;DEXERYL;AC009078;C036117;7001713;THE WHITE FIRM SL;750€;375€;375€;15%;ADA;1;1;2;22%;Activo;Activo;COFARES;56545;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;375€;375€
+26/01/2026;Laura  Luquin Franquet;AVENE;AC009050;C041936;7001430;ORTOMI 2022 SLU;8.665€;4.333€;4.332€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;4.333€;4.332€
+26/01/2026;Laura  Luquin Franquet;DUCRAY;AC009050;C041936;7001430;ORTOMI 2022 SLU;1.086€;543€;543€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;543€;543€
+26/01/2026;Laura  Luquin Franquet;A-DERMA;AC009050;C041936;7001430;ORTOMI 2022 SLU;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+26/01/2026;Laura  Luquin Franquet;DEXERYL;AC009050;C041936;7001430;ORTOMI 2022 SLU;685€;343€;342€;19%;ADA;0;1;2;24%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;343€;342€
+23/01/2026;Laura  Luquin Franquet;AVENE;AC008867;C040596;1000321;PEREZ RUIZ ARANZAZU;3.785€;1.892€;1.893€;19%;ADA;0;1;2;24%;Activo;Activo;FEDEFARMA;S02123;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.892€;1.893€
+23/01/2026;Laura  Luquin Franquet;A-DERMA;AC008867;C040596;1000321;PEREZ RUIZ ARANZAZU;1.000€;500€;500€;19%;ADA;0;1;2;24%;Activo;Activo;FEDEFARMA;S02123;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+23/01/2026;Laura  Luquin Franquet;AVENE;AC008841;C035286;7000630;FARMAGRANVIA216 SL;18.492€;9.246€;9.246€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S98268;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;9.246€;9.246€
+23/01/2026;Laura  Luquin Franquet;DUCRAY;AC008841;C035286;7000630;FARMAGRANVIA216 SL;16.269€;8.135€;8.134€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S98268;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;8.135€;8.134€
+23/01/2026;Laura  Luquin Franquet;A-DERMA;AC008841;C035286;7000630;FARMAGRANVIA216 SL;7.764€;3.882€;3.882€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S98268;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.882€;3.882€
+23/01/2026;Laura  Luquin Franquet;DEXERYL;AC008841;C035286;7000630;FARMAGRANVIA216 SL;1.216€;608€;608€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S98268;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;608€;608€
+23/01/2026;Laura  Luquin Franquet;AVENE;AC008783;C003553;1006146;VILAPLANA I BATALLA MONTSE;2.178€;1.089€;1.089€;19%;ADA;0;0;2;21%;Activo;Activo;ALLIANCE CENCORA;61205;HEFAME;10108635;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.089€;1.089€
+23/01/2026;Laura  Luquin Franquet;DUCRAY;AC008783;C003553;1006146;VILAPLANA I BATALLA MONTSE;1.117€;559€;558€;19%;ADA;0;0;2;21%;Activo;Activo;ALLIANCE CENCORA;61205;HEFAME;10108635;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;559€;558€
+23/01/2026;Laura  Luquin Franquet;DEXERYL;AC008783;C003553;1006146;VILAPLANA I BATALLA MONTSE;552€;276€;276€;15%;ADA;1;0;2;19%;Activo;Activo;ALLIANCE CENCORA;61205;HEFAME;10108635;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;276€;276€
+22/01/2026;Laura  Luquin Franquet;DEXERYL;AC008768;C044729;7003990;IGLESIAS HUIX FRANCESCA;500€;250€;250€;19%;ADA;0;0;0;19%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+22/01/2026;Laura  Luquin Franquet;DUCRAY;AC008736;C004258;1007006;COGUL ARDEVOL BLANCA;1.643€;821€;822€;19%;ADA;1;1;2;26%;Activo;Activo;ALLIANCE CENCORA;5766;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;821€;822€
+22/01/2026;Laura  Luquin Franquet;A-DERMA;AC008736;C004258;1007006;COGUL ARDEVOL BLANCA;1.722€;861€;861€;19%;ADA;1;1;2;26%;Activo;Activo;ALLIANCE CENCORA;5766;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;861€;861€
+22/01/2026;Laura  Luquin Franquet;DEXERYL;AC008736;C004258;1007006;COGUL ARDEVOL BLANCA;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Activo;ALLIANCE CENCORA;5766;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+22/01/2026;Laura  Luquin Franquet;AVENE;AC008630;C006969;1018145;FONT SOLER PILAR;21.025€;10.513€;10.512€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;7663;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;10.513€;10.512€
+22/01/2026;Laura  Luquin Franquet;DUCRAY;AC008630;C006969;1018145;FONT SOLER PILAR;1.577€;788€;789€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;7663;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;788€;789€
+22/01/2026;Laura  Luquin Franquet;A-DERMA;AC008630;C006969;1018145;FONT SOLER PILAR;1.000€;500€;500€;23%;ADA;0;1;2;28%;Activo;Activo;ALLIANCE CENCORA;7663;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+22/01/2026;Laura  Luquin Franquet;DEXERYL;AC008630;C006969;1018145;FONT SOLER PILAR;748€;374€;374€;15%;ADA;0;1;2;20%;Activo;Activo;ALLIANCE CENCORA;7663;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;374€;374€
+21/01/2026;Laura  Luquin Franquet;AVENE;AC008553;C013545;1015764;CORREDERA SABARICH BEATRIU;3.156€;1.578€;1.578€;23%;ADA;1;0;2;27%;Activo;Activo;COFARES;16209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.578€;1.578€
+21/01/2026;Laura  Luquin Franquet;DUCRAY;AC008553;C013545;1015764;CORREDERA SABARICH BEATRIU;1.484€;742€;742€;23%;ADA;0;0;2;25%;Activo;Activo;COFARES;16209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;742€;742€
+21/01/2026;Laura  Luquin Franquet;A-DERMA;AC008553;C013545;1015764;CORREDERA SABARICH BEATRIU;1.000€;500€;500€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;16209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+21/01/2026;Laura  Luquin Franquet;DEXERYL;AC008553;C013545;1015764;CORREDERA SABARICH BEATRIU;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Activo;COFARES;16209;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+21/01/2026;Laura  Luquin Franquet;AVENE;AC008519;C037045;1014630;JUSTE DIEZ DE PINOS JOSE LUIS;4.138€;2.069€;2.069€;15%;ADA;0;0;2;17%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;2.069€;2.069€
+21/01/2026;Laura  Luquin Franquet;AVENE;AC008518;C021778;1011585;TORREGUITART-GUERRERO PALLI CB;7.932€;3.966€;3.966€;15%;ADA;0;0;2;17%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;3.966€;3.966€
+21/01/2026;Laura  Luquin Franquet;DEXERYL;AC008518;C021778;1011585;TORREGUITART-GUERRERO PALLI CB;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+21/01/2026;Laura  Luquin Franquet;AVENE;AC008448;C004352;1007141;JORBA CREMADES ANNA;5.525€;2.762€;2.763€;23%;ADA;1;0;2;27%;Activo;Activo;FEDEFARMA;S55368;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.762€;2.763€
+21/01/2026;Laura  Luquin Franquet;DUCRAY;AC008448;C004352;1007141;JORBA CREMADES ANNA;1.000€;500€;500€;23%;ADA;1;0;2;27%;Activo;Activo;FEDEFARMA;S55368;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+21/01/2026;Laura  Luquin Franquet;A-DERMA;AC008448;C004352;1007141;JORBA CREMADES ANNA;1.320€;660€;660€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S55368;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;660€;660€
+21/01/2026;Laura  Luquin Franquet;DEXERYL;AC008448;C004352;1007141;JORBA CREMADES ANNA;500€;250€;250€;15%;ADA;1;0;2;19%;Activo;Activo;FEDEFARMA;S55368;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+20/01/2026;Laura  Luquin Franquet;DUCRAY;AC008282;C043403;7003708;MASAGUE SANZ M CARMEN;1.082€;541€;541€;15%;ADA;0;0;0;15%;Activo;Activo;FEDEFARMA;S02082;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;541€;541€
+20/01/2026;Laura  Luquin Franquet;DEXERYL;AC008282;C043403;7003708;MASAGUE SANZ M CARMEN;500€;250€;250€;15%;ADA;0;0;0;15%;Activo;Activo;FEDEFARMA;S02082;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+19/01/2026;Laura  Luquin Franquet;AVENE;AC008223;C000407;1000583;MONTANER FERRE JOSE;7.043€;3.521€;3.522€;23%;ADA;0;0;2;25%;Activo;Activo;FEDEFARMA;S36301;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.521€;3.522€
+19/01/2026;Laura  Luquin Franquet;DUCRAY;AC008223;C000407;1000583;MONTANER FERRE JOSE;1.375€;688€;687€;23%;ADA;0;0;2;25%;Activo;Activo;FEDEFARMA;S36301;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;688€;687€
+19/01/2026;Laura  Luquin Franquet;A-DERMA;AC008223;C000407;1000583;MONTANER FERRE JOSE;1.302€;651€;651€;23%;ADA;0;0;2;25%;Activo;Activo;FEDEFARMA;S36301;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;651€;651€
+19/01/2026;Laura  Luquin Franquet;DEXERYL;AC008223;C000407;1000583;MONTANER FERRE JOSE;637€;319€;318€;19%;ADA;0;0;2;21%;Activo;Activo;FEDEFARMA;S36301;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;319€;318€
+19/01/2026;Laura  Luquin Franquet;AVENE;AC008200;C012197;1009253;GUILLEMI BASTE MERÇE;2.926€;1.463€;1.463€;19%;ADA;1;1;2;26%;Inactivo;Inactivo;HEFAME;10117493;;;;;;;Ver PDF;1.463€;1.463€
+19/01/2026;Laura  Luquin Franquet;DUCRAY;AC008200;C012197;1009253;GUILLEMI BASTE MERÇE;1.072€;536€;536€;19%;ADA;1;1;2;26%;Inactivo;Inactivo;HEFAME;10117493;;;;;;;Ver PDF;536€;536€
+19/01/2026;Laura  Luquin Franquet;DEXERYL;AC008200;C012197;1009253;GUILLEMI BASTE MERÇE;500€;250€;250€;15%;ADA;1;1;2;22%;Inactivo;Inactivo;HEFAME;10117493;;;;;;;Ver PDF;250€;250€
+19/01/2026;Laura  Luquin Franquet;AVENE;AC008146;C035087;7001754;TEAM PHARMA SL;4.188€;2.094€;2.094€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;2.094€;2.094€
+19/01/2026;Laura  Luquin Franquet;DUCRAY;AC008146;C035087;7001754;TEAM PHARMA SL;4.822€;2.411€;2.411€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;2.411€;2.411€
+19/01/2026;Laura  Luquin Franquet;A-DERMA;AC008146;C035087;7001754;TEAM PHARMA SL;1.561€;781€;780€;23%;ADA;0;1;2;28%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;781€;780€
+19/01/2026;Laura  Luquin Franquet;DEXERYL;AC008146;C035087;7001754;TEAM PHARMA SL;1.211€;605€;606€;15%;ADA;0;1;2;20%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;605€;606€
+18/01/2026;Laura  Luquin Franquet;AVENE;AC008067;C016210;1016689;DOMINGUEZ CEDAZO MARIA;3.318€;1.659€;1.659€;15%;ADA;1;0;2;19%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.659€;1.659€
+18/01/2026;Laura  Luquin Franquet;DUCRAY;AC008067;C016210;1016689;DOMINGUEZ CEDAZO MARIA;1.000€;500€;500€;15%;ADA;1;0;2;19%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+18/01/2026;Laura  Luquin Franquet;DEXERYL;AC008067;C016210;1016689;DOMINGUEZ CEDAZO MARIA;500€;250€;250€;15%;ADA;0;0;2;17%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+18/01/2026;Laura  Luquin Franquet;AVENE;AC008066;C021570;1008746;FARMACIA ZONA FRANCA C.B.;5.008€;2.504€;2.504€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;92257;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.504€;2.504€
+18/01/2026;Laura  Luquin Franquet;DUCRAY;AC008066;C021570;1008746;FARMACIA ZONA FRANCA C.B.;2.962€;1.481€;1.481€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;92257;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.481€;1.481€
+18/01/2026;Laura  Luquin Franquet;A-DERMA;AC008066;C021570;1008746;FARMACIA ZONA FRANCA C.B.;1.931€;965€;966€;23%;ADA;1;1;2;30%;Activo;Activo;ALLIANCE CENCORA;92257;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;965€;966€
+18/01/2026;Laura  Luquin Franquet;DEXERYL;AC008066;C021570;1008746;FARMACIA ZONA FRANCA C.B.;500€;250€;250€;19%;ADA;1;1;2;26%;Activo;Activo;ALLIANCE CENCORA;92257;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+18/01/2026;Laura  Luquin Franquet;AVENE;AC008065;C012286;1014911;NAZTILIA S L;7.588€;3.794€;3.794€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;4129;FEDEFARMA;S98318;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.794€;3.794€
+18/01/2026;Laura  Luquin Franquet;DUCRAY;AC008065;C012286;1014911;NAZTILIA S L;3.371€;1.685€;1.686€;19%;ADA;1;1;2;26%;Activo;Activo;COFARES;4129;FEDEFARMA;S98318;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.685€;1.686€
+18/01/2026;Laura  Luquin Franquet;A-DERMA;AC008065;C012286;1014911;NAZTILIA S L;1.178€;589€;589€;19%;ADA;0;1;2;24%;Activo;Activo;COFARES;4129;FEDEFARMA;S98318;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;589€;589€
+18/01/2026;Laura  Luquin Franquet;DEXERYL;AC008065;C012286;1014911;NAZTILIA S L;642€;321€;321€;15%;ADA;0;1;2;20%;Activo;Activo;COFARES;4129;FEDEFARMA;S98318;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;321€;321€
+17/01/2026;Laura  Luquin Franquet;AVENE;AC008064;C038682;1013319;FARMATEROS SL;12.548€;6.274€;6.274€;23%;ADA;1;1;2;30%;Activo;Inactivo;HEFAME;10122574;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;6.274€;6.274€
+17/01/2026;Laura  Luquin Franquet;DUCRAY;AC008064;C038682;1013319;FARMATEROS SL;6.542€;3.271€;3.271€;23%;ADA;1;1;2;30%;Activo;Inactivo;HEFAME;10122574;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;3.271€;3.271€
+17/01/2026;Laura  Luquin Franquet;A-DERMA;AC008064;C038682;1013319;FARMATEROS SL;1.970€;985€;985€;23%;ADA;1;0;2;27%;Activo;Inactivo;HEFAME;10122574;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;985€;985€
+17/01/2026;Laura  Luquin Franquet;DEXERYL;AC008064;C038682;1013319;FARMATEROS SL;500€;250€;250€;15%;ADA;1;0;2;19%;Activo;Inactivo;HEFAME;10122574;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+17/01/2026;Laura  Luquin Franquet;AVENE;AC008063;C003297;1004901;RIVERA ARNANDIS XAVIER;5.400€;2.700€;2.700€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;15447;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;2.700€;2.700€
+17/01/2026;Laura  Luquin Franquet;DUCRAY;AC008063;C003297;1004901;RIVERA ARNANDIS XAVIER;1.942€;971€;971€;23%;ADA;0;1;2;28%;Activo;Activo;COFARES;15447;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;971€;971€
+17/01/2026;Laura  Luquin Franquet;A-DERMA;AC008063;C003297;1004901;RIVERA ARNANDIS XAVIER;3.878€;1.939€;1.939€;23%;ADA;1;1;2;30%;Activo;Activo;COFARES;15447;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.939€;1.939€
+17/01/2026;Laura  Luquin Franquet;DEXERYL;AC008063;C003297;1004901;RIVERA ARNANDIS XAVIER;521€;260€;261€;15%;ADA;0;0;2;17%;Activo;Activo;COFARES;15447;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;260€;261€
+17/01/2026;Laura  Luquin Franquet;AVENE;AC008062;C005670;1008773;VIVES FERRER EULALIA;8.129€;4.065€;4.064€;23%;ADA;1;0;2;27%;Activo;Activo;FEDEFARMA;S39065;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;4.065€;4.064€
+17/01/2026;Laura  Luquin Franquet;DUCRAY;AC008062;C005670;1008773;VIVES FERRER EULALIA;1.701€;850€;851€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S39065;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;850€;851€
+17/01/2026;Laura  Luquin Franquet;A-DERMA;AC008062;C005670;1008773;VIVES FERRER EULALIA;1.734€;867€;867€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S39065;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;867€;867€
+17/01/2026;Laura  Luquin Franquet;DEXERYL;AC008062;C005670;1008773;VIVES FERRER EULALIA;567€;283€;284€;19%;ADA;1;1;2;26%;Activo;Activo;FEDEFARMA;S39065;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;283€;284€
+17/01/2026;Laura  Luquin Franquet;AVENE;AC008061;C039656;1006120;FARMACIA MEDRANO MAURI CB;7.799€;3.899€;3.900€;19%;ADA;1;1;2;26%;Activo;Activo;HEFAME;10123405;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.899€;3.900€
+17/01/2026;Laura  Luquin Franquet;DUCRAY;AC008061;C039656;1006120;FARMACIA MEDRANO MAURI CB;2.363€;1.181€;1.182€;19%;ADA;1;1;2;26%;Activo;Activo;HEFAME;10123405;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.181€;1.182€
+17/01/2026;Laura  Luquin Franquet;A-DERMA;AC008061;C039656;1006120;FARMACIA MEDRANO MAURI CB;1.000€;500€;500€;19%;ADA;1;1;2;26%;Activo;Activo;HEFAME;10123405;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+17/01/2026;Laura  Luquin Franquet;DEXERYL;AC008061;C039656;1006120;FARMACIA MEDRANO MAURI CB;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;HEFAME;10123405;;;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+17/01/2026;Laura  Luquin Franquet;AVENE;AC008060;C020018;1007991;DE DOU REALES BIBIANA;2.891€;1.445€;1.446€;23%;ADA;0;1;0;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;1.445€;1.446€
+17/01/2026;Laura  Luquin Franquet;DUCRAY;AC008060;C020018;1007991;DE DOU REALES BIBIANA;1.212€;606€;606€;23%;ADA;0;1;0;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;606€;606€
+17/01/2026;Laura  Luquin Franquet;A-DERMA;AC008060;C020018;1007991;DE DOU REALES BIBIANA;1.000€;500€;500€;23%;ADA;0;1;0;26%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;500€;500€
+17/01/2026;Laura  Luquin Franquet;DEXERYL;AC008060;C020018;1007991;DE DOU REALES BIBIANA;500€;250€;250€;15%;ADA;0;1;0;18%;Activo;Inactivo;;;;;;;;;Ver PDF Editar Mayoristas Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
+17/01/2026;Laura  Luquin Franquet;AVENE;AC008059;C031035;7000663;JANES CASALS MARIA;7.045€;3.523€;3.522€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S01312;HEFAME;10124676;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;3.523€;3.522€
+17/01/2026;Laura  Luquin Franquet;DUCRAY;AC008059;C031035;7000663;JANES CASALS MARIA;2.246€;1.123€;1.123€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S01312;HEFAME;10124676;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;1.123€;1.123€
+17/01/2026;Laura  Luquin Franquet;A-DERMA;AC008059;C031035;7000663;JANES CASALS MARIA;1.118€;559€;559€;23%;ADA;1;1;2;30%;Activo;Activo;FEDEFARMA;S01312;HEFAME;10124676;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;559€;559€
+17/01/2026;Laura  Luquin Franquet;DEXERYL;AC008059;C031035;7000663;JANES CASALS MARIA;500€;250€;250€;15%;ADA;1;1;2;22%;Activo;Activo;FEDEFARMA;S01312;HEFAME;10124676;;;;;Ver PDF Borrar Mayoristas
+                                     Anular Acuerdo;250€;250€
