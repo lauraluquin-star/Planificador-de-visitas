@@ -8,10 +8,13 @@ n_multi = sum(1 for f in data if f["n_pos"] > 1)
 n_ada_rojo = sum(1 for f in data if f["ada_estado"] == "NEGATIVA")
 n_ada_amarillo = sum(1 for f in data if f["ada_estado"] == "NEGATIVA_CONTROLADA")
 n_ada_verde = sum(1 for f in data if f["ada_estado"] == "POSITIVA")
-n_dex_rojo = sum(1 for f in data if f["dex_estado"] == "NEGATIVA")
-perdidos = [f for f in data if f["perdido"]]
-n_perdidos = len(perdidos)
-total_perdido = sum(f["perdida_ada"] + f["perdida_dex"] for f in perdidos)
+
+perdidos_ada = [f for f in data if f["perdido_ada"]]
+perdidos_dex = [f for f in data if f["perdido_dex"]]
+n_perdidos_ada = len(perdidos_ada)
+n_perdidos_dex = len(perdidos_dex)
+total_perdido_ada = sum(f["perdida_ada_valor"] for f in perdidos_ada)
+total_perdido_dex = sum(f["perdida_dex_valor"] for f in perdidos_dex)
 
 grupos = sorted(set(f["grupo"] for f in data if f["grupo"]))
 grupo_counts = {g: sum(1 for f in data if f["grupo"] == g) for g in grupos}
@@ -23,20 +26,35 @@ grupo_chips = "\n    ".join(
     f'<button class="chip-btn" data-grupo="{g}">{g} ({grupo_counts[g]})</button>' for g in grupos
 )
 
-perdidos_html = ""
-for f in sorted(perdidos, key=lambda x: -(x["perdida_ada"] + x["perdida_dex"])):
-    marcas_html = " · ".join(f'{m["marca"]}: {m["valor"]:,.0f} €'.replace(",", ".") for m in f["perdida_marcas"])
-    total_f = f["perdida_ada"] + f["perdida_dex"]
+def fmt_eur(v):
+    return f"{v:,.0f} €".replace(",", ".")
+
+perdidos_ada_html = ""
+for f in sorted(perdidos_ada, key=lambda x: -x["perdida_ada_valor"]):
+    marcas_html = " · ".join(f'{m["marca"]}: {fmt_eur(m["valor"])}' for m in f["perdida_ada_marcas"])
     pos_txt = " + ".join(f["pos_ids"])
-    perdidos_html += f"""
+    perdidos_ada_html += f"""
       <div class="perdido-row">
         <div class="perdido-head">
           <span class="perdido-nombre">{f["nombre"]}</span>
-          <span class="perdido-total">−{total_f:,.0f} €/año</span>
+          <span class="perdido-total">−{fmt_eur(f["perdida_ada_valor"])}/año</span>
         </div>
         <div class="perdido-sub">{f["poblacion"]} · {pos_txt}</div>
         <div class="perdido-marcas">{marcas_html}</div>
-      </div>""".replace(",", ".")
+      </div>"""
+
+perdidos_dex_html = ""
+for f in sorted(perdidos_dex, key=lambda x: -x["perdida_dex_valor"]):
+    pos_txt = " + ".join(f["pos_ids"])
+    ada_nota = "Pacto ADA sano" if f["ada_estado"] in ("POSITIVA", "NEGATIVA_CONTROLADA") else ("Pacto ADA también en rojo" if f["ada_estado"] == "NEGATIVA" else "")
+    perdidos_dex_html += f"""
+      <div class="perdido-row">
+        <div class="perdido-head">
+          <span class="perdido-nombre">{f["nombre"]}</span>
+          <span class="perdido-total">−{fmt_eur(f["perdida_dex_valor"])}/año</span>
+        </div>
+        <div class="perdido-sub">{f["poblacion"]} · {pos_txt} · {ada_nota}</div>
+      </div>"""
 
 html = f"""<title>Cartera de Farmacias</title>
 <style>
@@ -144,7 +162,8 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
     <div class="stat-card bad"><div class="stat-num">{n_ada_rojo}</div><div class="stat-label">ADA en rojo</div></div>
     <div class="stat-card warn"><div class="stat-num">{n_ada_amarillo}</div><div class="stat-label">ADA controlado</div></div>
     <div class="stat-card ok"><div class="stat-num">{n_ada_verde}</div><div class="stat-label">ADA positivo</div></div>
-    <div class="stat-card bad"><div class="stat-num">{n_perdidos}</div><div class="stat-label">Clientes perdidos</div></div>
+    <div class="stat-card bad"><div class="stat-num">{n_perdidos_ada}</div><div class="stat-label">ADA perdido (0€ real)</div></div>
+    <div class="stat-card bad"><div class="stat-num">{n_perdidos_dex}</div><div class="stat-label">Dexeryl perdido</div></div>
   </div>
 
   <div class="controls">
@@ -152,7 +171,7 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
     {grupo_chips}
     <button class="chip-btn" data-grupo="sin">Sin grupo ({n_sin_grupo})</button>
     <button class="chip-btn" data-filtro="rojo-ada">🔴 Solo ADA en rojo</button>
-    <button class="chip-btn perdidos" data-filtro="perdidos">⚫ Solo perdidos</button>
+    <button class="chip-btn perdidos" data-filtro="perdidos">⚫ Solo ADA perdido</button>
     <input id="buscar" type="text" placeholder="Buscar cliente o población…">
   </div>
 
@@ -170,15 +189,21 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
     </table>
   </div>
 
-  <div class="section-title">⚫ Clientes perdidos — qué facturaban y en qué marcas</div>
+  <div class="section-title">⚫ Pacto ADA perdido — 0 € reales, qué facturaban y en qué marca</div>
   <div class="perdidos-panel">
-    <div class="perdidos-intro">0 € reales este año (no N/D), con facturación real el año pasado. Total en riesgo en tu cartera: <strong style="color:var(--bad)">−{total_perdido:,.0f} €/año</strong>.</div>
-    {perdidos_html}
+    <div class="perdidos-intro">0 € reales este año en TODO el Pacto ADA (no N/D), con facturación real el año pasado. Total en riesgo: <strong style="color:var(--bad)">−{fmt_eur(total_perdido_ada)}/año</strong>.</div>
+    {perdidos_ada_html or '<div class="perdidos-intro">Ninguno en tu cartera ahora mismo.</div>'}
+  </div>
+
+  <div class="section-title">⚫ Dexeryl perdido — independiente del Pacto ADA</div>
+  <div class="perdidos-panel">
+    <div class="perdidos-intro">Ojo: estos clientes NO son "clientes perdidos" en general — muchos tienen el Pacto ADA sano, solo han dejado Dexeryl. Total en riesgo: <strong style="color:var(--bad)">−{fmt_eur(total_perdido_dex)}/año</strong>.</div>
+    {perdidos_dex_html or '<div class="perdidos-intro">Ninguno en tu cartera ahora mismo.</div>'}
   </div>
 
   <div class="footer-note">
     Sin objetivo de pacto por cliente (eso sale de la Ficha Cliente 2026, que solo tenemos para 2 clientes de ejemplo) — esta vista clasifica solo por evolución YTD vs. año anterior.<br>
-    🟢 evolución ≥ 0% · 🟡 entre 0% y −15% · 🔴 por debajo de −15% · ⚪ sin datos suficientes en el LOB
+    🟢 evolución ≥ 0% · 🟡 entre 0% y −15% · 🔴 por debajo de −15% · ⚪ sin datos suficientes en el LOB · Pacto ADA y Pacto Dexeryl nunca se mezclan
   </div>
 </div>
 
@@ -198,7 +223,7 @@ function semaforo(estado) {{
 
 let grupoActivo = 'todos';
 let soloRojoAda = false;
-let soloPerdidos = false;
+let soloPerdidosAda = false;
 let sortKey = 'ada_evol';
 let sortAsc = true;
 
@@ -210,7 +235,7 @@ function aplicaFiltros() {{
       if (grupoActivo !== 'sin' && f.grupo !== grupoActivo) return false;
     }}
     if (soloRojoAda && f.ada_estado !== 'NEGATIVA') return false;
-    if (soloPerdidos && !f.perdido) return false;
+    if (soloPerdidosAda && !f.perdido_ada) return false;
     if (q && !f.nombre.toLowerCase().includes(q) && !f.poblacion.toLowerCase().includes(q)) return false;
     return true;
   }});
@@ -230,7 +255,7 @@ function render(filas) {{
     const ada = estadoInfo(f.ada_estado, f.ada_evol);
     const dex = estadoInfo(f.dex_estado, f.dex_evol);
     const badge = f.n_pos > 1 ? `<span class="n-pos-badge">${{f.n_pos}} POS</span>` : '';
-    return `<tr class="${{f.perdido ? 'fila-perdida' : ''}}">
+    return `<tr class="${{f.perdido_ada ? 'fila-perdida' : ''}}">
       <td><div class="nombre-cell">${{f.nombre}}${{badge}}</div><div class="pobl-cell">${{f.poblacion}} · ${{f.pos_ids.join('+')}}</div></td>
       <td>${{f.grupo ? `<span class="grupo-tag">${{f.grupo}}</span>` : ''}}</td>
       <td class="estado-cell">${{semaforo(f.ada_estado)}} <span class="evol ${{ada.cls}}">${{ada.txt}}</span></td>
@@ -253,8 +278,8 @@ document.querySelector('.chip-btn[data-filtro="rojo-ada"]').addEventListener('cl
   aplicaFiltros();
 }});
 document.querySelector('.chip-btn[data-filtro="perdidos"]').addEventListener('click', function() {{
-  soloPerdidos = !soloPerdidos;
-  this.classList.toggle('activo', soloPerdidos);
+  soloPerdidosAda = !soloPerdidosAda;
+  this.classList.toggle('activo', soloPerdidosAda);
   aplicaFiltros();
 }});
 document.getElementById('buscar').addEventListener('input', aplicaFiltros);
