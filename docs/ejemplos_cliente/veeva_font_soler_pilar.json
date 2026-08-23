@@ -1,0 +1,54 @@
+{
+  "_nota": "Veeva real de Font Soler Pilar (C006969), capturas 'Customer Card' -> Pedidos -> Cantidad del pedido. Nivel marca y gama, unidades. Filas de material POS (stopper/tester/expositor/display/regleta/vinilo/pack-regalo) NO se cuentan como venta real -- se ven en las capturas pero se excluyen aqui a propósito.",
+  "periodo": "2025-07 a 2026-08 (YTD = año en curso hasta la fecha de la captura; TAM12M = últimos 12 meses)",
+  "marcas": {
+    "avene": {"ytd": 1439, "tam12m": 2535, "peso_ytd_pct": 70.61, "peso_12m_pct": 74.78},
+    "ducray": {"ytd": 114, "tam12m": 153, "peso_ytd_pct": 5.59, "peso_12m_pct": 4.51},
+    "dexeryl_pfd": {"ytd": 30, "tam12m": 54, "peso_ytd_pct": 1.47, "peso_12m_pct": 1.59},
+    "aderma": {"ytd": 85, "tam12m": 112, "peso_ytd_pct": 4.17, "peso_12m_pct": 3.30},
+    "klorane": {"ytd": 334, "tam12m": 482, "peso_ytd_pct": 16.39, "peso_12m_pct": 14.22, "nota": "excluido de todo calculo de negocio -- CLAUDE.md"},
+    "sin_identificar": {"ytd": 9, "tam12m": 20, "nota": "fila sin nombre visible en la captura, no asumido a qué marca pertenece"}
+  },
+  "gamas": {
+    "avene": {
+      "g039_tolerance_hydra10": {"ytd": 21, "tam12m": 30, "peso_ytd_pct": 1.46},
+      "aso_solaires": {"ytd": 319, "tam12m": 940, "peso_ytd_pct": 22.17},
+      "aar_soins_anti_rougeurs": {"ytd": 21, "tam12m": 27, "peso_ytd_pct": 1.46},
+      "ash_homme": {"ytd": 57, "tam12m": 78, "peso_ytd_pct": 3.96},
+      "aco_correcteurs_du_teint": {"ytd": 27, "tam12m": 36, "peso_ytd_pct": 1.88},
+      "ahy_hydrance": {"ytd": 57, "tam12m": 66, "peso_ytd_pct": 3.96},
+      "g034_dermabsolu": {"ytd": 41, "tam12m": 65, "peso_ytd_pct": 2.85},
+      "g036_hyaluron_activ": {"ytd": 86, "tam12m": 166, "peso_ytd_pct": 5.98},
+      "aph_tolerance": {"ytd": 27, "tam12m": 33, "peso_ytd_pct": 1.88},
+      "g029_xeracalm": {"ytd": 42, "tam12m": 69, "peso_ytd_pct": 2.92},
+      "asc_soins_corporels": {"ytd": 12, "tam12m": 15, "peso_ytd_pct": 0.83},
+      "acz_cicalfate": {"ytd": 246, "tam12m": 294, "peso_ytd_pct": 17.09},
+      "ass_soins_essentiels": {"ytd": 105, "tam12m": 153, "peso_ytd_pct": 7.30},
+      "g038_aoxitive": {"ytd": 15, "tam12m": 21, "peso_ytd_pct": 1.04},
+      "ase_acne": {"ytd": 81, "tam12m": 105, "peso_ytd_pct": 5.63},
+      "g031_cold_cream": {"ytd": 6, "tam12m": 131, "peso_ytd_pct": 0.42}
+    },
+    "ducray": {
+      "pel_etats_pelliculaires": {"ytd": 96, "tam12m": 129, "peso_ytd_pct": 84.21, "gama_canonica_probable": "ESTADOS DESCAMATIVOS (Kelual/Kertyol)"},
+      "din_peaux_atopiques": {"ytd": 6, "tam12m": 6, "peso_ytd_pct": 5.26, "gama_canonica_probable": "Dexyane / ECZEMAS / PIEL MUY SECA ATOPICA"},
+      "ccs_prurit": {"ytd": 12, "tam12m": 18, "peso_ytd_pct": 10.53, "gama_canonica_probable": "Sensinol / CUERO CABELLUDO SENSIBLE"},
+      "dcg_ap_capillaires": {"ytd": 0, "tam12m": 0, "peso_ytd_pct": 0.00, "oportunidad": true, "nota_spec": "CLAUDE.md sección 9: DCG-AP CAPILLAIRES ≠ Anticaída (son cosas distintas, no confundir)"}
+    },
+    "aderma": {
+      "g058_cytelium": {"ytd": 18, "tam12m": 24, "peso_ytd_pct": 21.18},
+      "exo_exomega": {"ytd": 58, "tam12m": 76, "peso_ytd_pct": 68.23},
+      "g057_dermalibour": {"ytd": 3, "tam12m": 6, "peso_ytd_pct": 3.53},
+      "sol_solaires": {"ytd": 6, "tam12m": 6, "peso_ytd_pct": 7.06, "gama_canonica_probable": "ADERMA PROTECT"},
+      "epi_epitheliale": {"ytd": 0, "tam12m": 0, "peso_ytd_pct": 0.00, "oportunidad": true},
+      "sla_les_indispensables": {"ytd": 0, "tam12m": 0, "peso_ytd_pct": 0.00, "oportunidad": true}
+    },
+    "dexeryl_pfd": {
+      "emo_emollient": {"ytd": 30, "tam12m": 54, "peso_ytd_pct": 100.00}
+    }
+  },
+  "oportunidades_detectadas": [
+    {"marca": "Ducray", "gama_veeva": "DCG-AP CAPILLAIRES", "regla": "0 YTD y 0 TAM12M -> oportunidad real (spec sección 10)"},
+    {"marca": "A-Derma", "gama_veeva": "EPI-EPITHELIALE", "regla": "0 YTD y 0 TAM12M -> oportunidad real"},
+    {"marca": "A-Derma", "gama_veeva": "SLA-LES INDISPENSABLES", "regla": "0 YTD y 0 TAM12M -> oportunidad real"}
+  ]
+}

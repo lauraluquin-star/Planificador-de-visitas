@@ -1,0 +1,65 @@
+{
+  "_nota": "Condiciones reales de descuento por tramo de unidades, extraídas de CHULETA_ADA_C3.pdf y CHULETA_TRANSVERSAL_C3.pdf. Se suman/combinan con el % Descuento Pacto de la Ficha Cliente (Avène 23%, Ducray 23%, A-Derma 23%, Dexeryl 15%) -- estas son condiciones de CAMPAÑA del ciclo 3, no el descuento base del pacto.",
+  "avene_antiedad_hyaluron_activ_procedure": {
+    "tramos": [
+      {"nivel": "SILVER", "uds_inmediato": 6, "uds_novedades": "6+6", "descuento_pct": 28, "muestras": 10, "promo_black_friday": true, "promo_navidad": false},
+      {"nivel": "GOLD", "uds_inmediato": 9, "uds_novedades": "9+9", "descuento_pct": 28, "muestras": 20, "promo_black_friday": true, "promo_navidad": true}
+    ],
+    "black_friday": {"descuento_pct": 20, "vigencia": "16-30 noviembre", "excluye": ["novedades", "packs"]},
+    "navidad": {"descuento_pct": 15, "vigencia": "15 diciembre - 15 enero", "excluye": ["novedades", "packs"]}
+  },
+  "avene_ducray_aderma_acne_cleanance_keracnyl": {
+    "descuento_1ud_pct": 15,
+    "vigencia": "1 septiembre - 30 octubre",
+    "incluye": "higiene",
+    "excluye": ["packs", "novedades"],
+    "incentivo_heroe_vendido_eur": 3,
+    "cleanance_novedad_septiembre": {"uds": 6, "combinado_peeling_comedomed_gel400_uds": 12, "descuento_pct": "26/32"}
+  },
+  "atopia_exomega_xeracalm_dexyane": {
+    "_nota": "Tramos combinados entre las 3 marcas -- Exomega (A-Derma) + XeraCalm (Avène) + Dexyane (Ducray) cuentan juntas para el tramo.",
+    "tramos": [
+      {"uds": 36, "descuento_pct": "20/32", "promo_julio": true, "incentivo_julio": "si con 3uds crema noche"},
+      {"uds": 48, "descuento_pct": "23/32", "promo_julio": true, "incentivo_julio": "si con 3uds crema noche"},
+      {"uds": 60, "descuento_pct": "26/32", "promo_julio": true, "incentivo_julio": "si con 3uds crema noche"}
+    ]
+  },
+  "avene_cicalfate": {
+    "tramos": [
+      {"uds": 24, "descuento_pct": 24},
+      {"uds": 48, "descuento_pct": 26}
+    ]
+  },
+  "avene_cuidados_esenciales": {"condicion": "12+6 micelar, 12uds resto 26% dto (mantenidas de ciclo 2)"},
+  "avene_hydrance": {"condicion": "desde 12 packs, 26% solo en los packs"},
+  "avene_manos_labios_cold_cream": {"condicion": "desde 24 duplos, 28% dto en todo"},
+  "ducray_anticaida": {
+    "tramos": [
+      {"uds": 12, "descuento_base_pct": 24, "extra_3_anacaps_pct": 4, "total_pct": 28, "dto_consumidor_20pct": true, "incentivo_5eur": false},
+      {"uds": 15, "descuento_base_pct": 26, "extra_3_anacaps_pct": 4, "total_pct": 30, "dto_consumidor_20pct": true, "incentivo_5eur": true}
+    ],
+    "condicion_extra": "exigible 3+3 de Anacaps Reactive (Directo + Campaña) para aplicar el extra",
+    "campana_20pct_capilar_atc": {"vigencia": "1-31 julio"},
+    "campana_20pct_anticaida": {"vigencia": "1 sept - 31 oct"},
+    "incentivo_3eur_sept_oct": true
+  },
+  "ducray_keracnyl": {
+    "incentivo_3eur_ud": {"vigencia": ["julio", "septiembre"], "aplica": "toda la gama Keracnyl"},
+    "descuento_dermolab_pedido": "30% en pedidos con combinacion limpieza+facial+corporal (ver hoja pedido)"
+  },
+  "dexeryl_dexeclear": {
+    "tramos": [
+      {"novedad": "3+3", "descuento_dexeryl_pct": 24, "descuento_dexeclear_pct": 24},
+      {"novedad": "6+6", "descuento_dexeryl_pct": 26, "descuento_dexeclear_pct": 26}
+    ]
+  },
+  "avene_solar": {
+    "reposicion_desde_uds": 24,
+    "descuento_consumidor_20pct_septiembre_2026": true,
+    "nota": "ver también HOJA_DE_PEDIDO_REPOSICION_SOLAR_2026.pdf para el listado completo de productos"
+  },
+  "incentivos_delegado_no_afectan_precio_cliente": {
+    "_nota": "Estos NO son descuentos del pedido del cliente -- son bonus para el delegado/coach, no se aplican al pedido propuesto.",
+    "ejemplos": ["10€ por pedido cerrado (BURST)", "3€/ud héroe vendido", "10€ Black Friday equipo"]
+  }
+}

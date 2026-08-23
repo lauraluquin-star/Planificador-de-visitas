@@ -1,0 +1,67 @@
+{
+  "_nota": "Segunda Ficha Cliente 2026 real (captura de portal Pierre Fabre), distinta de Font Soler Pilar -- sirve para validar que el modelo generaliza entre clientes. Transcrita a mano, sin inventar ningun dato.",
+  "cliente": {
+    "pos_id": "C046778",
+    "nombre": "SIMON BONET MARIA ASUNCION",
+    "provincia": "GIRONA",
+    "telefono": "972204273",
+    "direccion": "CL CREU 42 (FCIA)",
+    "potencial_iqvia": null,
+    "gpv": "NULL"
+  },
+  "resumen_marca": {
+    "_nota": "Fact. YTM 2025 sale a 0 en todas las marcas pese a que Fact.2025 (año completo) es real -- N/D de esta captura, no un cero real.",
+    "total_general": {"fact_2025": 2873, "fact_ytm_2025": "ND", "fact_ytm_2026": 5193, "evol_pct": null},
+    "avene_sin_solar": {"fact_2025": 1159, "fact_ytm_2025": "ND", "fact_ytm_2026": 2415},
+    "avene_solar": {"fact_2025": 0, "fact_ytm_2025": "ND", "fact_ytm_2026": 861},
+    "ducray": {"fact_2025": 542, "fact_ytm_2025": "ND", "fact_ytm_2026": 947},
+    "aderma": {"fact_2025": 230, "fact_ytm_2025": "ND", "fact_ytm_2026": 569},
+    "dexeryl": {"fact_2025": 120, "fact_ytm_2025": "ND", "fact_ytm_2026": 402},
+    "klorane": {"fact_2025": 449, "fact_ytm_2025": "ND", "fact_ytm_2026": 0, "nota": "apertura 2025 en 2026"},
+    "furterer": {"fact_2025": 375, "fact_ytm_2025": "ND", "fact_ytm_2026": 0, "nota": "apertura 2025 en 2026"}
+  },
+  "klorane_adelantada": 449,
+  "descuento_campana_solar_2026_pct": 28,
+  "aperturas_2025_en_2026": ["FURTERER", "KLORANE"],
+  "gamas_prioritarias_unidades": {
+    "avene": {
+      "solares_avene": {"uds_2025": null, "uds_2025_ytm": null, "uds_2026_ytm": 58},
+      "antiedad_facial": {"uds_2025": 12, "uds_2025_ytm": null, "uds_2026_ytm": 28},
+      "acne_avene": {"uds_2025": 18, "uds_2026_ytm": 39},
+      "atopia_avene": {"uds_2025": 6, "uds_2026_ytm": 9},
+      "cicalfate": {"uds_2025": 48, "uds_2026_ytm": 35},
+      "hydrance": {"uds_2025": 4, "uds_2026_ytm": 15}
+    },
+    "ducray": {
+      "acne_ducray": {"uds_2025": 1, "uds_2026_ytm": null},
+      "anticaida_cabello": {"uds_2025": 12, "uds_2026_ytm": 7},
+      "anticaspa": {"uds_2025": 17, "uds_2026_ytm": 49},
+      "atopia_ducray": {"uds_2025": null, "uds_2026_ytm": 3}
+    },
+    "aderma": {
+      "acne_aderma": {"uds_2025": null, "uds_2026_ytm": -2, "nota": "negativo -- probable devolucion, se conserva tal cual"},
+      "atopia_aderma": {"uds_2025": 15, "uds_2026_ytm": 40},
+      "sos": {"uds_2025": 6, "uds_2026_ytm": 6}
+    },
+    "klorane": {"anticaida_cabello": {"uds_2025": 25}},
+    "furterer": {"anticaida_cabello": {"uds_2025": 10}, "complementos_nutricionales": {"uds_2025": 3}}
+  },
+  "evolucion_pacto": {
+    "_nota": "Nunca incluye Klorane ni Furterer en esta tabla -- confirmado tambien en este cliente.",
+    "avene": {"fact_a1_colectivo": 7781, "fact_a_colectivo": 5692, "evol_a_colectivo_pct": -27, "obj_15pct_a_colectivo": 8948, "falta_para_obj_15pct_colectivo": 3256, "fact_a1_marca": 5261, "fact_a_marca": 3879, "evol_a_marca_pct": -26, "falta_para_obj_a_marca": 1383, "pct_rfa_marca": 0, "rfa_marca": 0},
+    "ducray": {"fact_a1_colectivo": 7781, "fact_a_colectivo": 5692, "evol_a_colectivo_pct": -27, "obj_15pct_a_colectivo": 8948, "falta_para_obj_15pct_colectivo": 3256, "fact_a1_marca": 1573, "fact_a_marca": 1047, "evol_a_marca_pct": -33, "falta_para_obj_a_marca": 525, "pct_rfa_marca": 0, "rfa_marca": 0},
+    "aderma": {"fact_a1_colectivo": 7781, "fact_a_colectivo": 5692, "evol_a_colectivo_pct": -27, "obj_15pct_a_colectivo": 8948, "falta_para_obj_15pct_colectivo": 3256, "fact_a1_marca": 947, "fact_a_marca": 766, "evol_a_marca_pct": -19, "falta_para_obj_a_marca": 181, "pct_rfa_marca": 0, "rfa_marca": 0},
+    "dexeryl": {"fact_a1_colectivo": 573, "fact_a_colectivo": 402, "evol_a_colectivo_pct": -30, "obj_15pct_a_colectivo": 659, "falta_para_obj_15pct_colectivo": 257, "fact_a1_marca": 573, "fact_a_marca": 402, "evol_a_marca_pct": -30, "falta_para_obj_a_marca": 171, "pct_rfa_marca": 0, "rfa_marca": 0}
+  },
+  "pct_descuento_pacto": {"aderma": 23, "avene": 23, "dexeryl": 15, "ducray": 23},
+  "muestras_2025": {"klorane": 10, "furterer": 10},
+  "abonos_eur": {"avene": {"2025": 60, "2026": 244}, "ducray": {"2025": 6, "2026": null}, "aderma": {"2025": 16, "2026": null}},
+  "bonificaciones_eur": {"avene": {"2025": 66, "2026": 223}, "ducray": {"2025": null, "2026": 28}, "aderma": {"2025": 12, "2026": 25}, "dexeryl": {"2025": null, "2026": 18}},
+  "assortment_check_pacto": {
+    "avene": {"tramo1": {"n_heroes": 16, "pct_rfa": 0}, "tramo2": {"n_heroes": 9, "pct_rfa": 0}, "tramo3": {"n_heroes": 13, "pct_rfa": 0}, "tramo4": {"n_heroes": 13, "pct_rfa": 0}},
+    "ducray": {"tramo1": {"n_heroes": 8, "pct_rfa": 0}, "tramo2": {"n_heroes": 5, "pct_rfa": 3}, "tramo3": {"n_heroes": 5, "pct_rfa": 3}, "tramo4": {"n_heroes": 5, "pct_rfa": 3}},
+    "aderma": {"tramo1": {"n_heroes": 2, "pct_rfa": 0}, "tramo2": {"n_heroes": 1, "pct_rfa": 0}, "tramo3": {"n_heroes": 1, "pct_rfa": 0}, "tramo4": {"n_heroes": 1, "pct_rfa": 0}},
+    "klorane": {"tramo1": {"n_heroes": 1, "pct_rfa": 0}, "tramo2": {"n_heroes": 2, "pct_rfa": 0}, "tramo3": {"n_heroes": 3, "pct_rfa": 0}, "tramo4": {"n_heroes": 4, "pct_rfa": 0}},
+    "furterer": {"tramo1": {"n_heroes": 4, "pct_rfa": 0}, "tramo2": {"n_heroes": 3, "pct_rfa": 0}, "tramo3": {"n_heroes": 3, "pct_rfa": 0}, "tramo4": {"n_heroes": 3, "pct_rfa": 0}}
+  }
+}
