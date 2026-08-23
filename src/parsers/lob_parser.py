@@ -124,11 +124,10 @@ class PactoAgregado:
 
 @dataclass
 class ClienteLOB:
-    coach: str
-    dnv: str
-    dr: str
+    nombre_dnv: str
+    nombre_dr: str
     sales_unit: str
-    delegado_nombre: str
+    delegado_nombre: str  # el "coach" real -- así se llama en COMPAR, para cruzar por este campo, no por nombre_dnv
     delegado_lob_code: str
     pos_id: str
     nombre_cliente: str
@@ -177,9 +176,8 @@ def _parse_fila(row: list[str]) -> ClienteLOB:
         marcas[nombre_marca] = MedidaMarca(*valores, estado=estado)
 
     cliente = ClienteLOB(
-        coach=row[0],
-        dnv=row[1],
-        dr=row[1],
+        nombre_dnv=row[0],
+        nombre_dr=row[1],
         sales_unit=row[2],
         delegado_nombre=row[3],
         delegado_lob_code=row[4],
