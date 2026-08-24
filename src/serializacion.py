@@ -9,20 +9,20 @@ from __future__ import annotations
 from src.engine.comparacion import ResumenCliente, PuntoVentaConsolidado, pos_ids_vivos_de
 from src.parsers.lob_parser import MARCAS_ADA
 
-MARCAS_EXPORT = MARCAS_ADA + ["dexeryl"]
+# Marcas a mostrar en el desglose de la ficha -- deliberadamente MÁS que MARCAS_ADA: se muestra
+# también avene_solar (su propia evolución real), aunque no cuenta para el Pacto ADA (confirmado
+# por la usuaria y por un Acuerdo Comercial 2026 real: Avène Solar corre como campaña aparte, no
+# aparece en el "Ambición de desarrollo" ni en descuentos/rapeles/héroes del pacto).
+MARCAS_EXPORT = MARCAS_ADA + ["avene_solar", "dexeryl"]
 NOMBRE_MARCA = {
     "avene_sin_solar": "Avène (sin solar)",
-    "avene_solar": "Avène Solar",
+    "avene_solar": "Avène Solar (aparte del Pacto ADA)",
     "ducray": "Ducray",
     "aderma": "A-Derma",
     "dexeryl": "Dexeryl",
 }
 
-# La marca "AVENE" del Listado de Acuerdos Comerciales es Avène SIN solar (confirmado por la
-# usuaria, delegada real) -- Avène Solar no entra en ese objetivo. Ver también nota de
-# src/parsers/lob_parser.py sobre MARCAS_ADA: sigue pendiente decidir si además debe excluirse de
-# la propia facturación de Pacto ADA usada para evolución/gap, o si solo el objetivo pactado excluye
-# solar mientras la evolución del pacto sí la incluye -- no cambiar esa pieza sin confirmarlo.
+# La marca "AVENE" del Listado de Acuerdos Comerciales es Avène SIN solar -- igual que MARCAS_ADA.
 MARCA_COMERCIAL_A_CLAVES_LOB = {
     "AVENE": ["avene_sin_solar"],
     "DUCRAY": ["ducray"],

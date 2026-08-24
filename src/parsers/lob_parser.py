@@ -18,6 +18,11 @@ Reglas de negocio aplicadas (ver CLAUDE.md y docs/00_SPEC_MAESTRA.md):
 - Klorane/Furterer/Hermesetas/Cysticlean/Meme se modelan como PACTO_KF independiente: se parsean y
   guardan igual que ADA/Dexeryl, pero el motor de negocio actual no debe usarlos para calcular
   objetivos, gaps ni recomendaciones (CLAUDE.md: "Klorane NUNCA se usa para calcular...").
+- Avène Solar NUNCA entra en el Pacto ADA: confirmado por la usuaria (delegada real) y por un
+  Acuerdo Comercial 2026 real (C006969) que fija la "Ambición de desarrollo" (Avène+Ducray+A-Derma)
+  sin una sola mención a solar en descuentos, rapeles ni héroes -- Avène Solar se ejecuta como
+  campaña propia, aparte. Se sigue parseando (avene_solar) para poder mostrar su propia evolución,
+  pero MARCAS_ADA no la incluye: no suma en pacto_ada, evolución, semáforo ni detección de pérdida.
 - Identidad física del punto de venta = dirección + código postal + población (nunca solo el POS-Id,
   que puede cambiar -- sección 7 de la spec).
 """
@@ -51,7 +56,7 @@ MARCA_BLOQUES = {
 
 METRICAS = ["importe_neto_2025", "objetivo_2026_lob_referencia", "importe_neto_ytd1", "importe_neto_ytd", "evol_ytd_pct"]
 
-MARCAS_ADA = ["avene_sin_solar", "avene_solar", "ducray", "aderma"]
+MARCAS_ADA = ["avene_sin_solar", "ducray", "aderma"]  # avene_solar NUNCA entra aquí -- ver docstring
 MARCAS_KF = ["furterer", "klorane", "hermesetas", "cysticlean", "meme"]
 
 
