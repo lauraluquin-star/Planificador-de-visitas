@@ -358,11 +358,13 @@ function combinaPacto(rows, prefijo) {{
 
 const MARCAS_ORDEN = [
   ['avene_sin_solar', 'Avène (sin solar)'],
-  ['avene_solar', 'Avène Solar'],
+  ['avene_solar', 'Avène Solar (aparte del Pacto ADA)'],
   ['ducray', 'Ducray'],
   ['aderma', 'A-Derma'],
   ['dexeryl', 'Dexeryl'],
 ];
+// avene_solar no tiene objetivo pactado propio -- corre aparte del Pacto ADA (ver src/parsers/lob_parser.py).
+const MARCA_LOB_A_COMERCIAL = {{avene_sin_solar: 'AVENE', ducray: 'DUCRAY', aderma: 'A-DERMA', dexeryl: 'DEXERYL'}};
 
 function combinaMarca(rows, marcaKey) {{
   const ytdVals = rows.map(f => f.marcas && f.marcas[marcaKey] ? f.marcas[marcaKey].ytd : null).filter(v => v !== null && v !== undefined);
@@ -421,7 +423,18 @@ function actualizaSeleccionBar() {{
   document.getElementById('sel-marcas').innerHTML = MARCAS_ORDEN.map(([key, label]) => {{
     const m = combinaMarca(seleccionadas, key);
     const info = estadoInfo(m.estado, m.evol);
-    return `<div class="sel-marca-item"><span class="nombre-marca">${{label}}</span><span>${{fmtEur(m.ytd1)}} → ${{fmtEur(m.ytd)}} <b class="evol ${{info.cls}}">${{info.txt}}</b></span></div>`;
+    const claveComercial = MARCA_LOB_A_COMERCIAL[key];
+    let faltaTxt = '';
+    if (claveComercial) {{
+      const conObj = seleccionadas.filter(f => f.objetivo_por_marca[claveComercial] !== null);
+      if (conObj.length > 0) {{
+        const obj = conObj.reduce((a, f) => a + f.objetivo_por_marca[claveComercial], 0);
+        const ytd = conObj.reduce((a, f) => a + (f.marcas[key].ytd || 0), 0);
+        const falta = obj - ytd;
+        faltaTxt = ` · objetivo ${{fmtEur(obj)}} (${{conObj.length}}/${{seleccionadas.length}}), ${{falta > 0 ? 'falta ' + fmtEur(falta) : 'cumplido +' + fmtEur(-falta)}}`;
+      }}
+    }}
+    return `<div class="sel-marca-item"><span class="nombre-marca">${{label}}</span><span>${{fmtEur(m.ytd1)}} → ${{fmtEur(m.ytd)}} <b class="evol ${{info.cls}}">${{info.txt}}</b>${{faltaTxt}}</span></div>`;
   }}).join('');
 }}
 
@@ -486,8 +499,6 @@ function render(filas) {{
   }}
 }}
 
-const MARCA_COMERCIAL_LABEL = {{AVENE: 'Avène (sin solar)', DUCRAY: 'Ducray', 'A-DERMA': 'A-Derma', DEXERYL: 'Dexeryl'}};
-
 function evolucionSimple(ytd, ytd1) {{
   if (ytd === null || ytd === undefined || ytd1 === null || ytd1 === undefined) return {{estado: 'SIN_DATOS', evol: null}};
   let evol;
@@ -521,12 +532,20 @@ function renderFicha(f) {{
     const m = f.marcas[key];
     const {{estado, evol}} = evolucionSimple(m.ytd, m.ytd1);
     const info = estadoInfo(estado, evol);
-    return `<tr><td class="nombre-marca-cell">${{label}}</td><td class="num">${{fmtEur(m.ytd1)}}</td><td class="num">${{fmtEur(m.ytd)}}</td><td class="num"><span class="evol ${{info.cls}}">${{info.txt}}</span></td></tr>`;
-  }}).join('');
-
-  const objetivoMarcasFilas = Object.keys(MARCA_COMERCIAL_LABEL).map(key => {{
-    const obj = f.objetivo_por_marca[key];
-    return `<div class="sel-marca-item"><span class="nombre-marca">${{MARCA_COMERCIAL_LABEL[key]}}</span><span>${{obj !== null ? 'objetivo ' + fmtEur(obj) : 'sin acuerdo Activo'}}</span></div>`;
+    const claveComercial = MARCA_LOB_A_COMERCIAL[key];
+    const objetivo = claveComercial ? f.objetivo_por_marca[claveComercial] : null;
+    let celdaObjetivo, celdaFalta;
+    if (objetivo === null || objetivo === undefined) {{
+      celdaObjetivo = '<span style="color:var(--ink-soft)">—</span>';
+      celdaFalta = claveComercial ? '<span style="color:var(--ink-soft)">sin acuerdo Activo</span>' : '<span style="color:var(--ink-soft)">aparte del pacto</span>';
+    }} else {{
+      const falta = objetivo - (m.ytd || 0);
+      const faltaTxt = falta > 0 ? `${{fmtEur(falta)}} para llegar` : `cumplido (+${{fmtEur(-falta)}})`;
+      const faltaCls = falta > 0 ? 'neg' : 'pos';
+      celdaObjetivo = fmtEur(objetivo);
+      celdaFalta = `<span class="evol ${{faltaCls}}">${{faltaTxt}}</span>`;
+    }}
+    return `<tr><td class="nombre-marca-cell">${{label}}</td><td class="num">${{fmtEur(m.ytd1)}}</td><td class="num">${{fmtEur(m.ytd)}}</td><td class="num"><span class="evol ${{info.cls}}">${{info.txt}}</span></td><td class="num">${{celdaObjetivo}}</td><td class="num">${{celdaFalta}}</td></tr>`;
   }}).join('');
 
   let perdidaHtml = '';
@@ -557,15 +576,11 @@ function renderFicha(f) {{
     </div>
     ${{perdidaHtml}}
     <div>
-      <div class="ficha-pacto-nombre" style="margin-bottom:6px;">Desglose por marca (LOB)</div>
+      <div class="ficha-pacto-nombre" style="margin-bottom:6px;">Desglose y objetivo por marca</div>
       <table class="ficha-marcas-tabla">
-        <thead><tr><th>Marca</th><th class="num">2025 (YTD-1)</th><th class="num">2026 (YTD)</th><th class="num">Evolución</th></tr></thead>
+        <thead><tr><th>Marca</th><th class="num">2025 (YTD-1)</th><th class="num">2026 (YTD)</th><th class="num">Evolución</th><th class="num">Objetivo</th><th class="num">Falta para objetivo</th></tr></thead>
         <tbody>${{marcasFilas}}</tbody>
       </table>
-    </div>
-    <div>
-      <div class="ficha-pacto-nombre" style="margin-bottom:6px;">Objetivo pactado por marca comercial</div>
-      <div class="sel-marcas" style="border-top:none; padding-top:0;">${{objetivoMarcasFilas}}</div>
     </div>
     ${{veevaHtml}}
   `;
