@@ -1,5 +1,8 @@
 {
   "_nota": "Veeva real de Font Soler Pilar (C006969), capturas 'Customer Card' -> Pedidos -> Cantidad del pedido. Nivel marca y gama, unidades. Filas de material POS (stopper/tester/expositor/display/regleta/vinilo/pack-regalo) NO se cuentan como venta real -- se ven en las capturas pero se excluyen aqui a propósito.",
+  "_gamas_pendientes_captura": {
+    "ducray_anticaida": "La delegada identifica Anticaída (Ducray) como la gran oportunidad real de este cliente (no compra en esta gama) -- pero no está entre las capturas Veeva disponibles, así que NO se marca como oportunidad verificada (spec sección 10: 0 YTD y 0 TAM12M deben venir de Veeva real, nunca inferirse). Nota: DCG-AP CAPILLAIRES (sí capturada, ver gamas.ducray) es una gama distinta de Anticaída -- no confundir. Pendiente: capturar Customer Card > Pedidos para la gama Anticaída (probable código Veeva DCC o similar) en la próxima visita."
+  },
   "periodo": "2025-07 a 2026-08 (YTD = año en curso hasta la fecha de la captura; TAM12M = últimos 12 meses)",
   "marcas": {
     "avene": {"ytd": 1439, "tam12m": 2535, "peso_ytd_pct": 70.61, "peso_12m_pct": 74.78},
