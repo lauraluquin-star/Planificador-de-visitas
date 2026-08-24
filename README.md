@@ -1,47 +1,26 @@
-# Smart Visit Planner · V2.4
+# Smart Visit Planner
 
-Versión centrada en dos pantallas de trabajo:
+App para delegados comerciales de Avène, Ducray, A-Derma y Dexeryl (grupo Pierre Fabre): prepara
+visitas a farmacias con evolución del cliente, gaps vs. pactos comerciales, propuesta de pedido
+editable y simulación de impacto. Uso principal: iPad.
 
-1. **Ficha de visita visual**
-2. **Propuesta de pedido editable + simulación del gap posterior**
+Ver `CLAUDE.md` y `docs/00_SPEC_MAESTRA.md` para las reglas de negocio y la spec funcional completa
+-- son la fuente de verdad del proyecto.
 
-## Cambios clave
+## Estado actual
 
-- Mantiene el objetivo principal desde la Ficha 2026.
-- Corrige específicamente el problema por el que Avène podía desaparecer del gap:
-  - se valida la fila `AVÈNE SIN SOLAR` de la tabla financiera;
-  - si el parser de Evolución Pacto no reconstruye Avène, se añade como respaldo con referencia anual vs YTD actual;
-  - no se inventa el dato.
-- El resumen visual usa **PROTEGER / CONSOLIDAR / RECUPERAR**.
-- Los gráficos de la ficha son estáticos para que no se desplacen al tocarlos.
-- **Avène Solar usa Veeva como fuente operativa de unidades**.
-- LOB Solar se muestra como contraste económico y la app avisa cuando la evolución en euros no corresponde directamente con la rotación en unidades.
-- Solar no reduce el gap del acuerdo principal.
-- El pedido es editable por:
-  - Unidades
-  - Descuento %
-- La app calcula:
-  - pedido bruto,
-  - contribución estimada al acuerdo,
-  - gap antes,
-  - gap después,
-  - simulación de gap por marca.
-- Avène + Ducray + A-Derma se imputan al acuerdo principal.
-- Dexeryl y Klorane se presentan como objetivos independientes cuando aparecen en la ficha.
-- La propuesta sigue usando Veeva + catálogo y mantiene límites conservadores de unidades.
+- `src/parsers/`: parsers reales sobre datos de Laura Luquin Franquet (LOB, COMPAR, catálogo/tarifa,
+  Acuerdos Comerciales LIVE).
+- `src/engine/comparacion.py`: motor de comparación reutilizable (consolidación por identidad física,
+  evolución vs. año anterior, objetivo real de pacto, detección de pérdidas ADA/Dexeryl separadas).
+- `scripts/`: generación de la Vista de Grupo (cartera consolidada, selección múltiple, ficha de
+  visita por farmacia) como artefacto HTML autocontenido.
+- `docs/`: datos reales de ciclo (LOB, COMPAR, catálogo, hojas de pedido, chuletas, acuerdos
+  comerciales, ejemplos de Ficha Cliente 2026 y Veeva).
 
-## Actualización en GitHub
+## Próximo paso: app multi-delegado
 
-Sustituir únicamente:
-
-- `app.py`
-- `README.md`
-- `requirements.txt`
-- `packages.txt`
-
-No borrar LOB, COMPAR, `product_catalog.csv`, hojas de pedido, chuletas ni SELL_OUT.
-
-## Prueba recomendada
-
-Usar FONT SOLER PILAR con la misma Ficha 2026 y las mismas capturas Veeva ya utilizadas.
-La ficha debe mostrar Avène aunque el OCR de Evolución Pacto no reconstruya su fila, y la propuesta debe recalcular el gap al editar unidades/descuento.
+Este proyecto está migrando de artefactos generados a mano a una aplicación real donde cualquier
+delegado pueda subir su Ficha 2026 y capturas de Veeva y tener su preparación de visita al
+instante, con actualización periódica (mensual/bimensual) de LOB, condiciones comerciales y hojas
+de pedido compartidas entre todos los delegados. En desarrollo.
