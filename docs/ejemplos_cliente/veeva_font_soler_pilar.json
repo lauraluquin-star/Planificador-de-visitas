@@ -1,8 +1,6 @@
 {
   "_nota": "Veeva real de Font Soler Pilar (C006969), capturas 'Customer Card' -> Pedidos -> Cantidad del pedido. Nivel marca y gama, unidades. Filas de material POS (stopper/tester/expositor/display/regleta/vinilo/pack-regalo) NO se cuentan como venta real -- se ven en las capturas pero se excluyen aqui a propósito.",
-  "_gamas_pendientes_captura": {
-    "ducray_anticaida": "La delegada identifica Anticaída (Ducray) como la gran oportunidad real de este cliente (no compra en esta gama) -- pero no está entre las capturas Veeva disponibles, así que NO se marca como oportunidad verificada (spec sección 10: 0 YTD y 0 TAM12M deben venir de Veeva real, nunca inferirse). Nota: DCG-AP CAPILLAIRES (sí capturada, ver gamas.ducray) es una gama distinta de Anticaída -- no confundir. Pendiente: capturar Customer Card > Pedidos para la gama Anticaída (probable código Veeva DCC o similar) en la próxima visita."
-  },
+  "_regla_ausencia_de_gama": "Confirmado por la delegada: dentro de una marca capturada, Veeva NO muestra una fila para una gama sin ninguna compra -- la ausencia de la fila es en sí la confirmación de 0 YTD y 0 TAM12M, no un hueco de captura (a diferencia del LOB/Ficha, donde N/D sí puede ser un fallo de lectura). Por eso Ducray Anticaída (código Veeva DCC, gamas.ducray.dcc_anticaida) se trata como oportunidad verificada aunque no tenga fila propia en la captura -- las otras 4 gamas de Ducray (PEL/DIN/CCS/DCG-AP) sí están todas capturadas, así que DCC es la única ausente y por tanto la única inferida así en esta marca. No aplicar esta regla a una marca que no se haya capturado en absoluto (ahí sí es N/D real).",
   "periodo": "2025-07 a 2026-08 (YTD = año en curso hasta la fecha de la captura; TAM12M = últimos 12 meses)",
   "marcas": {
     "avene": {"ytd": 1439, "tam12m": 2535, "peso_ytd_pct": 70.61, "peso_12m_pct": 74.78},
@@ -35,7 +33,8 @@
       "pel_etats_pelliculaires": {"ytd": 96, "tam12m": 129, "peso_ytd_pct": 84.21, "gama_canonica_probable": "ESTADOS DESCAMATIVOS (Kelual/Kertyol)"},
       "din_peaux_atopiques": {"ytd": 6, "tam12m": 6, "peso_ytd_pct": 5.26, "gama_canonica_probable": "Dexyane / ECZEMAS / PIEL MUY SECA ATOPICA"},
       "ccs_prurit": {"ytd": 12, "tam12m": 18, "peso_ytd_pct": 10.53, "gama_canonica_probable": "Sensinol / CUERO CABELLUDO SENSIBLE"},
-      "dcg_ap_capillaires": {"ytd": 0, "tam12m": 0, "peso_ytd_pct": 0.00, "oportunidad": true, "nota_spec": "CLAUDE.md sección 9: DCG-AP CAPILLAIRES ≠ Anticaída (son cosas distintas, no confundir)"}
+      "dcg_ap_capillaires": {"ytd": 0, "tam12m": 0, "peso_ytd_pct": 0.00, "oportunidad": true, "nota_spec": "CLAUDE.md sección 9: DCG-AP CAPILLAIRES ≠ Anticaída (son cosas distintas, no confundir)"},
+      "dcc_anticaida": {"ytd": 0, "tam12m": 0, "oportunidad": true, "heroe": true, "inferido_por_ausencia": true, "nota": "Sin fila propia en la captura -- ver _regla_ausencia_de_gama. Confirmado también por la delegada: el cliente no compra en esta gama. Gran oportunidad: productos héroe (Anaphase Reactiv Champú, Anacaps Reactiv)."}
     },
     "aderma": {
       "g058_cytelium": {"ytd": 18, "tam12m": 24, "peso_ytd_pct": 21.18},
@@ -50,8 +49,9 @@
     }
   },
   "oportunidades_detectadas": [
-    {"marca": "Ducray", "gama_veeva": "DCG-AP CAPILLAIRES", "regla": "0 YTD y 0 TAM12M -> oportunidad real (spec sección 10)"},
-    {"marca": "A-Derma", "gama_veeva": "EPI-EPITHELIALE", "regla": "0 YTD y 0 TAM12M -> oportunidad real"},
-    {"marca": "A-Derma", "gama_veeva": "SLA-LES INDISPENSABLES", "regla": "0 YTD y 0 TAM12M -> oportunidad real"}
+    {"marca": "Ducray", "gama_veeva": "DCC (Anticaída)", "heroe": true, "regla": "Ausente en la captura dentro de una marca sí capturada -> 0 YTD y 0 TAM12M real (ver _regla_ausencia_de_gama). Confirmado también por la delegada."},
+    {"marca": "Ducray", "gama_veeva": "DCG-AP CAPILLAIRES", "heroe": false, "regla": "0 YTD y 0 TAM12M -> oportunidad real (spec sección 10)"},
+    {"marca": "A-Derma", "gama_veeva": "EPI-EPITHELIALE", "heroe": false, "regla": "0 YTD y 0 TAM12M -> oportunidad real"},
+    {"marca": "A-Derma", "gama_veeva": "SLA-LES INDISPENSABLES", "heroe": false, "regla": "0 YTD y 0 TAM12M -> oportunidad real"}
   ]
 }
