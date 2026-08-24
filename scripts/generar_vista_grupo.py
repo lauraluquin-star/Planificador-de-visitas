@@ -169,6 +169,35 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
 
 .footer-note {{ font-size: 11.5px; color: var(--ink-soft); text-align: center; padding: 4px 12px 0; font-family: 'IBM Plex Mono', monospace; line-height: 1.6; }}
 
+table.cartera tbody tr {{ cursor: pointer; }}
+
+.ficha-overlay {{ position: fixed; inset: 0; background: rgba(10,16,19,0.55); display: none; align-items: flex-start; justify-content: center; padding: 24px 14px; overflow-y: auto; z-index: 50; }}
+.ficha-overlay.visible {{ display: flex; }}
+.ficha-modal {{ background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); max-width: 640px; width: 100%; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 16px; margin: auto 0; }}
+.ficha-head {{ display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }}
+.ficha-titulo {{ font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: 21px; margin: 0; }}
+.ficha-sub {{ font-size: 12.5px; color: var(--ink-soft); margin-top: 3px; }}
+.ficha-cerrar {{ font-family: 'IBM Plex Mono', monospace; font-size: 13px; background: var(--surface-2); border: 1px solid var(--border); color: var(--ink-soft); border-radius: 8px; width: 30px; height: 30px; cursor: pointer; flex-shrink: 0; }}
+.ficha-cerrar:hover {{ color: var(--ink); }}
+.ficha-badges {{ display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }}
+.ficha-badge {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; padding: 2px 7px; border-radius: 5px; background: var(--surface-2); color: var(--ink-soft); border: 1px solid var(--border); }}
+.ficha-pactos {{ display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }}
+@media (max-width: 480px) {{ .ficha-pactos {{ grid-template-columns: 1fr; }} }}
+.ficha-pacto-card {{ border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; display: flex; flex-direction: column; gap: 6px; }}
+.ficha-pacto-nombre {{ font-family: 'IBM Plex Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-soft); font-weight: 600; }}
+.ficha-pacto-evol {{ font-family: 'IBM Plex Mono', monospace; font-size: 15px; }}
+.ficha-pacto-importes {{ font-size: 11.5px; color: var(--ink-soft); }}
+.ficha-pacto-objetivo {{ font-size: 11.5px; color: var(--ink-soft); border-top: 1px dashed var(--border); padding-top: 6px; margin-top: 2px; }}
+.ficha-pacto-objetivo b {{ color: var(--ink); font-family: 'IBM Plex Mono', monospace; }}
+.ficha-marcas-tabla {{ width: 100%; border-collapse: collapse; font-size: 12.5px; }}
+.ficha-marcas-tabla th {{ text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; }}
+.ficha-marcas-tabla td {{ padding: 6px 8px; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; }}
+.ficha-marcas-tabla td.nombre-marca-cell {{ font-family: 'IBM Plex Sans', sans-serif; }}
+.ficha-marcas-tabla th.num, .ficha-marcas-tabla td.num {{ text-align: right; }}
+.ficha-perdida {{ background: var(--bad-bg); border: 1px solid var(--bad-border); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--bad); }}
+.ficha-veeva-ok {{ background: var(--ok-bg); border: 1px solid var(--ok-border); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; }}
+.ficha-veeva-nd {{ background: var(--nd-bg); border: 1px solid var(--nd-border); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--ink-soft); }}
+
 @media (max-width: 620px) {{ .pobl-cell {{ display: none; }} }}
 </style>
 
@@ -237,9 +266,14 @@ table.cartera tbody tr.fila-perdida {{ background: var(--bad-bg); }}
   </div>
 
   <div class="footer-note">
-    Sin objetivo de pacto por cliente (eso sale de la Ficha Cliente 2026, que solo tenemos para 2 clientes de ejemplo) — esta vista clasifica solo por evolución YTD vs. año anterior.<br>
-    🟢 evolución ≥ 0% · 🟡 entre 0% y −15% · 🔴 por debajo de −15% · ⚪ sin datos suficientes en el LOB · Pacto ADA y Pacto Dexeryl nunca se mezclan
+    Objetivo real de pacto: sale del Listado de Acuerdos Comerciales (solo cuando hay acuerdo Activo) — nunca se inventa. Evolución vs. año anterior siempre disponible desde el LOB.<br>
+    🟢 evolución ≥ 0% · 🟡 entre 0% y −15% · 🔴 por debajo de −15% · ⚪ sin datos suficientes en el LOB · Pacto ADA y Pacto Dexeryl nunca se mezclan<br>
+    Toca una farmacia en la tabla para abrir su ficha de visita.
   </div>
+</div>
+
+<div class="ficha-overlay" id="ficha-overlay">
+  <div class="ficha-modal" id="ficha-modal"></div>
 </div>
 
 <script>
@@ -428,7 +462,7 @@ function render(filas) {{
     const ada = estadoInfo(f.ada_estado, f.ada_evol);
     const dex = estadoInfo(f.dex_estado, f.dex_evol);
     const badge = f.n_pos > 1 ? `<span class="n-pos-badge">${{f.n_pos}} POS</span>` : '';
-    return `<tr class="${{f.perdido_ada ? 'fila-perdida' : ''}}">
+    return `<tr class="${{f.perdido_ada ? 'fila-perdida' : ''}}" data-id="${{f.id}}">
       <td class="check-cell"><input type="checkbox" class="row-check" data-id="${{f.id}}" ${{selectedIds.has(f.id) ? 'checked' : ''}}></td>
       <td><div class="nombre-cell">${{f.nombre}}${{badge}}</div><div class="pobl-cell">${{f.poblacion}} · ${{f.pos_ids.join('+')}}</div></td>
       <td>${{f.grupo ? `<span class="grupo-tag">${{f.grupo}}</span>` : ''}}</td>
@@ -451,6 +485,115 @@ function render(filas) {{
     checkAll.checked = false; checkAll.indeterminate = false;
   }}
 }}
+
+const MARCA_COMERCIAL_LABEL = {{AVENE: 'Avène (incl. solar)', DUCRAY: 'Ducray', 'A-DERMA': 'A-Derma', DEXERYL: 'Dexeryl'}};
+
+function evolucionSimple(ytd, ytd1) {{
+  if (ytd === null || ytd === undefined || ytd1 === null || ytd1 === undefined) return {{estado: 'SIN_DATOS', evol: null}};
+  let evol;
+  if (ytd1 === 0) {{ evol = ytd === 0 ? null : 100.0; }} else {{ evol = (ytd - ytd1) / ytd1 * 100; }}
+  let estado = 'SIN_DATOS';
+  if (evol !== null) {{ estado = evol >= 0 ? 'POSITIVA' : (evol >= -15 ? 'NEGATIVA_CONTROLADA' : 'NEGATIVA'); }}
+  return {{estado, evol}};
+}}
+
+function pactoCardHtml(nombre, ytd, ytd1, evol, estado, objetivo, pctCumplimiento, gap) {{
+  const info = estadoInfo(estado, evol);
+  const objetivoHtml = (objetivo !== null && objetivo !== undefined)
+    ? `Objetivo (acuerdo Activo): <b>${{fmtEur(objetivo)}}</b> · cumplimiento <b>${{pctCumplimiento !== null ? pctCumplimiento.toFixed(1).replace('.', ',') + '%' : '—'}}</b> · gap <b>${{fmtEur(gap)}}</b>`
+    : 'Objetivo de pacto individual no disponible (sin acuerdo Activo vigente).';
+  return `<div class="ficha-pacto-card">
+    <div class="ficha-pacto-nombre">${{nombre}}</div>
+    <div class="ficha-pacto-importes">${{fmtEur(ytd1)}} → ${{fmtEur(ytd)}}</div>
+    <div class="ficha-pacto-evol">${{semaforo(estado)}} <span class="evol ${{info.cls}}">${{info.txt}}</span></div>
+    <div class="ficha-pacto-objetivo">${{objetivoHtml}}</div>
+  </div>`;
+}}
+
+function renderFicha(f) {{
+  const posTxt = f.pos_ids.join(' + ');
+  const badges = [];
+  if (f.n_pos > 1) badges.push(`${{f.n_pos}} POS-Id consolidados`);
+  if (f.grupo) badges.push('Grupo ' + f.grupo);
+  badges.push(f.tiene_veeva ? '✅ Con captura Veeva' : '⚪ Sin captura Veeva');
+
+  const marcasFilas = MARCAS_ORDEN.map(([key, label]) => {{
+    const m = f.marcas[key];
+    const {{estado, evol}} = evolucionSimple(m.ytd, m.ytd1);
+    const info = estadoInfo(estado, evol);
+    return `<tr><td class="nombre-marca-cell">${{label}}</td><td class="num">${{fmtEur(m.ytd1)}}</td><td class="num">${{fmtEur(m.ytd)}}</td><td class="num"><span class="evol ${{info.cls}}">${{info.txt}}</span></td></tr>`;
+  }}).join('');
+
+  const objetivoMarcasFilas = Object.keys(MARCA_COMERCIAL_LABEL).map(key => {{
+    const obj = f.objetivo_por_marca[key];
+    return `<div class="sel-marca-item"><span class="nombre-marca">${{MARCA_COMERCIAL_LABEL[key]}}</span><span>${{obj !== null ? 'objetivo ' + fmtEur(obj) : 'sin acuerdo Activo'}}</span></div>`;
+  }}).join('');
+
+  let perdidaHtml = '';
+  if (f.perdido_ada) {{
+    const marcasTxt = f.perdida_ada_marcas.map(m => `${{m.marca}}: ${{fmtEur(m.valor)}}`).join(' · ');
+    perdidaHtml += `<div class="ficha-perdida">⚫ Pacto ADA perdido: 0€ reales este año, facturaba ${{fmtEur(f.perdida_ada_valor)}}/año. ${{marcasTxt}}</div>`;
+  }}
+  if (f.perdido_dex) {{
+    perdidaHtml += `<div class="ficha-perdida">⚫ Dexeryl perdido: 0€ reales este año, facturaba ${{fmtEur(f.perdida_dex_valor)}}/año.</div>`;
+  }}
+
+  const veevaHtml = f.tiene_veeva
+    ? `<div class="ficha-veeva-ok">✅ Hay captura real de Veeva para este cliente — consulta la ficha completa de visita (con oportunidades por gama y propuesta de pedido) publicada aparte.</div>`
+    : `<div class="ficha-veeva-nd">⚪ Sin captura de Veeva para este cliente — no se pueden calcular oportunidades reales por gama (una gama solo es oportunidad si YTD y TAM12M en Veeva son 0 real; sin Veeva no se infiere). Para verlas aquí, hace falta capturar el histórico de pedidos de esta farmacia en Veeva.</div>`;
+
+  document.getElementById('ficha-modal').innerHTML = `
+    <div class="ficha-head">
+      <div>
+        <h2 class="ficha-titulo">${{f.nombre}}</h2>
+        <div class="ficha-sub">${{f.direccion}}, ${{f.poblacion}} (${{f.provincia}}) · ${{posTxt}}</div>
+        <div class="ficha-badges">${{badges.map(b => `<span class="ficha-badge">${{b}}</span>`).join('')}}</div>
+      </div>
+      <button class="ficha-cerrar" id="ficha-cerrar-btn" title="Cerrar">✕</button>
+    </div>
+    <div class="ficha-pactos">
+      ${{pactoCardHtml('Pacto ADA', f.ada_ytd, f.ada_ytd1, f.ada_evol, f.ada_estado, f.ada_objetivo, f.ada_pct_cumplimiento, f.ada_gap)}}
+      ${{pactoCardHtml('Pacto Dexeryl', f.dex_ytd, f.dex_ytd1, f.dex_evol, f.dex_estado, f.dex_objetivo, f.dex_pct_cumplimiento, f.dex_gap)}}
+    </div>
+    ${{perdidaHtml}}
+    <div>
+      <div class="ficha-pacto-nombre" style="margin-bottom:6px;">Desglose por marca (LOB)</div>
+      <table class="ficha-marcas-tabla">
+        <thead><tr><th>Marca</th><th class="num">2025 (YTD-1)</th><th class="num">2026 (YTD)</th><th class="num">Evolución</th></tr></thead>
+        <tbody>${{marcasFilas}}</tbody>
+      </table>
+    </div>
+    <div>
+      <div class="ficha-pacto-nombre" style="margin-bottom:6px;">Objetivo pactado por marca comercial</div>
+      <div class="sel-marcas" style="border-top:none; padding-top:0;">${{objetivoMarcasFilas}}</div>
+    </div>
+    ${{veevaHtml}}
+  `;
+}}
+
+function abreFicha(id) {{
+  const f = DATA.find(d => d.id === id);
+  if (!f) return;
+  renderFicha(f);
+  document.getElementById('ficha-overlay').classList.add('visible');
+}}
+function cierraFicha() {{
+  document.getElementById('ficha-overlay').classList.remove('visible');
+}}
+document.getElementById('ficha-overlay').addEventListener('click', (ev) => {{
+  if (ev.target.id === 'ficha-overlay') cierraFicha();
+}});
+document.getElementById('ficha-modal').addEventListener('click', (ev) => {{
+  if (ev.target.id === 'ficha-cerrar-btn') cierraFicha();
+}});
+document.addEventListener('keydown', (ev) => {{
+  if (ev.key === 'Escape') cierraFicha();
+}});
+document.getElementById('tbody').addEventListener('click', (ev) => {{
+  if (ev.target.closest('.check-cell')) return;
+  const tr = ev.target.closest('tr[data-id]');
+  if (tr) abreFicha(Number(tr.dataset.id));
+}});
 
 document.querySelectorAll('.chip-btn[data-grupo]').forEach(btn => {{
   btn.addEventListener('click', () => {{

@@ -34,8 +34,33 @@ NOMBRE_MARCA = {
     "dexeryl": "Dexeryl",
 }
 
+# Los acuerdos comerciales pactan Avène como una sola cifra (incluye solar) -- nunca se reparte
+# a mano entre avene_sin_solar/avene_solar, eso sería inventar una división que el acuerdo no trae.
+MARCA_COMERCIAL_A_CLAVES_LOB = {
+    "AVENE": ["avene_sin_solar", "avene_solar"],
+    "DUCRAY": ["ducray"],
+    "A-DERMA": ["aderma"],
+    "DEXERYL": ["dexeryl"],
+}
 
-def _fila(resumen: ResumenCliente, idx: int) -> dict:
+# Único cliente con captura real de Veeva por ahora (ver docs/ejemplos_cliente/veeva_font_soler_pilar.json).
+# Para el resto, la ficha debe decir explícitamente que no hay datos Veeva -- nunca inventar oportunidades.
+POS_IDS_CON_VEEVA = {"C006969"}
+
+
+def _objetivo_por_marca_comercial(pos_ids: list[str], objetivos_por_pos: dict[str, dict] | None) -> dict:
+    resultado = {}
+    for marca_comercial in MARCA_COMERCIAL_A_CLAVES_LOB:
+        valores = [
+            objetivos_por_pos[p]["por_marca"][marca_comercial]
+            for p in pos_ids
+            if objetivos_por_pos and p in objetivos_por_pos and marca_comercial in objetivos_por_pos[p]["por_marca"]
+        ]
+        resultado[marca_comercial] = round(sum(valores), 2) if valores else None
+    return resultado
+
+
+def _fila(resumen: ResumenCliente, idx: int, objetivos_por_pos: dict[str, dict] | None) -> dict:
     c = resumen.cliente
     marcas = {}
     for m in MARCAS_EXPORT:
@@ -49,9 +74,13 @@ def _fila(resumen: ResumenCliente, idx: int) -> dict:
         "id": idx,
         "pos_ids": c.pos_ids,
         "nombre": c.nombre_cliente,
+        "direccion": c.direccion,
         "poblacion": c.poblacion,
+        "provincia": c.provincia,
         "grupo": c.grupo_compra,
         "n_pos": len(c.pos_ids),
+        "tiene_veeva": any(p in POS_IDS_CON_VEEVA for p in c.pos_ids),
+        "objetivo_por_marca": _objetivo_por_marca_comercial(c.pos_ids, objetivos_por_pos),
         "ada_ytd": resumen.pacto_ada.ytd,
         "ada_ytd1": resumen.pacto_ada.ytd1,
         "ada_evol": resumen.pacto_ada.evolucion_pct,
@@ -88,7 +117,7 @@ def main() -> None:
     objetivos = objetivos_por_pos_id(acuerdos)
     cartera = cartera_delegado(clientes, delegado, consolidar=True, objetivos_por_pos=objetivos)
 
-    data = [_fila(r, i) for i, r in enumerate(cartera)]
+    data = [_fila(r, i, objetivos) for i, r in enumerate(cartera)]
     with open(salida, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False)
     print(f"OK: {len(data)} farmacias consolidadas exportadas a {salida}")
