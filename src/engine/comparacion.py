@@ -103,6 +103,7 @@ class PuntoVentaConsolidado:
     pacto_ada: PactoAgregado
     pacto_dexeryl: PactoAgregado
     marcas: dict[str, MedidaMarca]  # sumadas entre los POS-Id consolidados
+    ytd_pacto_por_pos: dict[str, dict[str, float | None]]  # pos_id -> {"ADA": ytd, "DEXERYL": ytd} -- SIN consolidar, la cifra propia de cada POS-Id
 
 
 def _suma_medida_marca(medidas: list[MedidaMarca]) -> MedidaMarca:
@@ -164,6 +165,13 @@ def consolida_por_identidad_fisica(clientes: list[ClienteLOB]) -> list[PuntoVent
                 pacto_ada=_suma_pacto_agregados([c.pacto_ada for c in grupo]),
                 pacto_dexeryl=_suma_pacto_agregados([c.pacto_dexeryl for c in grupo]),
                 marcas=marcas_sumadas,
+                ytd_pacto_por_pos={
+                    c.pos_id: {
+                        "ADA": c.pacto_ada.importe_neto_ytd,
+                        "DEXERYL": c.pacto_dexeryl.importe_neto_ytd if c.pacto_dexeryl else None,
+                    }
+                    for c in grupo
+                },
             )
         )
     return resultado
@@ -214,10 +222,40 @@ def _diagnostico_perdida_pacto(cliente: ClienteLOB | PuntoVentaConsolidado, pact
     )
 
 
-def _objetivo_consolidado(pos_ids: list[str], objetivos_por_pos: dict[str, dict] | None, bucket: str) -> float | None:
+def pos_ids_vivos_de(pos_ids: list[str], ytd_pacto_por_pos: dict[str, dict[str, float | None]]) -> list[str]:
+    """Un pos_id está "vivo" si tiene actividad real (YTD != 0 y != None) en CUALQUIER pacto este
+    año -- un cambio de titular mueve toda la relación a la vez, no un pacto sí y otro no, así que
+    se decide una sola vez por pos_id y se aplica igual a ADA y a Dexeryl (ver _objetivo_consolidado)."""
+    vivos = [
+        p
+        for p in pos_ids
+        if any((ytd_pacto_por_pos.get(p, {}).get(b) or 0) != 0 for b in ("ADA", "DEXERYL"))
+    ]
+    return vivos or pos_ids  # si ninguno tiene actividad (cliente realmente perdido), no hay señal -- no se descarta nada
+
+
+def _objetivo_consolidado(
+    pos_ids: list[str],
+    objetivos_por_pos: dict[str, dict] | None,
+    bucket: str,
+    pos_ids_vivos: list[str],
+) -> float | None:
+    """Suma el objetivo (CIFRA PACTADA) de los pos_ids del punto consolidado -- pero NO a ciegas.
+
+    Caso real encontrado (verificado sobre 2 clientes de la cartera: FARMATEROS SL y MILLAN HOMEDES
+    ELISEO JOSE): cuando una farmacia cambia de titular a mitad de ciclo, el POS-Id antiguo se queda
+    con su propio acuerdo Activo en el sistema (mismas cifras, referencia distinta) aunque ya no
+    facture nada -- toda la facturación real ya está en el POS-Id nuevo. Sumar el objetivo de ambos
+    duplica el objetivo (se vio literalmente x2 en FARMATEROS). La facturación SÍ hay que sumarla
+    (por eso se consolida), pero el objetivo solo debe contar una vez, del/de los POS-Id que siguen
+    vivos (ver pos_ids_vivos_de) -- no del POS-Id dormido que dejó de facturar tras el cambio.
+    """
     if not objetivos_por_pos:
         return None
-    valores = [objetivos_por_pos[p][bucket] for p in pos_ids if p in objetivos_por_pos and objetivos_por_pos[p][bucket] is not None]
+
+    valores = [
+        objetivos_por_pos[p][bucket] for p in pos_ids_vivos if p in objetivos_por_pos and objetivos_por_pos[p][bucket] is not None
+    ]
     return round(sum(valores), 2) if valores else None
 
 
@@ -227,10 +265,23 @@ def evalua_cliente(
 ) -> ResumenCliente:
     """objetivos_por_pos: salida de acuerdos_parser.objetivos_por_pos_id() -- {pos_id: {"ADA":
     €|None, "DEXERYL": €|None}}. Si el cliente es un PuntoVentaConsolidado con varios pos_ids, se
-    suman los objetivos de todos ellos (igual que se suma la facturación al consolidar)."""
-    pos_ids = cliente.pos_ids if isinstance(cliente, PuntoVentaConsolidado) else [cliente.pos_id]
-    objetivo_ada = _objetivo_consolidado(pos_ids, objetivos_por_pos, "ADA")
-    objetivo_dexeryl = _objetivo_consolidado(pos_ids, objetivos_por_pos, "DEXERYL")
+    suman los objetivos de los pos_ids que facturan de verdad hoy (ver _objetivo_consolidado) --
+    igual que se suma la facturación al consolidar, pero sin duplicar el objetivo de un POS-Id
+    dormido por cambio de titular."""
+    if isinstance(cliente, PuntoVentaConsolidado):
+        pos_ids = cliente.pos_ids
+        ytd_pacto_por_pos = cliente.ytd_pacto_por_pos
+    else:
+        pos_ids = [cliente.pos_id]
+        ytd_pacto_por_pos = {
+            cliente.pos_id: {
+                "ADA": cliente.pacto_ada.importe_neto_ytd,
+                "DEXERYL": cliente.pacto_dexeryl.importe_neto_ytd if cliente.pacto_dexeryl else None,
+            }
+        }
+    pos_ids_vivos = pos_ids_vivos_de(pos_ids, ytd_pacto_por_pos)
+    objetivo_ada = _objetivo_consolidado(pos_ids, objetivos_por_pos, "ADA", pos_ids_vivos)
+    objetivo_dexeryl = _objetivo_consolidado(pos_ids, objetivos_por_pos, "DEXERYL", pos_ids_vivos)
 
     pacto_ada = evalua_pacto(cliente.pacto_ada, "ADA", objetivo_ada)
     pacto_dexeryl = evalua_pacto(cliente.pacto_dexeryl, "DEXERYL", objetivo_dexeryl)

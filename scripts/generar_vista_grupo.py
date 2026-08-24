@@ -486,7 +486,7 @@ function render(filas) {{
   }}
 }}
 
-const MARCA_COMERCIAL_LABEL = {{AVENE: 'Avène (incl. solar)', DUCRAY: 'Ducray', 'A-DERMA': 'A-Derma', DEXERYL: 'Dexeryl'}};
+const MARCA_COMERCIAL_LABEL = {{AVENE: 'Avène (sin solar)', DUCRAY: 'Ducray', 'A-DERMA': 'A-Derma', DEXERYL: 'Dexeryl'}};
 
 function evolucionSimple(ytd, ytd1) {{
   if (ytd === null || ytd === undefined || ytd1 === null || ytd1 === undefined) return {{estado: 'SIN_DATOS', evol: null}};
