@@ -62,6 +62,80 @@ def fila_marca_grupo(key):
 
 marcas_grupo_html = "\n".join(fila_marca_grupo(k) for k in ["avene_sin_solar", "avene_solar", "ducray", "aderma", "dexeryl"])
 
+def fmt_pct_uds(v):
+    if v is None:
+        return "n.d."
+    return f"{'+' if v >= 0 else ''}{v:.1f} %".replace(".", ",")
+
+def delta_cls(v):
+    if v is None:
+        return "nd"
+    if v >= 0:
+        return "pos"
+    if v >= -15:
+        return "neg-c"
+    return "neg"
+
+def tarjeta_tendencia(marca_label, valores, evol_23_24, evol_24_25, nota):
+    v23, v24, v25 = valores["2023"], valores["2024"], valores["2025"]
+    vmax = max(v23, v24, v25, 1) * 1.15
+    y_bottom, y_top = 118, 30
+    alto = y_bottom - y_top
+
+    def y(v):
+        return round(y_bottom - (v / vmax) * alto, 1)
+
+    y23, y24, y25 = y(v23), y(v24), y(v25)
+    return f"""
+    <div class="tendencia-card">
+      <div class="tendencia-marca">{marca_label}</div>
+      <svg class="tendencia-chart" viewBox="0 0 220 140" preserveAspectRatio="xMidYMid meet">
+        <polyline class="linea" points="30,{y23} 110,{y24} 190,{y25}" />
+        <circle class="punto" cx="30" cy="{y23}" r="4" />
+        <circle class="punto" cx="110" cy="{y24}" r="4" />
+        <circle class="punto" cx="190" cy="{y25}" r="4" />
+        <text class="valor" x="30" y="{y23 - 10}" text-anchor="middle">{f'{v23:,}'.replace(',', '.')}</text>
+        <text class="valor" x="110" y="{y24 - 10}" text-anchor="middle">{f'{v24:,}'.replace(',', '.')}</text>
+        <text class="valor" x="190" y="{y25 - 10}" text-anchor="middle">{f'{v25:,}'.replace(',', '.')}</text>
+        <text class="anio" x="30" y="134" text-anchor="middle">2023</text>
+        <text class="anio" x="110" y="134" text-anchor="middle">2024</text>
+        <text class="anio" x="190" y="134" text-anchor="middle">2025</text>
+      </svg>
+      <div class="tendencia-deltas">
+        <div class="tendencia-delta {delta_cls(evol_23_24)}">23→24 {fmt_pct_uds(evol_23_24)}</div>
+        <div class="tendencia-delta {delta_cls(evol_24_25)}">24→25 {fmt_pct_uds(evol_24_25)}</div>
+      </div>
+      <div class="tendencia-nota">{nota}</div>
+    </div>"""
+
+NOTAS_TENDENCIA_GRUPO = {
+    "AVENE": "Caída sostenida los 3 años, más marcada este último tramo — arrastrada sobre todo por Montenegro Guijalba y, tras su pico de 2024, también por Gordillo Abalos.",
+    "DUCRAY": "En descenso continuo desde 2023 en las 4 farmacias combinadas — no hay ningún caso de recuperación real en el grupo.",
+    "A-DERMA": "El +36,4% de este tramo no compensa la caída previa (2023→2024) — y viene sobre todo de Rubio Petit, que antes no compraba nada en la marca, no de una mejora generalizada.",
+}
+tendencia_grupo_html = "\n".join(
+    tarjeta_tendencia(
+        {"AVENE": "Avène (sin solar)", "DUCRAY": "Ducray", "A-DERMA": "A-Derma"}[m],
+        g["tendencia_23_25"][m]["valores"],
+        g["tendencia_23_25"][m]["evol_23_24"],
+        g["tendencia_23_25"][m]["evol_24_25"],
+        NOTAS_TENDENCIA_GRUPO[m],
+    )
+    for m in ["AVENE", "DUCRAY", "A-DERMA"]
+)
+
+def linea_tendencia_cliente(f):
+    t = f["tendencia_23_25"]["por_marca"]
+    partes = []
+    for clave, etiqueta in (("AVENE", "Avène"), ("DUCRAY", "Ducray"), ("A-DERMA", "A-Derma")):
+        v = t[clave]["valores"]
+        partes.append(f"{etiqueta} {v['2023']}→{v['2024']}→{v['2025']}")
+    txt = " · ".join(partes) + " uds"
+    sin_historico = f["tendencia_23_25"]["pos_ids_sin_historico"]
+    if sin_historico:
+        txt += f' <span style="opacity:0.7;">(sin histórico 2023-25 para {", ".join(sin_historico)} — no se cuenta 0, falta el dato)</span>'
+    return txt
+
 def tarjeta_cliente(f):
     ada_info_cls = evol_cls(f["ada_evol"])
     dex_info_cls = evol_cls(f["dex_evol"])
@@ -107,6 +181,7 @@ def tarjeta_cliente(f):
           <div class="cliente-pacto-obj">{dex_obj_txt}</div>
         </div>
       </div>
+      <div class="cliente-tendencia">Histórico 2023→24→25 (unidades): {linea_tendencia_cliente(f)}</div>
     </div>"""
 
 clientes_html = "\n".join(tarjeta_cliente(f) for f in farmacias)
@@ -195,6 +270,23 @@ table.marcas th.num, table.marcas td.num {{ text-align: right; }}
 .cliente-pacto-linea {{ font-size: 13px; font-family: 'IBM Plex Mono', monospace; }}
 .cliente-pacto-obj {{ font-size: 11.5px; color: var(--ink-soft); margin-top: 6px; border-top: 1px dashed var(--border); padding-top: 6px; }}
 .cliente-pacto-obj b {{ color: var(--ink); font-family: 'IBM Plex Mono', monospace; }}
+.cliente-tendencia {{ font-size: 11.5px; color: var(--ink-soft); font-family: 'IBM Plex Mono', monospace; border-top: 1px dashed var(--border); padding-top: 8px; }}
+
+.tendencia-grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }}
+.tendencia-card {{ background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px 16px; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 8px; }}
+.tendencia-marca {{ font-size: 14px; font-weight: 600; }}
+.tendencia-chart {{ width: 100%; height: auto; display: block; }}
+.tendencia-chart .linea {{ fill: none; stroke: var(--accent); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }}
+.tendencia-chart .punto {{ fill: var(--surface); stroke: var(--accent); stroke-width: 2; }}
+.tendencia-chart .valor {{ font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; fill: var(--ink-soft); font-variant-numeric: tabular-nums; }}
+.tendencia-chart .anio {{ font-family: 'IBM Plex Mono', monospace; font-size: 10px; fill: var(--ink-soft); }}
+.tendencia-deltas {{ display: flex; gap: 8px; }}
+.tendencia-delta {{ flex: 1; font-family: 'IBM Plex Mono', monospace; font-size: 12px; font-weight: 600; text-align: center; padding: 3px 4px; border-radius: 6px; font-variant-numeric: tabular-nums; }}
+.tendencia-delta.pos {{ background: var(--ok-bg); color: var(--ok); }}
+.tendencia-delta.neg-c {{ background: var(--warn-bg); color: var(--warn); }}
+.tendencia-delta.neg {{ background: var(--bad-bg); color: var(--bad); }}
+.tendencia-delta.nd {{ background: var(--nd-bg); color: var(--nd); }}
+.tendencia-nota {{ font-size: 12px; color: var(--ink-soft); line-height: 1.4; }}
 
 .notas-panel {{ background: var(--surface); border: 1px solid var(--accent); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow); }}
 .notas-panel ol {{ margin: 8px 0 0; padding-left: 20px; display: flex; flex-direction: column; gap: 8px; }}
@@ -245,11 +337,17 @@ table.marcas th.num, table.marcas td.num {{ text-align: right; }}
     <ol>
       <li><strong>El grupo está al 36% del objetivo combinado de Pacto ADA</strong> (9.530€ de 26.480€, faltan 16.950€) — con evolución −19,8% vs. año anterior. Merece una conversación conjunta sobre qué está pasando en las 4 a la vez, no solo visitas sueltas.</li>
       <li><strong>Tudela Belda Alberto ha perdido Dexeryl</strong> (75€ → 0€, 0 real este año) — el único de los 4 con un pacto realmente perdido. Su Pacto ADA también cae fuerte (−82,3%).</li>
-      <li><strong>Gordillo Abalos M. Jesus es el único que crece</strong> en Pacto ADA (+5,1%) — el ejemplo positivo del grupo, útil para contrastar con el resto.</li>
+      <li><strong>El +5,1% de Gordillo Abalos M. Jesus no es la recuperación que parece</strong> — el histórico de unidades muestra un pico enorme en 2024 (p.ej. Avène 197→701 uds) seguido de un desplome del −66% en 2025. El +5,1% de este año es ruido sobre una base ya muy baja tras ese desplome, no una tendencia positiva real.</li>
       <li><strong>Avène Solar del grupo está prácticamente estable</strong> (−4,5%) — a diferencia de otros casos vistos en la cartera, aquí no es la campaña la que arrastra el gap: el problema está en Avène sin solar, Ducray y A-Derma.</li>
       <li>Dexeryl combinado está muy por debajo de objetivo en las 4 (11,2% de cumplimiento) — posible punto de conversación conjunta con el grupo sobre esta marca en concreto.</li>
     </ol>
   </div>
+
+  <div class="section-title">📈 Tendencia histórica 2023-2025 (unidades, grupo combinado)</div>
+  <div class="tendencia-grid">
+    {tendencia_grupo_html}
+  </div>
+  <span class="pacto-fuente" style="display:block;">Fuente: histórico de gamas 2023-2025 (unidades reales) — no se combina con el objetivo del pacto, que está en euros. Solo gamas con marca confirmada; Solar y otras gamas sin marca clara se excluyen. Algunos POS-Id son demasiado recientes y no tienen fila en este histórico (ver aviso en la tarjeta de cada farmacia) — ahí no hay dato, no es 0.</span>
 
   <div class="section-title">Detalle por farmacia</div>
   {clientes_html}

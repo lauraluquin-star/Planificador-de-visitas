@@ -14,8 +14,11 @@ import sys
 
 sys.path.insert(0, ".")
 
-from src.engine.comparacion import cartera_delegado
+from src.engine.comparacion import PuntoVentaConsolidado, cartera_delegado
+from src.engine.tendencia_historica import MARCAS_CON_TENDENCIA, tendencia_cliente
+from src.engine.tendencia_historica import evol_pct as evol_pct_unidades
 from src.parsers.acuerdos_parser import objetivos_por_pos_id, parse_acuerdos
+from src.parsers.historico_gamas_parser import historico_por_pos, parse_historico_gamas
 from src.parsers.lob_parser import parse_lob
 from src.serializacion import NOMBRE_MARCA, fila_cliente
 
@@ -53,10 +56,27 @@ def main():
     acuerdos = parse_acuerdos("docs/acuerdos_comerciales/Listado_Acuerdos_Comerciales_LIVE.csv")
     objetivos = objetivos_por_pos_id(acuerdos)
     cartera = cartera_delegado(clientes, DELEGADO, consolidar=True, objetivos_por_pos=objetivos)
+    historico = historico_por_pos(parse_historico_gamas("docs/historico/HISTORICO_GAMAS_23_A_25.xlsx"))
 
-    filas = [fila_cliente(r, i, objetivos) for i, r in enumerate(cartera) if any(n in r.cliente.nombre_cliente.upper() for n in NOMBRES_GRUPO)]
+    resumenes = [r for r in cartera if any(n in r.cliente.nombre_cliente.upper() for n in NOMBRES_GRUPO)]
+    filas = [fila_cliente(r, i, objetivos) for i, r in enumerate(resumenes)]
     if len(filas) != len(NOMBRES_GRUPO):
         print(f"AVISO: se esperaban {len(NOMBRES_GRUPO)} farmacias y se encontraron {len(filas)}", file=sys.stderr)
+
+    combinado_tendencia = {m: {2023: 0, 2024: 0, 2025: 0} for m in MARCAS_CON_TENDENCIA}
+    for i, r in enumerate(resumenes):
+        pos_ids = r.cliente.pos_ids if isinstance(r.cliente, PuntoVentaConsolidado) else [r.cliente.pos_id]
+        t = tendencia_cliente(pos_ids, historico)
+        filas[i]["tendencia_23_25"] = {
+            "por_marca": {
+                m: {"valores": v, "evol_23_24": evol_pct_unidades(v[2023], v[2024]), "evol_24_25": evol_pct_unidades(v[2024], v[2025])}
+                for m, v in t.por_marca.items()
+            },
+            "pos_ids_sin_historico": t.pos_ids_sin_historico,
+        }
+        for m, v in t.por_marca.items():
+            for anio in (2023, 2024, 2025):
+                combinado_tendencia[m][anio] += v[anio]
 
     def suma(campo):
         vals = [f[campo] for f in filas if f[campo] is not None]
@@ -94,6 +114,10 @@ def main():
             "dex_objetivo": dex_obj, "dex_gap": dex_gap, "dex_cumplimiento": dex_cumpl,
             "marcas": marcas_combinadas,
             "objetivo_por_marca": objetivo_por_marca_comb,
+            "tendencia_23_25": {
+                m: {"valores": v, "evol_23_24": evol_pct_unidades(v[2023], v[2024]), "evol_24_25": evol_pct_unidades(v[2024], v[2025])}
+                for m, v in combinado_tendencia.items()
+            },
         },
     }
     with open("/tmp/grupo_visita_2_sept.json", "w", encoding="utf-8") as f:
