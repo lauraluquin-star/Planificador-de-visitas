@@ -110,7 +110,7 @@ def tarjeta_tendencia(marca_label, valores, evol_23_24, evol_24_25, nota):
 
 NOTAS_TENDENCIA_GRUPO = {
     "AVENE": "Caída sostenida los 3 años, más marcada este último tramo — arrastrada sobre todo por Montenegro Guijalba y, tras su pico de 2024, también por Gordillo Abalos.",
-    "DUCRAY": "En descenso continuo desde 2023 en las 4 farmacias combinadas — no hay ningún caso de recuperación real en el grupo.",
+    "DUCRAY": "Cayó fuerte en 2024 (sobre todo Montenegro Guijalba) pero este último tramo repunta +8,7% — mixto: Gordillo Abalos sigue cayendo tras su pico de 2024, Montenegro se frena y Tudela Belda/Rubio Petit son clientes nuevos en la marca (0 antes de 2025).",
     "A-DERMA": "El +36,4% de este tramo no compensa la caída previa (2023→2024) — y viene sobre todo de Rubio Petit, que antes no compraba nada en la marca, no de una mejora generalizada.",
 }
 tendencia_grupo_html = "\n".join(
@@ -337,7 +337,7 @@ table.marcas th.num, table.marcas td.num {{ text-align: right; }}
     <ol>
       <li><strong>El grupo está al 36% del objetivo combinado de Pacto ADA</strong> (9.530€ de 26.480€, faltan 16.950€) — con evolución −19,8% vs. año anterior. Merece una conversación conjunta sobre qué está pasando en las 4 a la vez, no solo visitas sueltas.</li>
       <li><strong>Tudela Belda Alberto ha perdido Dexeryl</strong> (75€ → 0€, 0 real este año) — el único de los 4 con un pacto realmente perdido. Su Pacto ADA también cae fuerte (−82,3%).</li>
-      <li><strong>El +5,1% de Gordillo Abalos M. Jesus no es la recuperación que parece</strong> — el histórico de unidades muestra un pico enorme en 2024 (p.ej. Avène 197→701 uds) seguido de un desplome del −66% en 2025. El +5,1% de este año es ruido sobre una base ya muy baja tras ese desplome, no una tendencia positiva real.</li>
+      <li><strong>El +5,1% de Gordillo Abalos M. Jesus no es la recuperación que parece</strong> — el histórico de unidades muestra un pico enorme en 2024 (p.ej. Avène 203→713 uds) seguido de un desplome del −61,9% en 2025 (mismo patrón en Ducray: 31→186→146). El +5,1% de este año es ruido sobre una base ya muy baja tras ese desplome, no una tendencia positiva real.</li>
       <li><strong>Avène Solar del grupo está prácticamente estable</strong> (−4,5%) — a diferencia de otros casos vistos en la cartera, aquí no es la campaña la que arrastra el gap: el problema está en Avène sin solar, Ducray y A-Derma.</li>
       <li>Dexeryl combinado está muy por debajo de objetivo en las 4 (11,2% de cumplimiento) — posible punto de conversación conjunta con el grupo sobre esta marca en concreto.</li>
     </ol>

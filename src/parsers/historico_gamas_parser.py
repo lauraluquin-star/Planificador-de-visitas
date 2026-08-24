@@ -37,11 +37,11 @@ MARCA_DE_GAMA: dict[str, str | None] = {
     "ESENCIALES": "AVENE",  # cruza con Veeva avene.ass_soins_essentiels
     "HYDRANCE": "AVENE",  # cruza con Veeva avene.ahy_hydrance
     "ANTIAGE": "AVENE",  # cruza con Veeva avene.g034_dermabsolu
-    # Sin confirmar -- no se asigna marca a ciegas:
-    "REGENERADORES": None,
-    "ATA": None,
-    "DEXYANE": None,  # posible A-Derma o Ducray según fuente, no hay evidencia firme
-    "CAPILAR": None,  # riesgo real de ser Klorane (capilar) -- CLAUDE.md: Klorane nunca en cálculos ADA
+    "ATA": "AVENE",  # Agua Termal Avène -- confirmado por la delegada
+    "DEXYANE": "DUCRAY",  # confirmado por la delegada
+    "CAPILAR": "DUCRAY",  # confirmado por la delegada (gama distinta de Anticaída/ATICAÍDA -- CLAUDE.md sección 9)
+    # Sin confirmar -- no se asigna marca a ciegas (la propia delegada no lo tiene claro):
+    "REGENERADORES": None,  # puede ser Avène o A-Derma
     # SOLAR mezcla Avène Solaires + A-Derma Protect sin poder separarlos, y Avène Solar
     # nunca cuenta para Pacto ADA (regla confirmada con la delegada + Acuerdo Comercial real)
     "SOLAR": None,
