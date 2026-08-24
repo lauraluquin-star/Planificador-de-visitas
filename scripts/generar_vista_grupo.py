@@ -173,7 +173,7 @@ table.cartera tbody tr {{ cursor: pointer; }}
 
 .ficha-overlay {{ position: fixed; inset: 0; background: rgba(10,16,19,0.55); display: none; align-items: flex-start; justify-content: center; padding: 24px 14px; overflow-y: auto; z-index: 50; }}
 .ficha-overlay.visible {{ display: flex; }}
-.ficha-modal {{ background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); max-width: 640px; width: 100%; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 16px; margin: auto 0; }}
+.ficha-modal {{ background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: var(--shadow); max-width: 720px; width: 100%; padding: 22px 22px 24px; display: flex; flex-direction: column; gap: 16px; margin: auto 0; }}
 .ficha-head {{ display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }}
 .ficha-titulo {{ font-family: 'Newsreader', Georgia, serif; font-weight: 600; font-size: 21px; margin: 0; }}
 .ficha-sub {{ font-size: 12.5px; color: var(--ink-soft); margin-top: 3px; }}
@@ -189,9 +189,9 @@ table.cartera tbody tr {{ cursor: pointer; }}
 .ficha-pacto-importes {{ font-size: 11.5px; color: var(--ink-soft); }}
 .ficha-pacto-objetivo {{ font-size: 11.5px; color: var(--ink-soft); border-top: 1px dashed var(--border); padding-top: 6px; margin-top: 2px; }}
 .ficha-pacto-objetivo b {{ color: var(--ink); font-family: 'IBM Plex Mono', monospace; }}
-.ficha-marcas-tabla {{ width: 100%; border-collapse: collapse; font-size: 12.5px; }}
-.ficha-marcas-tabla th {{ text-align: left; font-size: 10px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--ink-soft); font-weight: 600; padding: 6px 8px; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; }}
-.ficha-marcas-tabla td {{ padding: 6px 8px; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; }}
+.ficha-marcas-tabla {{ width: 100%; border-collapse: collapse; font-size: 12px; }}
+.ficha-marcas-tabla th {{ text-align: left; font-size: 9.5px; text-transform: uppercase; letter-spacing: 0.03em; color: var(--ink-soft); font-weight: 600; padding: 6px 5px; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; }}
+.ficha-marcas-tabla td {{ padding: 6px 5px; border-bottom: 1px solid var(--border); font-family: 'IBM Plex Mono', monospace; white-space: nowrap; }}
 .ficha-marcas-tabla td.nombre-marca-cell {{ font-family: 'IBM Plex Sans', sans-serif; }}
 .ficha-marcas-tabla th.num, .ficha-marcas-tabla td.num {{ text-align: right; }}
 .ficha-perdida {{ background: var(--bad-bg); border: 1px solid var(--bad-border); border-radius: 10px; padding: 10px 12px; font-size: 12.5px; color: var(--bad); }}
@@ -540,7 +540,7 @@ function renderFicha(f) {{
       celdaFalta = claveComercial ? '<span style="color:var(--ink-soft)">sin acuerdo Activo</span>' : '<span style="color:var(--ink-soft)">aparte del pacto</span>';
     }} else {{
       const falta = objetivo - (m.ytd || 0);
-      const faltaTxt = falta > 0 ? `${{fmtEur(falta)}} para llegar` : `cumplido (+${{fmtEur(-falta)}})`;
+      const faltaTxt = falta > 0 ? `−${{fmtEur(falta)}}` : `+${{fmtEur(-falta)}}`;
       const faltaCls = falta > 0 ? 'neg' : 'pos';
       celdaObjetivo = fmtEur(objetivo);
       celdaFalta = `<span class="evol ${{faltaCls}}">${{faltaTxt}}</span>`;
@@ -577,10 +577,12 @@ function renderFicha(f) {{
     ${{perdidaHtml}}
     <div>
       <div class="ficha-pacto-nombre" style="margin-bottom:6px;">Desglose y objetivo por marca</div>
+      <div style="overflow-x:auto;">
       <table class="ficha-marcas-tabla">
-        <thead><tr><th>Marca</th><th class="num">2025 (YTD-1)</th><th class="num">2026 (YTD)</th><th class="num">Evolución</th><th class="num">Objetivo</th><th class="num">Falta para objetivo</th></tr></thead>
+        <thead><tr><th>Marca</th><th class="num">2025</th><th class="num">2026</th><th class="num">Evol.</th><th class="num">Objetivo</th><th class="num">Falta</th></tr></thead>
         <tbody>${{marcasFilas}}</tbody>
       </table>
+      </div>
     </div>
     ${{veevaHtml}}
   `;
