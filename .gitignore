@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+
+# Backend: base de datos local y ficheros subidos por delegados -- nunca al repo (datos reales de clientes)
+backend/data/
+*.db
