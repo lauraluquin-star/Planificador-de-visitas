@@ -25,6 +25,22 @@ Reglas de negocio aplicadas:
   objetivos/gaps de ADA o Dexeryl -- se parsean por completitud pero se excluyen de los totales
   de pacto.
 - Identificador de cruce con LOB: "Nº CLIENTE PF" = mismo POS-Id que usa el LOB (columna pos_id).
+
+Rappeles (columnas 12-14, antes descartadas -- verificado contra un Acuerdo Comercial 2026 real,
+el de Font Soler Pilar/C006969, que desglosa el mismo TOTAL DESCUENTO en sus 3 componentes):
+- RAPPEL VIS LINEAL (bool): visibilidad en punto de venta (baldas por marca) conseguida ese año.
+  Vale el % que indique el propio Acuerdo del cliente en su sección RAPELES (variable por cliente,
+  no está en este CSV -- en el ejemplo real era 2%).
+- RAPPEL HEROES Y LANZAM (bool): disponibilidad trimestral de productos héroe/lanzamientos por
+  marca conseguida (listado real en el Acuerdo). En el ejemplo, 3%.
+- RAPPEL EVOL (float, ya en %): tramo de rappel por evolución de facturación de la marca vs. año
+  anterior -- "no se paga sobre marcas que no evolucionan" (el Acuerdo real de Font Soler Pilar
+  solo mostraba el tramo >+20% de evolución -> 2%; puede haber más tramos no vistos en ese ejemplo).
+  Objetivo real: CIFRA 2025 -> CIFRA 2026 ("Ambición de desarrollo" del propio Acuerdo).
+Cuadre verificado con datos reales: TOTAL DESCUENTO = DTO REAL + (2% si vis_lineal) + (3% si
+heroes_lanzam) + rappel_evol_pct. Ejemplo Avène de Font Soler Pilar: 23 + 2 + 3 + 2 = 30% ✓.
+Los % de vis_lineal/heroes_lanzam son los del Acuerdo de cada cliente, no un valor fijo global --
+aquí solo se guarda si se ha conseguido (bool), no el % en euros, porque ese % no viene en este CSV.
 """
 
 from __future__ import annotations
@@ -76,6 +92,9 @@ class AcuerdoComercial:
     semestre_2: float | None
     dto_real_pct: float | None
     tipo_pacto: str
+    rappel_vis_lineal: bool | None  # visibilidad lineal conseguida (baldas) -- ver docstring del módulo
+    rappel_heroes_lanzam: bool | None  # disponibilidad de héroes/lanzamientos conseguida
+    rappel_evol_pct: float | None  # tramo de rappel por evolución de facturación (solo se paga si la marca evoluciona)
     total_descuento_pct: float | None
     estado_acuerdo: str  # "Activo" | "Inactivo"
 
@@ -126,6 +145,9 @@ def parse_acuerdos(path: str | Path) -> list[AcuerdoComercial]:
                 semestre_2=_to_eur(fila[9]),
                 dto_real_pct=_to_pct(fila[10]),
                 tipo_pacto=fila[11],
+                rappel_vis_lineal=fila[12].strip() == "1" if fila[12].strip() != "" else None,
+                rappel_heroes_lanzam=fila[13].strip() == "1" if fila[13].strip() != "" else None,
+                rappel_evol_pct=_to_pct(fila[14]),
                 total_descuento_pct=_to_pct(fila[15]),
                 estado_acuerdo=fila[16].strip(),
             )
