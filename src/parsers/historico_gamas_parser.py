@@ -31,6 +31,7 @@ MARCA_DE_GAMA: dict[str, str | None] = {
     "ATICAÍDA": "DUCRAY",  # Ducray Anaphase/Anacaps (anticaída) -- confirmado por la delegada
     "EXOMEGA": "A-DERMA",  # cruza con Veeva aderma.exo_exomega
     "KERACNYL": "A-DERMA",
+    "REGENERADORES": "A-DERMA",  # SOS A-Derma -- confirmado por la delegada (misma marca que Exomega, columna contigua sin separador)
     "CICALFATE": "AVENE",  # cruza con Veeva avene.acz_cicalfate
     "XERACALM": "AVENE",  # cruza con Veeva avene.g029_xeracalm
     "CLEANANCE": "AVENE",  # cruza con Veeva avene.ase_acne
@@ -40,8 +41,6 @@ MARCA_DE_GAMA: dict[str, str | None] = {
     "ATA": "AVENE",  # Agua Termal Avène -- confirmado por la delegada
     "DEXYANE": "DUCRAY",  # confirmado por la delegada
     "CAPILAR": "DUCRAY",  # confirmado por la delegada (gama distinta de Anticaída/ATICAÍDA -- CLAUDE.md sección 9)
-    # Sin confirmar -- no se asigna marca a ciegas (la propia delegada no lo tiene claro):
-    "REGENERADORES": None,  # puede ser Avène o A-Derma
     # SOLAR mezcla Avène Solaires + A-Derma Protect sin poder separarlos, y Avène Solar
     # nunca cuenta para Pacto ADA (regla confirmada con la delegada + Acuerdo Comercial real)
     "SOLAR": None,

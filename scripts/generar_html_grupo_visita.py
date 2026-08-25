@@ -111,7 +111,7 @@ def tarjeta_tendencia(marca_label, valores, evol_23_24, evol_24_25, nota):
 NOTAS_TENDENCIA_GRUPO = {
     "AVENE": "Caída sostenida los 3 años, más marcada este último tramo — arrastrada sobre todo por Montenegro Guijalba y, tras su pico de 2024, también por Gordillo Abalos.",
     "DUCRAY": "Cayó fuerte en 2024 (sobre todo Montenegro Guijalba) pero este último tramo repunta +8,7% — mixto: Gordillo Abalos sigue cayendo tras su pico de 2024, Montenegro se frena y Tudela Belda/Rubio Petit son clientes nuevos en la marca (0 antes de 2025).",
-    "A-DERMA": "El +36,4% de este tramo no compensa la caída previa (2023→2024) — y viene sobre todo de Rubio Petit, que antes no compraba nada en la marca, no de una mejora generalizada.",
+    "A-DERMA": "Cayó fuerte en 2023→2024 (sobre todo Montenegro Guijalba, −71,3%) y desde entonces está prácticamente plana (+2,8%) — ni recuperación ni nueva caída, estabilidad a un nivel más bajo. Gordillo Abalos sigue cayendo (−43,5% este tramo) tras su pico de 2024.",
 }
 tendencia_grupo_html = "\n".join(
     tarjeta_tendencia(
