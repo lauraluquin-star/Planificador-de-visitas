@@ -110,8 +110,8 @@ def tarjeta_tendencia(marca_label, valores, evol_23_24, evol_24_25, nota):
 
 NOTAS_TENDENCIA_GRUPO = {
     "AVENE": "Caída sostenida los 3 años, más marcada este último tramo — arrastrada sobre todo por Montenegro Guijalba y, tras su pico de 2024, también por Gordillo Abalos.",
-    "DUCRAY": "Cayó fuerte en 2024 (sobre todo Montenegro Guijalba) pero este último tramo repunta +8,7% — mixto: Gordillo Abalos sigue cayendo tras su pico de 2024, Montenegro se frena y Tudela Belda/Rubio Petit son clientes nuevos en la marca (0 antes de 2025).",
-    "A-DERMA": "Cayó fuerte en 2023→2024 (sobre todo Montenegro Guijalba, −71,3%) y desde entonces está prácticamente plana (+2,8%) — ni recuperación ni nueva caída, estabilidad a un nivel más bajo. Gordillo Abalos sigue cayendo (−43,5% este tramo) tras su pico de 2024.",
+    "DUCRAY": "Cayó fuerte en 2024 (sobre todo Montenegro Guijalba, que sigue cayendo también en 2025) y el grupo repunta +21,6% en el último tramo — pero sobre todo por clientes nuevos en la marca (Tudela Belda y Rubio Petit, 0 antes de 2025, 117 uds juntas en 2025), no por una recuperación de los que ya compraban.",
+    "A-DERMA": "Cae los 3 años sin parar (−10,6% y −12,6%) — Montenegro Guijalba en declive continuo y Gordillo Abalos con el pico más extremo del grupo en cualquier marca (+1.020% en 2024, −53,6% en 2025). Los clientes nuevos no compensan la caída del resto.",
 }
 tendencia_grupo_html = "\n".join(
     tarjeta_tendencia(
@@ -337,7 +337,7 @@ table.marcas th.num, table.marcas td.num {{ text-align: right; }}
     <ol>
       <li><strong>El grupo está al 36% del objetivo combinado de Pacto ADA</strong> (9.530€ de 26.480€, faltan 16.950€) — con evolución −19,8% vs. año anterior. Merece una conversación conjunta sobre qué está pasando en las 4 a la vez, no solo visitas sueltas.</li>
       <li><strong>Tudela Belda Alberto ha perdido Dexeryl</strong> (75€ → 0€, 0 real este año) — el único de los 4 con un pacto realmente perdido. Su Pacto ADA también cae fuerte (−82,3%).</li>
-      <li><strong>El +5,1% de Gordillo Abalos M. Jesus no es la recuperación que parece</strong> — el histórico de unidades muestra un pico enorme en 2024 (p.ej. Avène 203→713 uds) seguido de un desplome del −61,9% en 2025 (mismo patrón en Ducray: 31→186→146). El +5,1% de este año es ruido sobre una base ya muy baja tras ese desplome, no una tendencia positiva real.</li>
+      <li><strong>El +5,1% de Gordillo Abalos M. Jesus no es la recuperación que parece</strong> — el histórico de unidades muestra un pico enorme en 2024 (p.ej. Avène 203→713 uds, A-Derma +1.020%) seguido de un desplome del −61,9% en 2025 (mismo patrón en Ducray: 31→156→146, A-Derma −53,6%). El +5,1% de este año es ruido sobre una base ya muy baja tras ese desplome, no una tendencia positiva real.</li>
       <li><strong>Avène Solar del grupo está prácticamente estable</strong> (−4,5%) — a diferencia de otros casos vistos en la cartera, aquí no es la campaña la que arrastra el gap: el problema está en Avène sin solar, Ducray y A-Derma.</li>
       <li>Dexeryl combinado está muy por debajo de objetivo en las 4 (11,2% de cumplimiento) — posible punto de conversación conjunta con el grupo sobre esta marca en concreto.</li>
     </ol>

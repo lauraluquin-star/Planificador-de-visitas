@@ -27,10 +27,10 @@ import openpyxl
 # las capturas de Veeva ya validadas). "None" = no se ha podido confirmar la marca --
 # nunca se suma a un pacto ni a un total de marca, se muestra aparte.
 MARCA_DE_GAMA: dict[str, str | None] = {
-    "BIOLOGY": "DUCRAY",
+    "BIOLOGY": "A-DERMA",  # tarifa ciclo 3 real: BIOLOGY / BIOLOGY AC solo existen bajo A-Derma
     "ATICAÍDA": "DUCRAY",  # Ducray Anaphase/Anacaps (anticaída) -- confirmado por la delegada
     "EXOMEGA": "A-DERMA",  # cruza con Veeva aderma.exo_exomega
-    "KERACNYL": "A-DERMA",
+    "KERACNYL": "DUCRAY",  # catalogo_ciclo3_completo.json: acne_keracnyl marca=Ducray; tarifa Ducray/ACNE = Keracnyl
     "REGENERADORES": "A-DERMA",  # SOS A-Derma -- confirmado por la delegada (misma marca que Exomega, columna contigua sin separador)
     "CICALFATE": "AVENE",  # cruza con Veeva avene.acz_cicalfate
     "XERACALM": "AVENE",  # cruza con Veeva avene.g029_xeracalm
