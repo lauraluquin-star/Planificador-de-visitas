@@ -28,6 +28,21 @@ de prioridad sobre la 2:
      Si una gama tiene muy pocos héroe (p.ej. 1 solo), cargar todo el hueco ahí no es realista --
      se limita a un máximo razonable por línea (ver CAP_UDS_POR_LINEA) y se anota que el resto del
      crecimiento vendrá de otras referencias no héroe de la gama.
+
+Novedades (delegada, 26/08/2026: "Siempre hemos de proponer implantación de las novedades, y
+pedido grande o pequeño en función de histórico de farmacia") -- una referencia marcada
+`novedad=True` en la hoja de pedido NUNCA se deja en 0, sea o no héroe (a diferencia de la regla 3):
+  5. a) Si la condición de pacto de esa gama trae un tramo numérico explícito para novedades (p.ej.
+        Antiedad "6+6" a SILVER / "9+9" a GOLD, Dexeryl-Dexeclear "3+3" a 24% / "6+6" a 26%), se
+        propone ESE tramo, eligiendo el nivel según si el histórico Veeva/LOB de esa gama para el
+        cliente es sólido/creciente (nivel alto -- "pedido grande") o débil/cayendo (nivel bajo --
+        "pedido pequeño"). Nunca se inventa un tramo intermedio.
+     b) Si no hay tramo de novedad explícito, o es combinado entre marcas/gamas sin criterio real
+        de reparto (p.ej. Acné: Avène Cleanance + Ducray Keracnyl en la misma hoja), se usa el
+        mismo mínimo de 3 uds de la regla 2 si el histórico de la gama es débil/cayendo, o se sube
+        a 6 si es sólido/creciente -- nunca una cifra mayor sin tramo real que la respalde.
+  Cada decisión de nivel (alto/bajo) se documenta en el propio pedido con el dato histórico real
+  que la justifica (nunca "porque sí").
 """
 
 from __future__ import annotations
