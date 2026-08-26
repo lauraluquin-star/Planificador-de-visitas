@@ -17,6 +17,17 @@ Regla de dimensionado, confirmada por la delegada (25/08/2026) -- NUNCA "gap en 
 Esto es una PROPUESTA de arranque, siempre editable -- no un pedido final ni un objetivo
 mecánico. Cualquier condición compuesta (p.ej. "+4% extra si incluyes 3+3 de Anacaps") se
 muestra como nota de texto, nunca se aplica automáticamente.
+
+Cuando un tramo mezcla varias marcas/gamas y no se puede repartir con criterio (p.ej. Atopia:
+Exomega+XeraCalm+Dexyane juntas), la delegada dio una tercera regla (26/08/2026), en este orden
+de prioridad sobre la 2:
+  4. Hueco real = histórico Veeva 12M de ESE cliente en esa gama x (1 + % de crecimiento exigido,
+     normalmente el +20% del Acuerdo) − lo que ya lleva comprado en YTD. NUNCA el objetivo
+     completo -- solo lo que falta para llegarlo. Se reparte entre los héroe de la gama; si el
+     hueco por héroe es menor que el mínimo de 3 uds, manda el mínimo (regla 2), no el hueco.
+     Si una gama tiene muy pocos héroe (p.ej. 1 solo), cargar todo el hueco ahí no es realista --
+     se limita a un máximo razonable por línea (ver CAP_UDS_POR_LINEA) y se anota que el resto del
+     crecimiento vendrá de otras referencias no héroe de la gama.
 """
 
 from __future__ import annotations
@@ -27,6 +38,7 @@ from src.parsers.catalogo_parser import Producto
 from src.parsers.pedido_ciclo_parser import HojaPedido, ProductoPedido
 
 UDS_MINIMO_HEROE = 3
+CAP_UDS_POR_LINEA = 15  # tope de sensatez por referencia cuando el hueco cae sobre pocos héroe
 
 # hoja de pedido (pedido_ciclo_parser) -> clave de condiciones_pacto_ciclo3.json, solo pares
 # verificados leyendo ambos ficheros. "None" explícito = existe pero el tramo mezcla varias
@@ -168,6 +180,61 @@ def propone_pedido_tarifa_gama(marca: str, gama: str, productos_tarifa: list[Pro
     return PropuestaGama(hoja=clave, lineas=lineas, total_uds_objetivo=sum(cantidades), origen=origen, nota=nota)
 
 
+def hueco_por_crecimiento(tam12m: float, ytd: float, crecimiento_objetivo_pct: float = 20.0) -> int:
+    """Hueco real hasta el objetivo de crecimiento -- regla 4 del docstring del módulo.
+    NUNCA el objetivo completo (histórico 12M x (1+%)), siempre lo que falta descontando el YTD."""
+    objetivo = round(tam12m * (1 + crecimiento_objetivo_pct / 100))
+    return max(0, objetivo - round(ytd))
+
+
+def propone_pedido_historico(
+    nombre_gama: str,
+    heroes: list[tuple[str, str, str, str, float | None]],  # (cn, marca, descripcion, formato, pvl)
+    tam12m: float,
+    ytd: float,
+    crecimiento_objetivo_pct: float = 20.0,
+) -> PropuestaGama:
+    """Regla 4: cuando el tramo de la chuleta mezcla varias marcas/gamas y no se puede repartir
+    con criterio (p.ej. Atopia), se usa en su lugar el hueco real de histórico Veeva de ESE
+    cliente en esa gama, repartido entre sus héroe -- nunca por debajo del mínimo de 3 uds/héroe,
+    ni por encima de CAP_UDS_POR_LINEA en una sola línea."""
+    if not heroes:
+        return PropuestaGama(
+            hoja=nombre_gama, lineas=[], total_uds_objetivo=0, origen="sin_heroe",
+            nota="Ningún héroe en esta gama -- no se propone cantidad automática.",
+        )
+
+    n = len(heroes)
+    objetivo_total = round(tam12m * (1 + crecimiento_objetivo_pct / 100))
+    hueco = hueco_por_crecimiento(tam12m, ytd, crecimiento_objetivo_pct)
+
+    if hueco < UDS_MINIMO_HEROE * n:
+        cantidades = [UDS_MINIMO_HEROE] * n
+        origen = "minimo_heroe_supera_hueco"
+        nota = (
+            f"Hueco real ({nombre_gama}): objetivo {objetivo_total} − YTD {round(ytd)} = {hueco} uds, "
+            f"por debajo del mínimo de {UDS_MINIMO_HEROE} uds/héroe -- manda el mínimo, no el hueco."
+        )
+    else:
+        base, resto = divmod(hueco, n)
+        cantidades = [base + (1 if i < resto else 0) for i in range(n)]
+        recortado = any(c > CAP_UDS_POR_LINEA for c in cantidades)
+        cantidades = [min(c, CAP_UDS_POR_LINEA) for c in cantidades]
+        origen = "hueco_historico"
+        nota = f"Hueco real ({nombre_gama}): objetivo {objetivo_total} − YTD {round(ytd)} = {hueco} uds entre {n} héroe."
+        if recortado:
+            nota += f" Alguna línea se limita a {CAP_UDS_POR_LINEA} uds -- el resto del hueco vendrá de otras referencias no héroe de la gama."
+
+    lineas = [
+        LineaPropuesta(
+            cn=cn, marca=marca, descripcion=descripcion, formato=formato, uds_sugeridas=uds,
+            pvl=pvl, importe=round(pvl * uds, 2) if pvl is not None else None,
+        )
+        for (cn, marca, descripcion, formato, pvl), uds in zip(heroes, cantidades)
+    ]
+    return PropuestaGama(hoja=nombre_gama, lineas=lineas, total_uds_objetivo=sum(cantidades), origen=origen, nota=nota)
+
+
 def _imprime(propuesta: PropuestaGama) -> None:
     print(f"\n=== {propuesta.hoja} ({propuesta.origen}) -- objetivo {propuesta.total_uds_objetivo} uds ===")
     print(" ", propuesta.nota)
@@ -192,3 +259,22 @@ if __name__ == "__main__":
     print("\n--- Directo desde tarifa (gamas sin hoja transcrita) ---")
     _imprime(propone_pedido_tarifa_gama("Ducray", "ANTICAIDA", productos_tarifa, condiciones))
     _imprime(propone_pedido_tarifa_gama("Avène", "CICALFATE", productos_tarifa, condiciones))
+
+    print("\n--- Hueco histórico (Atopia, Font Soler Pilar -- tramo combinado, no se reparte por tramo) ---")
+    _imprime(propone_pedido_historico(
+        "Exomega (A-Derma)",
+        [("170675", "A-Derma", "Crema Emoliente", "400 ml", 18.20), ("217714", "A-Derma", "Crema Noche Emoliente", "400 ml", 18.90),
+         ("220460", "A-Derma", "Aceite Limpiador", "1000 ml", 15.60), ("222970", "A-Derma", "Gel-Crema Calmante", "40 ml", 17.60),
+         ("dup", "A-Derma", "Duplo Aceite Emoliente", "2x1L", 15.60)],
+        tam12m=76, ytd=58,
+    ))
+    _imprime(propone_pedido_historico(
+        "XeraCalm (Avène)",
+        [("191169", "Avène", "Concentrado Calmante", "40 ml", 10.60)],
+        tam12m=69, ytd=42,
+    ))
+    _imprime(propone_pedido_historico(
+        "Dexyane (Ducray)",
+        [("179607", "Ducray", "Crema Reparadora Calmante", "100 ml", 14.43), ("193103", "Ducray", "Palpebral", "15 ml", 13.82)],
+        tam12m=6, ytd=6,
+    ))
