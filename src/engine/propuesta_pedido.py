@@ -43,6 +43,20 @@ pedido grande o pequeño en función de histórico de farmacia") -- una referenc
         a 6 si es sólido/creciente -- nunca una cifra mayor sin tramo real que la respalde.
   Cada decisión de nivel (alto/bajo) se documenta en el propio pedido con el dato histórico real
   que la justifica (nunca "porque sí").
+
+Escalado por unidades TOTALES de la gama combinada (delegada, 26/08/2026 -- "no has aplicado el
+escalado que aparece en la chuleta para que el cliente tenga más descuento"): cuando la condición
+de pacto trae varios tramos de % crecientes por uds. totales (p.ej. Atopia: 36→20%, 48→23%,
+60→26%), la propuesta SIEMPRE se comprueba contra el tramo más alto alcanzable, no solo el primero
+que ya se supera:
+  6. Sumar las uds. propuestas por las reglas 1-5 en toda la gama combinada. Si el total cae cerca
+     del siguiente tramo (a pocas unidades), subir la línea que tenga más margen real bajo su
+     propio hueco (regla 4) o su cap (CAP_UDS_POR_LINEA) hasta llegar exactamente a ese tramo --
+     nunca inventar unidades sin ese margen real que las respalde. Si ninguna línea tiene margen
+     real, se deja en el tramo inferior y se anota por qué.
+Por esto los paneles de pedido muestran también las uds. totales de la gama junto al importe en
+€ -- en campañas con escalado por unidades, el número de unidades es el dato que determina el
+% de descuento, no solo el importe.
 """
 
 from __future__ import annotations
