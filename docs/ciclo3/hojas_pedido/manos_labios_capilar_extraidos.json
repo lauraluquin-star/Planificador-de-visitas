@@ -1,0 +1,51 @@
+{
+  "_nota": "Transcripción manual de Hoja_pedido_Manos_y_labios_1105.pdf (pág. 1, Cold Cream + Cicalfate manos/labios -- la pág. 2 es un vademécum multi-gama compartido, no específico de esta hoja, no se transcribe aquí) y Hoja_pedido_Capilar_1105.pdf (pág. 1, Cuidados Capilares Ducray -- la pág. 2 es Anticaída, ya cubierta por la tarifa/gama ANTICAIDA). Héroe y PVL cruzados con docs/catalogo/tarifa_ciclo_3_raw.tsv por CN -- NUNCA se inventa un precio o un héroe.",
+  "manos_labios": {
+    "fuente": "Hoja_pedido_Manos_y_labios_1105.pdf (pág. 1)",
+    "marca": "Avène",
+    "gama": "Cold Cream + Cicalfate (manos y labios)",
+    "productos": [
+      {"cn": 186112, "descripcion": "Dúo Crema de Manos", "formato": "2x50 ml", "heroe": false},
+      {"cn": 186111, "descripcion": "Duplo Stick Labios", "formato": "2x4 g", "heroe": false},
+      {"cn": 184597, "descripcion": "Bálsamo Labial Hidratación 24h", "formato": "10 ml", "heroe": false},
+      {"cn": 326637, "descripcion": "Crema al Cold Cream", "formato": "40 ml", "heroe": false},
+      {"cn": 356667, "descripcion": "Pan Limpiador al Cold Cream", "formato": "100 g", "heroe": false},
+      {"cn": 252957, "descripcion": "Crema de Manos", "formato": "50 ml", "heroe": false},
+      {"cn": 228908, "descripcion": "Stick Labios", "formato": "4 g", "heroe": false},
+      {"cn": 166825, "descripcion": "Cicalfate Manos", "formato": "100 ml", "heroe": false},
+      {"cn": 184702, "descripcion": "Cicalfate Labios", "formato": "10 ml", "heroe": false}
+    ]
+  },
+  "capilar": {
+    "fuente": "Hoja_pedido_Capilar_1105.pdf (pág. 1 -- pág. 2 es Anticaída, ya en la tarifa gama ANTICAIDA)",
+    "marca": "Ducray",
+    "gama": "Cuidados Capilares (Kelual/Kertyol/Sensinol/Sabal/Elution)",
+    "productos": [
+      {"cn": 215313, "descripcion": "Kelual Squanorm Champú Caspa Grasa", "formato": "400 ml", "heroe": true},
+      {"cn": 163428, "descripcion": "Kelual Squanorm Champú Caspa Grasa", "formato": "200 ml", "heroe": false},
+      {"cn": 221303, "descripcion": "Kelual Squanorm Champú Caspa Grasa Refill (novedad)", "formato": "400 ml", "heroe": false},
+      {"cn": 215312, "descripcion": "Kelual Squanorm Champú Caspa Seca", "formato": "400 ml", "heroe": true},
+      {"cn": 232686, "descripcion": "Kelual Squanorm Champú Caspa Seca", "formato": "200 ml", "heroe": false},
+      {"cn": 221301, "descripcion": "Kelual Squanorm Champú Caspa Seca Refill (novedad)", "formato": "400 ml", "heroe": false},
+      {"cn": 221037, "descripcion": "Kelual Squanorm Champú Refrescante (novedad)", "formato": "400 ml", "heroe": false},
+      {"cn": 209510, "descripcion": "Kelual DS Champú Tratante", "formato": "100 ml", "heroe": true},
+      {"cn": 219962, "descripcion": "Kelual DS Intensive Champú", "formato": "100 ml", "heroe": true},
+      {"cn": 221302, "descripcion": "Kelual DS Intensive Spray Calmante (novedad)", "formato": "100 ml", "heroe": false},
+      {"cn": 252031, "descripcion": "Kelual DS Crema", "formato": "40 ml", "heroe": false},
+      {"cn": 178304, "descripcion": "Kelual DS Gel Limpiador", "formato": "200 ml", "heroe": false},
+      {"cn": 337188, "descripcion": "Kelual Emulsión", "formato": "50 ml", "heroe": false},
+      {"cn": 363895, "descripcion": "Kertyol PSO Champú", "formato": "200 ml", "heroe": false},
+      {"cn": 338566, "descripcion": "Kertyol PSO Concentrado", "formato": "100 ml", "heroe": false},
+      {"cn": 194500, "descripcion": "Kertyol PSO Gel Limpiador", "formato": "400 ml", "heroe": false},
+      {"cn": 170797, "descripcion": "Elution Champú", "formato": "400 ml", "heroe": false},
+      {"cn": 393876, "descripcion": "Elution Champú", "formato": "200 ml", "heroe": false},
+      {"cn": 258897, "descripcion": "Sabal Champú Tratamiento Seborregulador", "formato": "200 ml", "heroe": false},
+      {"cn": 318816, "descripcion": "Sabal Argeal Champú Diario Seboabsorbente", "formato": "200 ml", "heroe": false},
+      {"cn": 171170, "descripcion": "Champú Equilibrante", "formato": "400 ml", "heroe": false},
+      {"cn": 336628, "descripcion": "Champú Equilibrante", "formato": "200 ml", "heroe": false},
+      {"cn": 196839, "descripcion": "Sensinol Champú", "formato": "400 ml", "heroe": false},
+      {"cn": 158514, "descripcion": "Sensinol Champú", "formato": "200 ml", "heroe": false},
+      {"cn": 165833, "descripcion": "Sensinol Sérum", "formato": "30 ml", "heroe": false}
+    ]
+  }
+}
