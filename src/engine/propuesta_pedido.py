@@ -61,11 +61,16 @@ CAP_UDS_POR_LINEA = 15  # tope de sensatez por referencia cuando el hueco cae so
 HOJA_A_CONDICION_PACTO: dict[str, str | None] = {
     "antiedad": "avene_antiedad_hyaluron_activ_procedure",
     "acne_cleanance": "avene_ducray_aderma_acne_cleanance_keracnyl",
-    "acne_keracnyl": "avene_ducray_aderma_acne_cleanance_keracnyl",
+    # CORREGIDO 26/08/2026: apuntaba a la condición combinada Avène+Ducray+A-Derma (solo cubre
+    # Cleanance), pero Keracnyl tiene su PROPIA condición real en la chuleta -- "ducray_keracnyl"
+    # (30% dto., "combinacion limpieza+facial+corporal") -- se había pasado por alto al no leer
+    # esa clave concreta de condiciones_pacto_ciclo3.json, aplicando por error el 23% lineal.
+    "acne_keracnyl": "ducray_keracnyl",
     "dexeryl": "dexeryl_dexeclear",
     "avene_esenciales": "avene_cuidados_esenciales",
     "atopia": None,  # atopia_exomega_xeracalm_dexyane: tramo combinado Exomega+XeraCalm+Dexyane
     "solar": "avene_solar",
+    "manos_labios": "avene_manos_labios_cold_cream",  # "desde 24 duplos, 28% dto en todo"
 }
 
 
@@ -166,6 +171,7 @@ def propone_pedido_gama(hoja: HojaPedido, condiciones_pacto: dict, pvl_lookup: d
 TARIFA_GAMA_A_CONDICION_PACTO: dict[tuple[str, str], str] = {
     ("Ducray", "ANTICAIDA"): "ducray_anticaida",
     ("Avène", "CICALFATE"): "avene_cicalfate",
+    ("Avène", "HYDRANCE"): "avene_hydrance",  # "desde 12 packs, 26% dto solo en los packs"
 }
 
 

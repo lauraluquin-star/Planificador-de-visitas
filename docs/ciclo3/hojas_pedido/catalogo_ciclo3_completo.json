@@ -63,7 +63,9 @@
       {"cn": 179108, "descripcion": "Sérum Regulador Antiimperfecciones (-58% de granos)", "formato": "30 ml", "heroe": false, "novedad": true},
       {"cn": 159416, "descripcion": "PP+ Crema Anti-Imperfecciones", "formato": "30 ml", "heroe": false, "novedad": false}
     ],
-    "condiciones": []
+    "condiciones": [
+      "CORREGIDO 26/08/2026 tras releer CHULETA_ADA_C3.pdf y CHULETA_TRANSVERSAL_C3.pdf a fondo (la delegada avisó de que estas chuletas dan TODAS las condiciones): Keracnyl SÍ tiene 'condición comercial especial implantación' propia, 30% dto., con 2 niveles de cantidad por los 4 productos (Gel Limpiador / Sérum Regulador / PP+ / Spray Corporal): premium 3+4+3+12, estándar 3+4+3+6. Antes se había puesto erróneamente el 23% lineal y un mínimo de 3 uds sin criterio real -- ya corregido en la ficha de Font Soler Pilar (nivel estándar, por gama débil este año)."
+    ]
   },
   "dexeryl": {
     "marca": "Dexeryl",
