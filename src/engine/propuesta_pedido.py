@@ -2,6 +2,25 @@
 Motor de propuesta de pedido (spec sección 11): dado un cliente y una gama con oportunidad o
 gap real, sugiere UNIDADES de arranque para los productos héroe de esa gama.
 
+Regla 0 -- nivel de dato disponible ESE ciclo (delegada, 27/08/2026: el Customer Card de Veeva
+falla con frecuencia y de forma impredecible -- no hay una vista alternativa dentro de Veeva, así
+que algunos días simplemente no hay dato de un cliente. La app nunca puede asumir que el nivel de
+detalle de un ciclo anterior seguirá disponible en el siguiente):
+  0. Antes de aplicar cualquier regla de las siguientes, se determina el nivel de dato real
+     disponible para esa gama y ese cliente, y se aplica la regla de la lista que corresponda a
+     ESE nivel -- nunca el nivel que se tuvo la última vez que sí cargó Veeva:
+       a) Histórico por CN/referencia (si algún día Veeva lo da a ese detalle) -- reparte por
+          referencia real, no por héroe (pendiente de implementar: aún no ha llegado ningún
+          cliente con este nivel de captura).
+       b) Histórico por GAMA (lo habitual hoy, ej. veeva_*.json a nivel de gama) -- regla 4
+          (hueco histórico) cuando el tramo lo permite.
+       c) Sin Veeva de ese cliente ese ciclo (Customer Card no cargó) -- se cae a las reglas
+          basadas solo en tramo/héroe (1-3, 5, 6), nunca se inventa ni se reutiliza el histórico
+          de un ciclo anterior como si fuera de este. Se anota explícitamente en el pedido que no
+          hubo Veeva disponible ese ciclo, para que quede claro que es una propuesta más
+          conservadora de lo que sería con datos reales.
+     Ver `nivel_dato_veeva()` más abajo.
+
 Regla de dimensionado, confirmada por la delegada (25/08/2026) -- NUNCA "gap en euros ÷ precio"
 (CLAUDE.md: "El pedido propuesto nunca se calcula solo para rellenar el gap en euros"):
   1. Si la gama tiene un tramo de descuento real con unidades numéricas (chuleta del ciclo,
@@ -68,6 +87,22 @@ from src.parsers.pedido_ciclo_parser import HojaPedido, ProductoPedido
 
 UDS_MINIMO_HEROE = 3
 CAP_UDS_POR_LINEA = 15  # tope de sensatez por referencia cuando el hueco cae sobre pocos héroe
+
+
+def nivel_dato_veeva(veeva_gamas: dict | None, veeva_referencias: dict | None = None) -> str:
+    """Regla 0 -- clasifica qué nivel de histórico real hay para una gama de un cliente ESTE ciclo,
+    nunca asumiendo el nivel de una visita anterior. Ver docstring del módulo.
+
+    - "referencia": veeva_referencias trae al menos una entrada (histórico por CN) -- aún no
+      implementado en ningún cliente real, pero deja el hueco para cuando llegue.
+    - "gama": no hay por referencia, pero sí hay veeva_gamas con datos (lo habitual hoy).
+    - "sin_dato": ni gama ni referencia -- Customer Card no cargó ese ciclo. Cae a reglas 1-3/5/6.
+    """
+    if veeva_referencias:
+        return "referencia"
+    if veeva_gamas:
+        return "gama"
+    return "sin_dato"
 
 # hoja de pedido (pedido_ciclo_parser) -> clave de condiciones_pacto_ciclo3.json, solo pares
 # verificados leyendo ambos ficheros. "None" explícito = existe pero el tramo mezcla varias
