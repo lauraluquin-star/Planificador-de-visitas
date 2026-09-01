@@ -1,0 +1,64 @@
+LEYENDA,Unnamed: 1
+GRUPO,Grupo de compra al que pertenece
+TOTAL PACTO,importe firmado en documento de pacto 2026 sin dexeryl
+TOTAL FACTURADO COMPAR sin solares y sin dexeryl,Dato facturación comprar julio 26 quitando solares y dexeryl
+% CONSECUCIÓN,"cómo va respecto al pacto ( con el fin de empujar volumen en la farmacia, no para el rappel)"
+FARMACIA TOP?,"según facturación 2025 cantidad facturada, las farmacias que aportan el 80% de la facturación de un delegado. Si hay cliente duplicado, en este dato, no lo contabiliza doble."
+FACTURACIÓN TOTAL YTD 26,dato compar cierre julio 2026
+GPV,listado gpv julio agosto
+Neceser Dexeryl,Listado de farmacias a las que hemos enviado neceseres para acción dexeryl 
+AV CLEANANCE COMEDOMED+ SPF30 NP 26,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2026"
+DU KERACNYL GEL LIMP 400ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2026"
+DU KERACNYL PP+ 30ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2027"
+DU KERACNYL SERUM REGULADOR AI 30ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2028"
+DU KERACNYL SPRAY CORPORAL 150ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2029"
+SERUM LIFTING HAP 30ML AV,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2026"
+SERUM PEELING HAP 30ML AV,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2026"
+PEDIDO EN SALESFORCE INMEDIATO DESDE 22 MAYO,"pedidos salesforce cantidad entregada desde 22 mayo (G034-DERMABSOLU,G036-HYALURON ACTIV,G038-AOXITIVE)"
+Micelar 2026 3 ref,"Cantidad entregada a la farmacia según salesforce, desde 1 enero 2026 hasta 13 agosto 2026 teniendo en cuenta estas 3 referencias: AV AGUA MICELAR DESMAQUILL 400ML; AV DUO AGUA MICELAR 2X400ML; AV PROMO AGUA MICELAR 400ML"
+Evolución Dexeryl dato compar YTD julio 26 vs YTD julio 25,"Según comprar julio 26, evolución vs 25 YTD"
+20% SOLAR SEPTIEMBRE,cupones asignados por POS según fichero de Nacho
+3€ INCENTIVO KERACNYL SEPTIEMBRE,cupones asignados por POS según fichero de Nacho
+CLEANANCE 15%,cupones asignados por POS según fichero de Nacho
+3€ INCENTIVO CLEANANCE SEPT OCT,cupones asignados por POS según fichero de Nacho
+CAÍDA 20%,cupones asignados por POS según fichero de Nacho
+3€ INCENTIVO CAÍDA SEPT OCT,cupones asignados por POS según fichero de Nacho
+AD EXOMEGA FACIAL PALPEBRAL 15ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2026"
+AD EXOMEGA FACIAL GEL CREMA 40ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2027"
+AD EXOMEGA GEL LIMP CALMANTE 200ML,"Pedidos salesforce, cantidad servida según salesforce desde 1 de enero 2026 hasta 13 agosto 2028"
+EXOMEGA 23,archivo gamas tableau
+EXOMEGA 24,archivo gamas tableau
+EXOMEGA 25,archivo gamas tableau
+EXOMEGA YTD 26,archivo gamas tableau
+ANTIAGE 23,archivo gamas tableau
+ANTIAGE 24,archivo gamas tableau
+ANTIAGE 25,archivo gamas tableau
+ANTIAGE YTD 26,archivo gamas tableau
+XERACALM 23,archivo gamas tableau
+XERACALM 24,archivo gamas tableau
+XERACALM 25,archivo gamas tableau
+XERACALM YTD 26,archivo gamas tableau
+ESENCIALES 23,archivo gamas tableau
+ESENCIALES 24,archivo gamas tableau
+ESENCIALES 25,archivo gamas tableau
+ESENCIALES YTD 26,archivo gamas tableau
+HYDRANCE 23,archivo gamas tableau
+HYDRANCE 24,archivo gamas tableau
+HYDRANCE 25,archivo gamas tableau
+HYDRANCE YTD 26,archivo gamas tableau
+ATICAÍDA 23,archivo gamas tableau
+ATICAÍDA 24,archivo gamas tableau
+ATICAÍDA 25,archivo gamas tableau
+ANTICAÍDA YTD 26,archivo gamas tableau
+DEXYANE 23,archivo gamas tableau
+DEXYANE 24,archivo gamas tableau
+DEXYANE 25,archivo gamas tableau
+DEXYANE YTD 26,archivo gamas tableau
+CAPILAR 23,archivo gamas tableau
+CAPILAR 24,archivo gamas tableau
+CAPILAR 25,archivo gamas tableau
+CAPILAR YTD 26,archivo gamas tableau
+KERACNYL 23,archivo gamas tableau
+KERACNYL 24,archivo gamas tableau
+KERACNYL 25,archivo gamas tableau
+KERACNYL YTD 26,archivo gamas tableau
