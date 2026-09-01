@@ -1,0 +1,51 @@
+{
+  "_nota": "Condiciones REALES de descuento al cliente por gama, Ciclo 4 2026, extraídas de v3_PLAN_COMERCIAL_CICLO_4_2026__enviar.pdf (deck compartido por la delegada el 01/09/2026, tabla maestra 'PRIORIDADES CICLO 4 2026' + slides de detalle por gama). Sustituye a docs/ciclo3/condiciones_descuentos/condiciones_pacto_ciclo3.json como fuente de condiciones de CAMPAÑA vigentes -- el ciclo 3 se deja como archivo histórico, no se borra. Estas condiciones se combinan/suman con el % Descuento Pacto base de la Ficha Cliente (no incluido aquí).",
+  "_fuente": "v3_PLAN_COMERCIAL_CICLO_4_2026__enviar.pdf, páginas 21-40 (tabla maestra pág. ~37) y 15-20 (detalle Capilar), 21-30 (detalle Caída/Anticaída, Exomega/Atopia), 31-40 (detalle Pedidos Burst: XeraCalm/Dexyane Med/Hydrance/Esenciales/Micelar, Pedido Resto: Cicalfate/Dexeryl, vademécum CN Resto de Gamas).",
+  "ducray_capilar_kelual": {
+    "novedad": {"nombre": "Kelual DS Sebocontrol (Champú tratante anticaspa)", "cn": "223835.0", "pvl_eur": 13.20, "pvp_eur": 19.90},
+    "condicion": "6 uds de la novedad -> 26% en toda la hoja de Capilar",
+    "vigencia_farmacias_objetivo": "3.000 farmacias, más de 12uds",
+    "_nota_diferencia_ciclo3": "En Ciclo 3 la ficha usaba un enfoque de 'hueco histórico' (TAM12Mx1.2-YTD) para Capilar. En Ciclo 4 la condición real es tramo ligado a la novedad Kelual DS Sebocontrol, no hueco histórico."
+  },
+  "ducray_anticaida": {
+    "tramos": [
+      {"periodo": "1 sept - 15 oct", "uds": 12, "descuento_pct": 30},
+      {"periodo": "16 oct - 31 dic", "uds": 12, "descuento_pct": 30, "condicion_extra": "mínimo 3 cápsulas Anacaps de 90 (formato grande) inmediato"}
+    ],
+    "_nota_diferencia_ciclo3": "En Ciclo 3 era 12uds->28% (24% base + 4% extra por 3+3 Anacaps) o 15uds->30%. En Ciclo 4 es directamente 12uds->30%, y en el segundo tramo (16 oct-31 dic) se exige además el mínimo de 3 cápsulas de 90.",
+    "visibilidad_activacion": {"vigencia": "1 sept - 31 oct", "descuento_consumidor_pct": 20, "incentivo_delegado_eur": 3}
+  },
+  "aderma_exomega": {
+    "_nota": "En Ciclo 4, Exomega es SOLO A-Derma (ya no combina con XeraCalm-Avène ni Dexyane-Ducray como en el tramo 'atopia_exomega_xeracalm_dexyane' de Ciclo 3).",
+    "novedad_facial": {"nombre": "Exomega Sérum Ultra-Calmant (facial)", "cn": null, "pvl_eur": 21.90, "pvp_eur": 31.90, "vigencia_burst": "hasta 15 octubre"},
+    "novedad_corporal": {"productos": ["Gel-Crème lavant pro-réparation (PVL 10,70€/PVP 15,60€)", "Crème pro-réparation (PVL 13,20€/PVP 19,20€)"], "nota": "descuento máximo 26%, NO es precio especial"},
+    "tramos": [
+      {"nivel": "PEQUEÑO", "uds": "4+3+3", "descuento_pct": "26/32"},
+      {"nivel": "GRANDE", "uds": "6+6+6", "descuento_pct": "26/32"}
+    ]
+  },
+  "pedidos_burst_12uds": {
+    "_nota": "Cada gama cuenta de forma INDEPENDIENTE (ya no combinadas como en el tramo Ciclo 3 'atopia_exomega_xeracalm_dexyane'). Vigencia común: 1 sept - 15 oct.",
+    "avene_xeracalm": {"uds": 12, "descuento_pct": "26/32"},
+    "ducray_dexyane_med": {"uds": 12, "descuento_pct": 26},
+    "avene_hydrance": {"uds": 12, "descuento_pct": 26},
+    "avene_cuidados_esenciales": {"uds": 12, "descuento_pct": 26},
+    "avene_micelar": {"uds": "12+6", "nota": "5+2 para quien no quiera la acción"}
+  },
+  "avene_cicalfate": {
+    "tramos": [
+      {"uds": 24, "descuento_pct": 24},
+      {"uds": 48, "descuento_pct": 26}
+    ],
+    "_nota": "Sin cambios respecto a Ciclo 3."
+  },
+  "dexeryl": {
+    "condicion": "12 uds -> 26%",
+    "_nota_diferencia_ciclo3": "Reemplaza el tramo de novedad Ciclo 3 'dexeryl_dexeclear' (3+3->24%, 6+6->26%). En Ciclo 4, Dexeryl aparece en el bloque 'PEDIDO RESTO' con una condición única de 12uds->26%, sin tramo de novedad diferenciado y SIN incentivo de delegado asociado."
+  },
+  "pedido_resto_12uds": {
+    "descuento_pct": "26/32",
+    "incluye": ["Solares Avène", "Cleanance", "Keracnyl", "Tolerance", "Hydra10", "Cold Cream", "XeraCalm Nutrition", "Rosamed", "Regeneradores A-Derma"],
+    "cicalfate_y_dexeryl_van_aparte": "ver bloques avene_cicalfate y dexeryl arriba, no en este catch-all"
+  }
+}

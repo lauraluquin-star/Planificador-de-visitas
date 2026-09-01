@@ -1,0 +1,53 @@
+{
+  "_nota": "Incentivos para el DELEGADO/COACH (Laura), Ciclo 4 2026. Extraído de v3_PLAN_COMERCIAL_CICLO_4_2026__enviar.pdf. IMPORTANTE (regla de negocio, ver CLAUDE.md): estos importes son bonus internos del delegado, NUNCA se aplican como descuento al pedido del cliente ni se mezclan con las condiciones de condiciones_pacto_ciclo4.json. Se usan solo para decidir, a igualdad de realismo con el cliente, qué línea/tramo del pedido propuesto conviene priorizar.",
+  "_fuente": "v3_PLAN_COMERCIAL_CICLO_4_2026__enviar.pdf, tabla maestra 'PRIORIDADES CICLO 4 2026' (columnas: condición comercial / tienen incentivo / fechas / € / DN) + slide 'Bolsa 100% Sales Coach 17.030€'.",
+  "bolsa_anual_sales_coach_eur": 17030,
+  "bolsa_desglose_pct": {
+    "facturacion_inmediata_y_campanas": 40,
+    "dn_productos_heroe_y_lanzamientos": 15,
+    "conquista_apertura_marcas": 5,
+    "consolidacion_clientes_nuevos_2023_24_25": 15,
+    "disponibilidad_productos_heroes_y_lanzamientos": 15,
+    "visibilidad_lineal": 10,
+    "_nota": "Bucle general anual del rol de delegado, no calculable por visita/cliente individual salvo el bloque DN novedad (ver capilar_kelual abajo, que consume el 100% del bloque 'DN productos héroe y lanzamientos' este ciclo)."
+  },
+  "por_gama": {
+    "capilar_kelual": {
+      "tipo": "DN NOVEDAD",
+      "fechas": "septiembre",
+      "eur_por_pedido": 7.74,
+      "min_pedidos_mes": 30,
+      "nota": "'hay curva' -- el importe por pedido varía con el volumen alcanzado, 7,74€ es la referencia dada en el deck. Este incentivo consume el 100% del bloque 'DN productos héroe y lanzamientos' (15% de la bolsa) este ciclo."
+    },
+    "ducray_anticaida": {
+      "tipo": "BURST 12uds",
+      "fechas": "1 sept - 31 dic",
+      "eur_por_pedido": 10,
+      "min_pedidos": 30,
+      "incentivo_visibilidad_aparte": {"fechas": "1 sept - 31 oct", "eur": 3, "condicion": "20% dto. anticaída activo + visibilidad/activación lineal"}
+    },
+    "aderma_exomega": {
+      "tipo": "4+3+3",
+      "fechas": "1 sept - 15 oct",
+      "eur_por_pedido": 10,
+      "min_pedidos": 30
+    },
+    "avene_xeracalm": {"tipo": "BURST 12uds", "fechas": "1 sept - 15 oct", "eur_por_pedido": 5, "min_pedidos": 20},
+    "ducray_dexyane_med": {"tipo": "BURST 12uds", "fechas": "1 sept - 15 oct", "eur_por_pedido": 5, "min_pedidos": 20},
+    "avene_hydrance": {"tipo": "BURST 12uds", "fechas": "1 sept - 15 oct", "eur_por_pedido": 5, "min_pedidos": 20},
+    "avene_cuidados_esenciales": {"tipo": "BURST 12uds", "fechas": "1 sept - 15 oct", "eur_por_pedido": 5, "min_pedidos": 20},
+    "avene_micelar": {"tipo": "BURST 12uds", "fechas": "1 sept - 15 oct", "eur_por_pedido": 5, "min_pedidos": 20},
+    "avene_cicalfate": {"tiene_incentivo": false},
+    "dexeryl": {"tiene_incentivo": false},
+    "pedido_resto": {"tiene_incentivo": false}
+  },
+  "premio_por_zona": {
+    "descripcion": "300€ tarjeta El Corte Inglés por zona, a la mejor implantación de Antiedad (proyecto 'bajante Antiedad', objetivo DN 300) acabada antes del 31 de octubre.",
+    "no_es_por_cliente": true
+  },
+  "_uso_en_propuesta_de_pedido": [
+    "El pedido propuesto SIEMPRE se decide primero por lo realista para el cliente concreto (histórico real, tramo de pacto que le corresponde, rotación) -- nunca se infla solo para cazar un incentivo de delegado.",
+    "A igualdad de realismo, cuando el cliente ya está cerca de un umbral de pedido (12uds, 4+3+3, 6uds novedad, etc.) que además dispara un incentivo de delegado dentro de fecha, se debe señalar explícitamente esa coincidencia al preparar la visita -- pero el umbral del cliente manda, no el del delegado.",
+    "El incentivo de delegado (€/pedido, DN) es SIEMPRE informativo/aparte en la ficha, nunca se sustituye ni se confunde con el % de descuento que ve el cliente."
+  ]
+}

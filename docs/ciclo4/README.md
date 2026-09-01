@@ -5,12 +5,26 @@ original tiene 4 hojas y cubre **toda la empresa** (57 delegados, 15.660 cliente
 con la delegada que, de momento, solo se trabaja con su propia cartera (COACH = "LAURA LUQUIN
 FRANQUET", 189 clientes). El resto de la empresa NUNCA se ha guardado en este repo.
 
-Confirmado con la delegada (01/09/2026): **ya estamos en Ciclo 4**, no Ciclo 3. Los ficheros de
-`docs/ciclo3/` (chuletas, condiciones_pacto, hojas de pedido) siguen siendo la única fuente de
-condiciones de descuento que tenemos porque **aún no tenemos la chuleta ni las hojas de pedido
-de Ciclo 4** — hace falta pedírselas a la delegada antes de poder recalcular tramos/dto. reales
-de Ciclo 4. Mientras tanto, las fichas siguen usando las condiciones de Ciclo 3 como aproximación,
-marcado explícitamente en cada sitio donde se usa.
+Confirmado con la delegada (01/09/2026): **ya estamos en Ciclo 4**, no Ciclo 3.
+
+**Actualización 01/09/2026**: la delegada compartió `v3_PLAN_COMERCIAL_CICLO_4_2026__enviar.pdf`
+(deck comercial de 46 páginas, empresa completa), que SÍ contiene las condiciones reales de
+Ciclo 4 por gama y los incentivos de delegado. Se ha extraído a dos ficheros nuevos:
+- `condiciones_pacto_ciclo4.json`: condiciones de descuento al CLIENTE por gama (sustituye a
+  `docs/ciclo3/condiciones_descuentos/condiciones_pacto_ciclo3.json` como fuente vigente; el
+  fichero de Ciclo 3 se conserva como histórico, no se borra).
+- `incentivos_delegado_ciclo4.json`: incentivos internos del delegado (€/pedido, DN, bolsa anual)
+  — nunca se mezclan con el descuento que ve el cliente.
+
+Diferencias reales encontradas frente a lo que estaba implementado (basado en Ciclo 3):
+Capilar pasa de "hueco histórico" a tramo ligado a la novedad Kelual DS Sebocontrol (6uds→26%);
+Anticaída sube de 28% a 30% (12uds) y añade un segundo tramo con mínimo de Anacaps 90 a partir
+del 16 oct; Exomega/Atopia deja de combinarse con XeraCalm y Dexyane (en Ciclo 4 es solo A-Derma,
+con su propio tramo 4+3+3/6+6+6 novedad facial+corporal); XeraCalm, Dexyane Med, Hydrance y
+Esenciales pasan a contar cada una por separado (12uds→26%, antes iban combinadas); Dexeryl
+cambia del tramo de novedad "3+3/6+6" a una condición única "12uds→26%" dentro de "Pedido Resto",
+sin incentivo de delegado asociado; Cicalfate no cambia (24uds→24%, 48uds→26%).
+Aún pendiente de aplicar a las fichas ya construidas (p.ej. Font Soler Pilar).
 
 ## Ficheros
 
@@ -24,6 +38,11 @@ marcado explícitamente en cada sitio donde se usa.
   solar, Ducray, A-Derma, Dexeryl) 2025/YTD25/YTD26/evolución + oportunidad detectada
   automáticamente, por cliente.
 - `leyenda.csv`: diccionario de columnas del Excel original (hoja "Leyenda").
+- `condiciones_pacto_ciclo4.json`: condiciones reales de descuento al cliente por gama, Ciclo 4.
+- `incentivos_delegado_ciclo4.json`: incentivos internos del delegado (€/pedido, DN), Ciclo 4.
+- `chuletas/v3_PLAN_COMERCIAL_CICLO_4_2026.pdf`: deck comercial fuente (46 págs, empresa completa,
+  no es dato de cliente — company-wide, seguro de guardar). De aquí se extrajeron los dos JSON
+  anteriores.
 
 ## Columnas con significado aún NO confirmado del todo
 
