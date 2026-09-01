@@ -10,7 +10,15 @@ Es la fuente de verdad. Ante cualquier duda de reglas de negocio, esa spec manda
 suposición razonable que se te ocurra.
 
 ## Reglas de negocio que NUNCA se rompen (resumen — el detalle está en la spec)
-- Klorane NUNCA se usa para calcular objetivos, gaps, pactos o recomendaciones.
+- La delegada (Laura) SOLO lleva Avène, Ducray, A-Derma y Dexeryl. Klorane y René Furterer son de
+  otro equipo/territorio -- aparecen en la Ficha y en Veeva porque comparten punto de venta, pero
+  NUNCA se usan para calcular objetivos, gaps, pactos o recomendaciones de esta app. Se pueden
+  mostrar como dato de contexto si aporta, pero fuera de cualquier cálculo.
+- Los datos de pacto/objetivo que aparecen en Veeva (Objetivo Ventas, %Objetivo Alcanzado,
+  Pendiente YTD, etc.) NO son fiables -- confirmado por la delegada 01/09/2026. El pacto (Fact.
+  A-1, Fact. A, Obj. 15% A, Falta para Obj, %RFA, RFA) se saca SIEMPRE de la Ficha Cliente 2026
+  (tabla "Evolución Pacto"), nunca de Veeva. Veeva sigue siendo la fuente correcta para el
+  histórico de pedidos por gama/producto (Customer Card > Pedidos), solo no para el pacto.
 - PACTO ADA (Avène+Ducray+A-Derma) y PACTO DEXERYL son independientes. Nunca sumarlos.
 - Nunca mezclar EUROS con UNIDADES en un mismo cálculo.
 - TAM12M − YTD no es nunca un "pedido recomendado".
