@@ -68,8 +68,8 @@ class Ficha2026(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     pos_id: str = Field(index=True)  # cruza con ClienteLOB.pos_id
     delegado_id: int = Field(foreign_key="delegado.id")
-    nombre_fichero_original: str
-    ruta_almacenada: str
+    nombre_fichero_original: str  # nombres separados por coma si se subieron varias capturas
+    ruta_almacenada: str  # lista JSON de rutas -- una Ficha puede venir en varias capturas
     subido_en: datetime = Field(default_factory=datetime.utcnow)
     estado: EstadoExtraccion = EstadoExtraccion.PENDIENTE_REVISION
     extraccion_json: str | None = None  # JSON crudo devuelto por la extracción (Claude), sin confirmar
@@ -82,8 +82,8 @@ class VeevaCaptura(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)
     pos_id: str = Field(index=True)
     delegado_id: int = Field(foreign_key="delegado.id")
-    nombre_fichero_original: str
-    ruta_almacenada: str
+    nombre_fichero_original: str  # nombres separados por coma si se subieron varias capturas
+    ruta_almacenada: str  # lista JSON de rutas -- Veeva suele venir en varios pantallazos
     subido_en: datetime = Field(default_factory=datetime.utcnow)
     estado: EstadoExtraccion = EstadoExtraccion.PENDIENTE_REVISION
     extraccion_json: str | None = None

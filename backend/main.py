@@ -4,7 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.db import init_db
-from backend.routers import admin_router, auth_router, cartera_router
+from backend.routers import admin_router, auth_router, cartera_router, visita_router
 
 app = FastAPI(title="Smart Visit Planner API")
 
@@ -27,6 +27,7 @@ def on_startup() -> None:
 app.include_router(auth_router.router)
 app.include_router(admin_router.router)
 app.include_router(cartera_router.router)
+app.include_router(visita_router.router)
 
 
 @app.get("/salud")
